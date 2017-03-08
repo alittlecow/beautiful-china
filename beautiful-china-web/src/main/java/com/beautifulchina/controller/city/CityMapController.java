@@ -27,7 +27,7 @@ public class CityMapController extends BaseController{
 
     @RequestMapping(method = RequestMethod.GET)
     public String index() {
-        return "/city/cityMap";
+        return "/city/CityMap";
     }
 
     @RequestMapping(value = "getIdbyCItyName")

@@ -1,4 +1,4 @@
-package com.beautifulchina.citymap;
+package com.beautifulchina.cityMap;
 
 import com.beautifulchina.base.BaseBean;
 
@@ -9,7 +9,7 @@ import com.beautifulchina.base.BaseBean;
  * @author: buhengzhang
  * date: 2016-01-16
  */
-public class cityMap extends BaseBean {
+public class CityMap extends BaseBean {
     private int id;
     private String name;
     private String cityDesc;
