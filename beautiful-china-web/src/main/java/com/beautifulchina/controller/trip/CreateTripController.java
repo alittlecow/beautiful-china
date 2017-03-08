@@ -14,7 +14,7 @@ import com.beautifulchina.customline.vo.CustomlineVO;
 import com.beautifulchina.destinationday.vo.DestinationDayVO;
 import com.beautifulchina.service.city.CityService;
 import com.beautifulchina.service.customline.CustomlineService;
-import com.beautifulchina.service.destinationday.DestinationDayService;
+import com.beautifulchina.service.destinationDay.DestinationDayService;
 import com.beautifulchina.util.DateUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

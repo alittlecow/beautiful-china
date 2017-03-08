@@ -22,7 +22,7 @@ public interface RegisterMapper extends SqlMapper {
      * 注册
      * @param ordinaryUserVO
      */
-    int register(OrdinaryUserVO ordinaryUserVO);
+    void register(OrdinaryUserVO ordinaryUserVO);
 
     /**
      * 保存用户信息

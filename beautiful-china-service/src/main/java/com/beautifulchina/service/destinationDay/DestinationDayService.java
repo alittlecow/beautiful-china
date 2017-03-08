@@ -6,7 +6,7 @@
  * date: 2016-01-14
  */
 
-package com.beautifulchina.service.destinationday;
+package com.beautifulchina.service.destinationDay;
 
 import com.beautifulchina.dao.destinationday.DestinarionDayMapper;
 import com.beautifulchina.destinationday.vo.DestinationDayVO;
