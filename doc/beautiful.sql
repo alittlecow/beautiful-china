@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50171
 File Encoding         : 65001
 
-Date: 2017-03-08 11:09:06
+Date: 2017-03-08 17:45:31
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -460,23 +460,22 @@ INSERT INTO `tm_cate_attribute` VALUES ('34', '9', 'gd', 'dg', '001');
 DROP TABLE IF EXISTS `tm_city`;
 CREATE TABLE `tm_city` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '城市ID',
-  `name_en` varchar(100) DEFAULT NULL COMMENT '城市名英语',
-  `name_fr` varchar(100) DEFAULT NULL COMMENT '城市名法语',
+  `name` varchar(100) DEFAULT NULL COMMENT '城市名英语',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tm_city
 -- ----------------------------
-INSERT INTO `tm_city` VALUES ('1', '上海英', '上海法');
-INSERT INTO `tm_city` VALUES ('17', '广州英', '广州法');
-INSERT INTO `tm_city` VALUES ('28', '啊啊', '往往');
-INSERT INTO `tm_city` VALUES ('30', 'Beijing', 'beijingfa');
-INSERT INTO `tm_city` VALUES ('36', '桂林英', '桂林法');
-INSERT INTO `tm_city` VALUES ('39', '测试城市en', '测试城市fr');
-INSERT INTO `tm_city` VALUES ('44', 'shangirla', 'shangirla_fr');
-INSERT INTO `tm_city` VALUES ('45', 'beijing', 'beijing-fr');
-INSERT INTO `tm_city` VALUES ('100', 'nanjing', 'nanjingFr');
+INSERT INTO `tm_city` VALUES ('1', '24980149862662155');
+INSERT INTO `tm_city` VALUES ('2', '24980149862662156');
+INSERT INTO `tm_city` VALUES ('3', '24980149862662157');
+INSERT INTO `tm_city` VALUES ('4', '24980149862662158');
+INSERT INTO `tm_city` VALUES ('5', '24980149862662159');
+INSERT INTO `tm_city` VALUES ('6', '24980149862662160');
+INSERT INTO `tm_city` VALUES ('7', '24980149862662160');
+INSERT INTO `tm_city` VALUES ('45', 'beijing');
+INSERT INTO `tm_city` VALUES ('100', 'nanjing');
 
 -- ----------------------------
 -- Table structure for tm_destination_city
@@ -651,7 +650,7 @@ CREATE TABLE `tm_indexconfig` (
   `image` varchar(255) NOT NULL COMMENT '图片路径',
   `sort` int(1) NOT NULL COMMENT '顺序',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tm_indexconfig
@@ -675,6 +674,12 @@ INSERT INTO `tm_indexconfig` VALUES ('16', '85', 'theme', '/img/product/5.jpg', 
 INSERT INTO `tm_indexconfig` VALUES ('17', '86', 'theme', '/img/product/6.jpg', '6');
 INSERT INTO `tm_indexconfig` VALUES ('18', '1', 'firstTrip', '/img/test/1.jpg', '1');
 INSERT INTO `tm_indexconfig` VALUES ('19', '3', 'firstTrip', '/img/test/3.jpg', '3');
+INSERT INTO `tm_indexconfig` VALUES ('20', '1', 'city', '/img/test/1.jpg', '1');
+INSERT INTO `tm_indexconfig` VALUES ('21', '2', 'city', '/img/test/1.jpg', '1');
+INSERT INTO `tm_indexconfig` VALUES ('23', '3', 'city', '/img/test/1.jpg', '1');
+INSERT INTO `tm_indexconfig` VALUES ('24', '4', 'city', '/img/test/1.jpg', '1');
+INSERT INTO `tm_indexconfig` VALUES ('25', '5', 'city', '/img/test/1.jpg', '1');
+INSERT INTO `tm_indexconfig` VALUES ('26', '6', 'city', '/img/test/1.jpg', '1');
 
 -- ----------------------------
 -- Table structure for tm_option
@@ -771,10 +776,8 @@ INSERT INTO `tm_startcity` VALUES ('6', '14');
 DROP TABLE IF EXISTS `tm_theme`;
 CREATE TABLE `tm_theme` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主题id',
-  `title_fr` varchar(100) DEFAULT NULL COMMENT '主题名称法文',
-  `title_en` varchar(100) DEFAULT NULL COMMENT '主题名称英文',
-  `desc_en` varchar(255) DEFAULT NULL COMMENT '主题描述英文',
-  `desc_fr` varchar(255) DEFAULT NULL COMMENT '主题描述法文',
+  `title` varchar(100) DEFAULT NULL COMMENT '主题名称法文',
+  `desc` varchar(255) DEFAULT NULL COMMENT '主题描述法文',
   `photo_one` varchar(50) DEFAULT NULL,
   `photo_two` varchar(50) DEFAULT NULL,
   `photo_three` varchar(50) DEFAULT NULL,
@@ -785,19 +788,19 @@ CREATE TABLE `tm_theme` (
 -- ----------------------------
 -- Records of tm_theme
 -- ----------------------------
-INSERT INTO `tm_theme` VALUES ('80', 'Navires de croisière', 'Cruise ship', 'abcdefg', 'hijklmn', '/upload/lineTheme/root/1454321243639.jpg', '/upload/lineTheme/root/1454322403418.jpg', '/upload/lineTheme/root/1454322643945.jpg', '/upload/lineTheme/root/1454322643949.jpg');
-INSERT INTO `tm_theme` VALUES ('81', 'dd', 'dd', 'qweqewqeqe', 'asdadasdad', '/upload/lineTheme/root/1454322505441.jpg', null, null, null);
-INSERT INTO `tm_theme` VALUES ('82', 'test11', 'test', 'asdadadadadsada\r\nadasd\r\nqwqqdqwdq', 'dqwdqd\r\nasdadad\r\nqweqeqweqweq', null, null, null, null);
-INSERT INTO `tm_theme` VALUES ('84', '2', '1', null, null, '/upload/lineTheme/root/1454385380802.jpg', '/upload/lineTheme/root/1454385380808.jpg', '/upload/lineTheme/root/1454385380813.jpg', '');
-INSERT INTO `tm_theme` VALUES ('85', '12', '12', null, null, '/upload/lineTheme/root/1454385410415.jpg', '/upload/lineTheme/root/1454385410432.jpg', '', null);
-INSERT INTO `tm_theme` VALUES ('86', '12', '12', null, null, '/upload/lineTheme/root/1454385520725.jpg', '/upload/lineTheme/root/1454385520732.jpg', '', null);
-INSERT INTO `tm_theme` VALUES ('87', '21312', '2131', null, null, '/upload/lineTheme/root/1454385778282.jpg', '/upload/lineTheme/root/1454385778288.jpg', '', null);
-INSERT INTO `tm_theme` VALUES ('90', 'aa', 'aa', null, null, '/upload/lineTheme/root/1454386551777.jpg', '', null, null);
-INSERT INTO `tm_theme` VALUES ('91', 'aaaaaa', 'aaaaa', null, null, '', null, null, null);
-INSERT INTO `tm_theme` VALUES ('92', 'gg', 'gg', null, null, '', null, null, null);
-INSERT INTO `tm_theme` VALUES ('93', 'beatiful chian fr', 'beatiful chian en', 'beatiful chian en', 'beatiful chian fr', '/upload/lineTheme/root/1454397091407.jpg', '/upload/lineTheme/root/1454397091437.jpg', null, null);
-INSERT INTO `tm_theme` VALUES ('95', '234', '234', '234', '', null, null, null, null);
-INSERT INTO `tm_theme` VALUES ('100', 'bigMoneyfr', 'bigMoney', '$$$$$$$$$$$$', '$$$$$$$$$$$$', '/upload/lineTheme/root/1454397168997.jpg', '/upload/lineTheme/root/1454397169037.jpg', '/upload/lineTheme/root/1454397169041.jpg', '/upload/lineTheme/root/1454397169046.jpg');
+INSERT INTO `tm_theme` VALUES ('80', '24980149862662146', 'hijklmn', '/upload/lineTheme/root/1454321243639.jpg', '/upload/lineTheme/root/1454322403418.jpg', '/upload/lineTheme/root/1454322643945.jpg', '/upload/lineTheme/root/1454322643949.jpg');
+INSERT INTO `tm_theme` VALUES ('81', '24980149862662147', 'asdadasdad', '/upload/lineTheme/root/1454322505441.jpg', null, null, null);
+INSERT INTO `tm_theme` VALUES ('82', '24980149862662148', 'dqwdqd\r\nasdadad\r\nqweqeqweqweq', null, null, null, null);
+INSERT INTO `tm_theme` VALUES ('84', '24980149862662148', null, '/upload/lineTheme/root/1454385380802.jpg', '/upload/lineTheme/root/1454385380808.jpg', '/upload/lineTheme/root/1454385380813.jpg', '');
+INSERT INTO `tm_theme` VALUES ('85', '24980149862662149', null, '/upload/lineTheme/root/1454385410415.jpg', '/upload/lineTheme/root/1454385410432.jpg', '', null);
+INSERT INTO `tm_theme` VALUES ('86', '24980149862662150', null, '/upload/lineTheme/root/1454385520725.jpg', '/upload/lineTheme/root/1454385520732.jpg', '', null);
+INSERT INTO `tm_theme` VALUES ('87', '24980149862662151', null, '/upload/lineTheme/root/1454385778282.jpg', '/upload/lineTheme/root/1454385778288.jpg', '', null);
+INSERT INTO `tm_theme` VALUES ('90', '24980149862662152', null, '/upload/lineTheme/root/1454386551777.jpg', '', null, null);
+INSERT INTO `tm_theme` VALUES ('91', '24980149862662153', null, '', null, null, null);
+INSERT INTO `tm_theme` VALUES ('92', '24980149862662154', null, '', null, null, null);
+INSERT INTO `tm_theme` VALUES ('93', 'beatiful chian fr', 'beatiful chian fr', '/upload/lineTheme/root/1454397091407.jpg', '/upload/lineTheme/root/1454397091437.jpg', null, null);
+INSERT INTO `tm_theme` VALUES ('95', '234', '', null, null, null, null);
+INSERT INTO `tm_theme` VALUES ('100', 'bigMoneyfr', '$$$$$$$$$$$$', '/upload/lineTheme/root/1454397168997.jpg', '/upload/lineTheme/root/1454397169037.jpg', '/upload/lineTheme/root/1454397169041.jpg', '/upload/lineTheme/root/1454397169046.jpg');
 
 -- ----------------------------
 -- Table structure for tm_tour
@@ -808,8 +811,7 @@ CREATE TABLE `tm_tour` (
   `code` varchar(50) NOT NULL,
   `dept_code` varchar(20) DEFAULT NULL,
   `category_id` int(11) NOT NULL,
-  `title_en` varchar(100) NOT NULL,
-  `title_fr` varchar(100) NOT NULL,
+  `title` varchar(100) NOT NULL,
   `startcity` int(11) NOT NULL,
   `endcity` int(11) NOT NULL,
   `days` int(11) NOT NULL,
@@ -817,8 +819,7 @@ CREATE TABLE `tm_tour` (
   `status` varchar(1) NOT NULL,
   `operatetime` datetime NOT NULL,
   `operator` varchar(30) NOT NULL,
-  `subtitle_en` varchar(300) DEFAULT NULL COMMENT '副标题名称英文',
-  `subtitle_fr` varchar(300) DEFAULT NULL COMMENT '副标题名称法文',
+  `subtitle` varchar(300) DEFAULT NULL COMMENT '副标题名称英文',
   `advancedays` int(11) DEFAULT NULL COMMENT '提前预定天数',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=186 DEFAULT CHARSET=utf8;
@@ -826,84 +827,84 @@ CREATE TABLE `tm_tour` (
 -- ----------------------------
 -- Records of tm_tour
 -- ----------------------------
-INSERT INTO `tm_tour` VALUES ('1', '线路1', 'fds', '2', '1111enen', '111titelfr', '1', '32', '2', '32', 'S', '2016-01-20 11:31:45', 'root', 'xianlu1', 'dfs2', '3');
-INSERT INTO `tm_tour` VALUES ('2', 'ccc', 'sf', '3', 'enenenen', 'frfrffr', '14', '34', '4', '23', 'S', '2016-01-07 11:33:01', 'root', 'dfs', 'xianlu2', '4');
-INSERT INTO `tm_tour` VALUES ('3', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('4', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('6', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('7', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('8', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('9', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('10', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('11', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('12', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('13', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('14', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('15', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('16', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('17', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('18', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('19', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('20', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('21', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('22', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('23', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('24', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('27', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('28', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('29', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('30', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('31', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('32', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('34', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('35', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('36', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('38', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('39', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('40', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('42', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('43', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('44', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('45', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('46', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('47', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('48', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('49', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('50', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('51', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('52', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('53', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('54', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('55', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('56', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('57', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('60', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('61', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('62', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('63', 'efs', 'TNLY', '0', 'sdf', 'asdf', '28', '39', '3', '4', 'N', '2016-01-31 18:05:28', 'root', 'sadf', 'sadf', '4');
-INSERT INTO `tm_tour` VALUES ('64', '12', 'TNLY', '0', '123', '12', '36', '30', '3', '4', 'N', '2016-02-01 13:52:07', 'root', '123', '3123', '4');
-INSERT INTO `tm_tour` VALUES ('70', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('71', 'zzz', 'fds', '2', '1111enen', '111titelfr', '1', '32', '2', '32', 'S', '2016-01-20 11:31:45', 'root', 'xianlu1', 'dfs2', '3');
-INSERT INTO `tm_tour` VALUES ('72', 'ccc', 'sf', '3', 'enenenen', 'frfrffr', '14', '34', '4', '23', 'S', '2016-01-07 11:33:01', 'root', 'dfs', 'xianlu2', '4');
-INSERT INTO `tm_tour` VALUES ('73', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('74', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('75', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('76', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('77', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('78', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('79', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('101', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('102', 'xxx', 'fds', '3', 'fsdaenenenenen', 'frdsdsa', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', 'fdsfr', '2');
-INSERT INTO `tm_tour` VALUES ('176', '123', 'TNLY', '0', '234', '234', '30', '30', '4', '3', 'N', '2016-01-31 18:06:30', 'root', '234', '234', '4');
-INSERT INTO `tm_tour` VALUES ('177', '1212', 'TNLY', '0', '12', '12', '17', '17', '3', '4', 'N', '2016-02-01 16:26:54', 'root', '12', '12', '4');
-INSERT INTO `tm_tour` VALUES ('178', '10086', 'TNLY', '0', 'shangirla_en_tour', 'shangirla_fr_tour', '44', '30', '8', '5', 'N', '2016-02-02 16:06:02', 'root', 'shangirla_fr_title', 'shangirla_en_title', '2');
-INSERT INTO `tm_tour` VALUES ('179', 'dsf', 'TNLY', '0', 'sdf', 'sad', '17', '28', '4', '5', 'N', '2016-02-02 16:54:30', 'root', 'fsdf', 'fsad', '3');
-INSERT INTO `tm_tour` VALUES ('180', 'sdg', 'TNLY', '0', 'fdsf', 'sd', '17', '17', '5', '3', 'N', '2016-02-02 16:56:26', 'root', 'sd', 'fsadf', '3');
-INSERT INTO `tm_tour` VALUES ('181', '132', 'TNLY', '0', '123', '123', '28', '17', '4', '4', 'N', '2016-02-03 15:52:45', 'root', '123', '123', '4');
-INSERT INTO `tm_tour` VALUES ('182', '1', 'TNLY', '0', '1', '1', '1', '17', '4', '4', 'N', '2016-02-03 15:53:14', 'root', '1', '1', '4');
-INSERT INTO `tm_tour` VALUES ('183', 'rete', 'TNLY', '0', 'wert', 'ewrt', '17', '28', '4', '4', 'N', '2016-02-03 20:34:15', 'root', 'ert', 'ert', '3');
-INSERT INTO `tm_tour` VALUES ('184', '1212', 'TNLY', '0', '12', '121', '17', '30', '5', '4', 'N', '2016-02-03 21:14:24', 'root', '212', '2121', '5');
-INSERT INTO `tm_tour` VALUES ('185', 'dgd', null, '0', 'dsfg', 'sdf', '17', '17', '5', '3', 'N', '2016-02-04 17:29:28', 'root', 'dsf', 'gdsfg', '4');
+INSERT INTO `tm_tour` VALUES ('1', '线路1', 'fds', '2', '24980149862662144', '1', '32', '2', '32', 'S', '2016-01-20 11:31:45', 'root', 'xianlu1', '3');
+INSERT INTO `tm_tour` VALUES ('2', 'ccc', 'sf', '3', '24980149862662144', '14', '34', '4', '23', 'S', '2016-01-07 11:33:01', 'root', 'dfs', '4');
+INSERT INTO `tm_tour` VALUES ('3', 'xxx', 'fds', '3', '24980149862662145', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('4', 'xxx', 'fds', '3', '24980149862662145', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('6', 'xxx', 'fds', '3', '24980149862662145', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('7', 'xxx', 'fds', '3', '24980149862662145', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('8', 'xxx', 'fds', '3', '24980149862662145', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('9', 'xxx', 'fds', '3', '24980149862662145', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('10', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('11', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('12', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('13', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('14', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('15', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('16', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('17', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('18', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('19', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('20', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('21', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('22', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('23', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('24', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('27', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('28', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('29', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('30', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('31', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('32', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('34', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('35', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('36', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('38', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('39', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('40', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('42', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('43', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('44', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('45', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('46', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('47', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('48', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('49', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('50', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('51', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('52', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('53', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('54', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('55', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('56', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('57', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('60', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('61', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('62', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('63', 'efs', 'TNLY', '0', 'sdf', '28', '39', '3', '4', 'N', '2016-01-31 18:05:28', 'root', 'sadf', '4');
+INSERT INTO `tm_tour` VALUES ('64', '12', 'TNLY', '0', '123', '36', '30', '3', '4', 'N', '2016-02-01 13:52:07', 'root', '123', '4');
+INSERT INTO `tm_tour` VALUES ('70', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('71', 'zzz', 'fds', '2', '1111enen', '1', '32', '2', '32', 'S', '2016-01-20 11:31:45', 'root', 'xianlu1', '3');
+INSERT INTO `tm_tour` VALUES ('72', 'ccc', 'sf', '3', 'enenenen', '14', '34', '4', '23', 'S', '2016-01-07 11:33:01', 'root', 'dfs', '4');
+INSERT INTO `tm_tour` VALUES ('73', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('74', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('75', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('76', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('77', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('78', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('79', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('101', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('102', 'xxx', 'fds', '3', 'fsdaenenenenen', '3', '34', '3', '342', 'S', '2016-01-21 11:34:18', 'root', 'fds', '2');
+INSERT INTO `tm_tour` VALUES ('176', '123', 'TNLY', '0', '234', '30', '30', '4', '3', 'N', '2016-01-31 18:06:30', 'root', '234', '4');
+INSERT INTO `tm_tour` VALUES ('177', '1212', 'TNLY', '0', '12', '17', '17', '3', '4', 'N', '2016-02-01 16:26:54', 'root', '12', '4');
+INSERT INTO `tm_tour` VALUES ('178', '10086', 'TNLY', '0', 'shangirla_en_tour', '44', '30', '8', '5', 'N', '2016-02-02 16:06:02', 'root', 'shangirla_fr_title', '2');
+INSERT INTO `tm_tour` VALUES ('179', 'dsf', 'TNLY', '0', 'sdf', '17', '28', '4', '5', 'N', '2016-02-02 16:54:30', 'root', 'fsdf', '3');
+INSERT INTO `tm_tour` VALUES ('180', 'sdg', 'TNLY', '0', 'fdsf', '17', '17', '5', '3', 'N', '2016-02-02 16:56:26', 'root', 'sd', '3');
+INSERT INTO `tm_tour` VALUES ('181', '132', 'TNLY', '0', '123', '28', '17', '4', '4', 'N', '2016-02-03 15:52:45', 'root', '123', '4');
+INSERT INTO `tm_tour` VALUES ('182', '1', 'TNLY', '0', '1', '1', '17', '4', '4', 'N', '2016-02-03 15:53:14', 'root', '1', '4');
+INSERT INTO `tm_tour` VALUES ('183', 'rete', 'TNLY', '0', 'wert', '17', '28', '4', '4', 'N', '2016-02-03 20:34:15', 'root', 'ert', '3');
+INSERT INTO `tm_tour` VALUES ('184', '1212', 'TNLY', '0', '12', '17', '30', '5', '4', 'N', '2016-02-03 21:14:24', 'root', '212', '5');
+INSERT INTO `tm_tour` VALUES ('185', 'dgd', null, '0', 'dsfg', '17', '17', '5', '3', 'N', '2016-02-04 17:29:28', 'root', 'dsf', '4');
 
 -- ----------------------------
 -- Table structure for tm_tourconfig
@@ -1466,6 +1467,40 @@ INSERT INTO `ts_dept` VALUES ('37', 'dfas', 'fd', 'rrr', 'abc', 'shanji', 'N', '
 INSERT INTO `ts_dept` VALUES ('38', '77', '77', '77', 'adas', 'cscode', 'N', '2016-01-29 20:12:41', 'root');
 
 -- ----------------------------
+-- Table structure for ts_language
+-- ----------------------------
+DROP TABLE IF EXISTS `ts_language`;
+CREATE TABLE `ts_language` (
+  `uuid` varchar(64) NOT NULL COMMENT '主键',
+  `type` varchar(8) DEFAULT NULL COMMENT '类型en fr',
+  `content` varchar(128) DEFAULT NULL COMMENT '内容值',
+  `operate_at` datetime DEFAULT NULL,
+  `operate_by` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`uuid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of ts_language
+-- ----------------------------
+INSERT INTO `ts_language` VALUES ('24980149862662144', 'en', '1111enen', null, null);
+INSERT INTO `ts_language` VALUES ('24980149862662145', 'en', 'fsdaenenenenen', null, null);
+INSERT INTO `ts_language` VALUES ('24980149862662146', 'en', 'Navires de croisière', null, null);
+INSERT INTO `ts_language` VALUES ('24980149862662147', 'en', 'dd', '2017-03-08 00:00:00', 'PX');
+INSERT INTO `ts_language` VALUES ('24980149862662148', 'en', 'test11', '2017-03-08 00:00:00', 'PX');
+INSERT INTO `ts_language` VALUES ('24980149862662149', 'en', '23', '2017-03-08 00:00:00', 'PX');
+INSERT INTO `ts_language` VALUES ('24980149862662150', 'en', '11', '2017-03-08 00:00:00', 'PX');
+INSERT INTO `ts_language` VALUES ('24980149862662151', 'en', 'bigMoneyfr', '2017-03-08 00:00:00', 'PX');
+INSERT INTO `ts_language` VALUES ('24980149862662152', 'en', 'theme1', '2017-03-08 00:00:00', 'PX');
+INSERT INTO `ts_language` VALUES ('24980149862662153', 'en', 'theme2', '2017-03-08 00:00:00', 'PX');
+INSERT INTO `ts_language` VALUES ('24980149862662154', 'en', 'theme3', '2017-03-08 00:00:00', 'PX');
+INSERT INTO `ts_language` VALUES ('24980149862662155', 'en', '上海英', '2017-03-08 00:00:00', 'PX');
+INSERT INTO `ts_language` VALUES ('24980149862662156', 'en', '广州英', '2017-03-08 00:00:00', 'PX');
+INSERT INTO `ts_language` VALUES ('24980149862662157', 'en', 'Beijing', '2017-03-08 00:00:00', 'PX');
+INSERT INTO `ts_language` VALUES ('24980149862662158', 'en', '桂林英', '2017-03-08 00:00:00', 'PX');
+INSERT INTO `ts_language` VALUES ('24980149862662159', 'en', '测试城市en', '2017-03-08 00:00:00', 'PX');
+INSERT INTO `ts_language` VALUES ('24980149862662160', 'en', 'shangirla', '2017-03-08 00:00:00', 'PX');
+
+-- ----------------------------
 -- Table structure for ts_level
 -- ----------------------------
 DROP TABLE IF EXISTS `ts_level`;
@@ -1499,7 +1534,7 @@ CREATE TABLE `ts_mailhistory` (
   `orderno` varchar(30) DEFAULT NULL COMMENT '关联单号如果是订单就指订单号，也可以是其他单号',
   `operatetime` datetime DEFAULT NULL COMMENT '发送时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8 COMMENT='邮件发送历史表';
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8 COMMENT='邮件发送历史表';
 
 -- ----------------------------
 -- Records of ts_mailhistory
@@ -1535,6 +1570,9 @@ INSERT INTO `ts_mailhistory` VALUES ('28', 'Register successfully', '<div>Dear &
 INSERT INTO `ts_mailhistory` VALUES ('29', 'To reset your password', 'The reset password link:http://localhost:8080/resetPassword?id=8&authcode=09jCzE8HvdxDCarBTUkhtresadsfgjm', '8', '1065300897@qq.com', null, null, '2016-03-06 14:54:10');
 INSERT INTO `ts_mailhistory` VALUES ('30', 'To reset your password', 'The reset password link:http://localhost:8080/resetPassword?id=8&amp;authcode=iVKAOEbrjCd2lBKLb1yktresadsfgjm', '8', '1065300897@qq.com', null, null, '2016-03-06 14:57:41');
 INSERT INTO `ts_mailhistory` VALUES ('31', 'To reset your password', 'The reset password link:http://localhost:8080/resetPassword?id=8&authcode=FJX0DU70hI7gnjP56Sjf', '8', '1065300897@qq.com', null, null, '2016-03-06 15:02:03');
+INSERT INTO `ts_mailhistory` VALUES ('32', 'Register successfully', '<div>Dear &nbsp;#Username#,</div><div><br></div><div>Welcome to Beautiful China!&nbsp;Your &nbsp;Beautiful China&nbsp;account has been created.<br><br></div><div><p>Sincerely,</p>\n<p>Beautiful China<br></p><p><br></p><p><br></p><p>Please do not reply to this email.<br></p></div>', '8', '', null, null, '2017-03-08 17:03:29');
+INSERT INTO `ts_mailhistory` VALUES ('33', 'Register successfully', '<div>Dear &nbsp;#Username#,</div><div><br></div><div>Welcome to Beautiful China!&nbsp;Your &nbsp;Beautiful China&nbsp;account has been created.<br><br></div><div><p>Sincerely,</p>\n<p>Beautiful China<br></p><p><br></p><p><br></p><p>Please do not reply to this email.<br></p></div>', '14', '', null, null, '2017-03-08 17:15:14');
+INSERT INTO `ts_mailhistory` VALUES ('34', 'Register successfully', '<div>Dear &nbsp;#Username#,</div><div><br></div><div>Welcome to Beautiful China!&nbsp;Your &nbsp;Beautiful China&nbsp;account has been created.<br><br></div><div><p>Sincerely,</p>\n<p>Beautiful China<br></p><p><br></p><p><br></p><p>Please do not reply to this email.<br></p></div>', '15', '', null, null, '2017-03-08 17:16:08');
 
 -- ----------------------------
 -- Table structure for ts_mailtemplate
@@ -2084,16 +2122,48 @@ CREATE TABLE `ts_user` (
   PRIMARY KEY (`id`),
   KEY `idx_user_email` (`email`),
   KEY `idx_user_password` (`password`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='用户表';
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COMMENT='用户表';
 
 -- ----------------------------
 -- Records of ts_user
 -- ----------------------------
-INSERT INTO `ts_user` VALUES ('1', null, 'zhangyun', '1065300897@qq.com', 'dee7d9dab51f4708a4f0ea82b0f7e027', null, null, 'N', null, null, '2016-03-06 14:52:02', null, null, null, null, null, null, 'FJX0DU70hI7gnjP56Sjf', '2016-03-05 15:02:03', '1096ccd053f10f88cf6a808e36809de47ffffeac8a1254a972b9ac7d7d177610');
-INSERT INTO `ts_user` VALUES ('3', '44', 'pengxyc', 'pengxyc@163.com', '0d6481859990f25e47da51bce0d6fb1cd46456866a8ca5b9c56cc5220cf9f4f8', 'M', '22', 'N', '2016-01-13 10:05:08', '22', '2016-01-22 10:05:17', '22', '22', 'N', '22', '44', '2', '1L4ngAtTrLD6nEJ4D566', '2016-01-29 21:34:18', '22dd9ba3951bfb431f36296e37e1cb787ffffead4d2e7d153f77f4418befeeff');
-INSERT INTO `ts_user` VALUES ('4', 'fct', 'fct', '904611647@qq.com', '7a6bde80e83f7ab3f9224d9ef51ef28c', 'M', null, 'N', null, null, null, null, null, null, null, null, null, 'OrGovxqFNjX3NKdKPfWr', '2016-02-02 10:58:16', 'e66cb88f7e49bd05608433b588b2d8bf800001529dd7200162d86e74b08db9cf');
-INSERT INTO `ts_user` VALUES ('5', null, null, null, null, null, null, 'N', null, null, null, null, null, null, null, null, null, null, null, '');
-INSERT INTO `ts_user` VALUES ('6', null, 'ch746848281', '746848281@qq.com', 'c1897bc551e9bf32016c09bdf129d483', null, null, 'N', null, null, '2016-02-03 15:40:28', null, null, null, null, null, null, null, null, 'bae2458cd3a9915027841d4da5e0a0c07ffffead66bb4d0c4f50b1b085caeac3');
+INSERT INTO `ts_user` VALUES ('1', null, null, '', '6b91b1424dadb1f4c579fd60d01bacbc', null, null, 'N', null, null, '2017-03-08 17:16:07', null, null, 'N', null, null, null, null, null, '15ad13ffbfb1c67b288a6b3c5d23e3097ffffea56d9c539e7bcc5b0d30d6ec8a');
+INSERT INTO `ts_user` VALUES ('16', null, null, '', 'a4388f1041a9928ac153c118f6b01eb8', null, null, 'N', null, null, '2017-03-08 17:24:26', null, null, 'N', null, null, null, null, null, '6fd9f69b3c070bcdec825c9593c680f07ffffea56d93cf58684778c2d26876a6');
+INSERT INTO `ts_user` VALUES ('17', null, null, '', 'c6604b96d425444ced73c1f3e81400e8', null, null, 'N', null, null, '2017-03-08 17:34:49', null, null, 'N', null, null, null, null, null, 'cfa31a67b50c84328036d1fc9d964ff47ffffea56ded727950ea40897b262157');
+INSERT INTO `ts_user` VALUES ('18', null, null, '', '80abf74d52ac608f99b6e23e2e121ef3', null, null, 'N', null, null, '2017-03-08 17:34:53', null, null, 'N', null, null, null, null, null, 'c093c2976b71d2ff61a7c82436062e217ffffea56ded7f9b333ae646f0e84a14');
+INSERT INTO `ts_user` VALUES ('19', null, null, '', 'a6e16f84486248144a949d847e76f2e1', null, null, 'N', null, null, '2017-03-08 17:34:52', null, null, 'N', null, null, null, null, null, '8a58da3a8f9baae054aedd418f23621e7ffffea56ded7e0a5da04d3e94ff963a');
+INSERT INTO `ts_user` VALUES ('20', null, null, '', 'fcb167375a7d596d2d76d563845485f7', null, null, 'N', null, null, '2017-03-08 17:36:26', null, null, 'N', null, null, null, null, null, '4474e1c971ea99e204bda3cb03698eb87ffffea56deec9cf1461a488cd59c788');
+INSERT INTO `ts_user` VALUES ('21', null, null, '', '5c3c0a1b365b98362e1a200562d38a0b', null, null, 'N', null, null, '2017-03-08 17:42:05', null, null, 'N', null, null, null, null, null, '11bf3443f560a723255f3dbd0622cd727ffffea56de4186d3d25c517cc60b018');
+INSERT INTO `ts_user` VALUES ('22', null, null, '', '9211b01abc7771bac5fa5764a45bd53e', null, null, 'N', null, null, '2017-03-08 17:42:28', null, null, 'N', null, null, null, null, null, '85e1b3a60d1284bf49c42070e5fff77b7ffffea56de4705b72eca7e9a95d0848');
+
+-- ----------------------------
+-- Table structure for ts_userinfo
+-- ----------------------------
+DROP TABLE IF EXISTS `ts_userinfo`;
+CREATE TABLE `ts_userinfo` (
+  `user_id` int(64) DEFAULT NULL,
+  `nickname` varchar(64) DEFAULT NULL,
+  `firstname` varchar(64) DEFAULT NULL,
+  `lastname` varchar(64) DEFAULT NULL,
+  `email` varchar(64) DEFAULT NULL,
+  `sex` varchar(64) DEFAULT NULL,
+  `nationality` varchar(64) DEFAULT NULL,
+  `address` varchar(64) DEFAULT NULL,
+  `passport` varchar(64) DEFAULT NULL,
+  `tel` varchar(64) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of ts_userinfo
+-- ----------------------------
+INSERT INTO `ts_userinfo` VALUES ('1', 'pp', null, null, '', null, null, null, null, null);
+INSERT INTO `ts_userinfo` VALUES ('1', 'yy', null, null, '', null, null, null, null, null);
+INSERT INTO `ts_userinfo` VALUES ('1', 'yy', null, null, '', null, null, null, null, null);
+INSERT INTO `ts_userinfo` VALUES ('1', 'yy', null, null, '', null, null, null, null, null);
+INSERT INTO `ts_userinfo` VALUES ('1', 'yy', null, null, '', null, null, null, null, null);
+INSERT INTO `ts_userinfo` VALUES ('1', '11', null, null, '', null, null, null, null, null);
+INSERT INTO `ts_userinfo` VALUES ('1', 'pp', null, null, '', null, null, null, null, null);
+INSERT INTO `ts_userinfo` VALUES ('1', 'pp', null, null, '', null, null, null, null, null);
 
 -- ----------------------------
 -- Procedure structure for pxproc
