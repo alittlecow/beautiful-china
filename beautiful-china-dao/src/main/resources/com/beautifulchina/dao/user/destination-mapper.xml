@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.beautifulchina.dao.destination.DestinationMapper">
+    <!--
+        可用的收回策略(eviction)有：
+        LRU –  最近最少使用的：移除最长时间不被使用的对象。
+        FIFO –  先进先出：按对象进入缓存的顺序来移除它们。
+        SOFT –  软引用：移除基于垃圾回收器状态和软引用规则的对象。
+        WEAK –  弱引用：更积极地移除基于垃圾收集器状态和弱引用规则的对象。
+        默认的是 LRU。
+        flushInterval（刷新间隔）可以被设置为任意的正整数，而且它们代表一个合理的毫秒形式的时间段。默认情况是不设置，也就是没有刷新间隔，
+        缓存仅仅调用语句时刷新。
+        size（引用数目）可以被设置为任意正整数，要记住你缓存的对象数目和你运行环境的可用内存资源数目。默认值1024。
+        readOnly（只读）属性可以被设置为 true 或 false。只读的缓存会给所有调用者返回缓存对象的相同实例。因此这些对象不能被修改。
+        这提供了很重要的性能优势。可读写的缓存会返回缓存对象的拷贝（通过序列化）。这会慢一些，但是安全，因此默认是false。
+    -->
+    <!--<cache eviction="FIFO" flushInterval="" readOnly="" size="" type=""></cache>-->
+
+    <!--获取英文目的地城市列表-->
+    <select id="getCity" resultType="com.beautifulchina.city.CityVO" parameterType="java.lang.String">
+        select t3.id id,t1.content name from ts_language t1 left join tm_city t2 on t1.uuid =t2.name
+        left join tm_destination_city t3 on t2.id=t3.city_id where type=#{language} and t3.id is not null
+    </select>
+
+    <!--根据城市id获取目的地相关英文信息-->
+    <select id="getDestinationByCityId" resultType="com.beautifulchina.destination.bo.DestinationBO"
+            parameterType="java.util.Map">
+          select id id,
+          title title,`desc` `desc`,
+          photoOne photoOne,photoTwo photoTwo,
+          photoThree photoThree, photoFour photoFour,
+          cityName cityName from (SELECT t2.id cityId,t1.content cityName from ts_language t1 left join tm_city t2 on t1.uuid =t2.name where type=#{language}) A
+          left join (SELECT t3.id id,t3.city_id id2, t1.content `desc`,t3.photo_one photoOne,t3.photo_two photoTwo,t3.photo_three photoThree,t3.photo_four photoFour from ts_language t1 LEFT JOIN tm_destination_city t3 on t1.uuid=t3.desc where type=#{language}) B on A.cityId=B.id2
+          left join (SELECT t3.id id3, t1.content title from ts_language t1 left join tm_destination_city t3 on t1.uuid =t3.title where type=#{language})C
+          on C.id3=B.id
+          where id=#{id}
+    </select>
+
+    <!--&lt;!&ndash;根据城市id获取目的地相关法文信息&ndash;&gt;-->
+    <!--<select id="getDestinationFrByCityId" resultType="com.beautifulchina.destination.bo.DestinationBO" parameterType="java.lang.String">-->
+    <!--SELECT-->
+    <!--t2.id cityId,-->
+    <!--title_fr title,-->
+    <!--desc_fr "desc",-->
+    <!--photo_one photoOne,-->
+    <!--photo_two photoTwo,-->
+    <!--photo_three photoThree,-->
+    <!--photo_four photoFour,-->
+    <!--t2.name_fr cityName-->
+    <!--FROM-->
+    <!--tm_destination_city t1 JOIN tm_city t2 ON t1.city_id=t2.id WHERE city_id =#{id}-->
+    <!--</select>-->
+
+
+    <!--根据目的地的id,与当前所显示的页数获取9条线路信息-->
+    <select id="getAllToursByCityId" resultType="com.beautifulchina.tour.bo.TourBO">
+        SELECT
+        t4.id tourId,
+        t7.content title ,
+        t6.trd_price price,
+        t5.image_url image
+        FROM
+        tm_city t1
+        JOIN  tm_destination_city  t2 on t1.id=t2.city_id
+        JOIN tm_tour_dest t3 ON t2.id=t3.dest_id
+        JOIN tm_tour t4 ON t3.tour_id=t4.id
+        JOIN tm_tour_image t5 ON t4.id=t5.tour_id
+        LEFT JOIN  (select min(trd_time),tour_id,trd_price from tm_tourdate  where trd_time>#{day3} group by tour_id)t6 on
+        t4.id=t6.tour_id
+        LEFT JOIN  ts_language t7  on t7.uuid=t2.title
+        WHERE t1.id=#{cityId} AND t5.thumbnail=1 AND t7.type=#{language}
+        ORDER BY t4.id
+        limit #{page},9
+    </select>
+
+    <!--根据目的地的id获取所属全部线路信息的条数-->
+    <select id="getAllToursNo" resultType="Integer">
+        SELECT count(*) total
+        FROM
+        tm_city t1
+        JOIN  tm_destination_city  t2 on t1.id=t2.city_id
+        JOIN tm_tour_dest t3 ON t2.id=t3.dest_id
+        JOIN tm_tour t4 ON t3.tour_id=t4.id
+        JOIN tm_tour_image t5 ON t4.id=t5.tour_id
+        WHERE t1.id=#{cityId} AND t5.thumbnail=1
+    </select>
+
+
+</mapper>

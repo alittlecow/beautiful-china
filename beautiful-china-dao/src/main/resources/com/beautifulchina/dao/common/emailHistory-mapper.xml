@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.beautifulchina.dao.common.EmailHistoryMapper" >
+    <!--保存邮箱的历史记录-->
+    <insert id="saveEmailHistory" parameterType="com.beautifulchina.email.vo.EmailHistoryVO">
+        insert into ts_mailhistory(title,content,user_id,email,operatetime)
+        VALUES (#{title},#{content},#{userId},#{email},#{operatetime})
+    </insert>
+</mapper>

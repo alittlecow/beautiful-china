@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.beautifulchina.dao.customline.CustomlineMapper" >
+
+    <!--向tb_customline插入数据-->
+    <insert id="insertCustomline"  useGeneratedKeys="true" keyProperty="id" parameterType="com.beautifulchina.customline.vo.CustomlineVO">
+        INSERT INTO tb_customline(name,
+                                  sex,
+                                  email,
+                                  phone,
+                                  person,
+                                  arrivetime,
+                                  hotellevel,
+                                  otherrequirement,
+                                  createtime)
+                                  VALUES(#{name},
+                                  #{sex},
+                                  #{email},
+                                  #{phone},
+                                  #{person},
+                                  #{arrivalTime},
+                                  #{hotelLevel},
+                                  #{otherRequirement},
+                                  #{createTime})
+    </insert>
+
+</mapper>

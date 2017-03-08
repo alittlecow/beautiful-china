@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.beautifulchina.dao.tour.TourMapper" >
+
+    <!--获取旅游线路相关信息-->
+    <select id="getTour" resultType="com.beautifulchina.tour.bo.TourBO" parameterType="java.util.Map">
+        SELECT
+            t3.tour_id tourId,
+            t1.image,
+            t2.title,
+            t3.trd_price price
+        FROM tm_indexconfig t1
+        JOIN
+        (SELECT t1.`content` title,t2.`id` id FROM ts_language t1 LEFT JOIN tm_tour t2 ON t1.`uuid`=t2.`title` WHERE TYPE=#{language}) t2
+        ON t1.itemid=t2.id
+        left JOIN (select min(trd_time),tour_id,trd_price from tm_tourdate  where trd_time>#{day3} group by tour_id) t3
+        ON t1.itemid=t3.tour_id
+        where t1.type='popular' order by t1.sort  limit 0,6
+    </select>
+
+
+
+    <!--获取旅游线路相关信息-->
+    <select id="getTourIndex" resultType="com.beautifulchina.tour.bo.TourBO" parameterType="java.util.Map">
+        SELECT
+        t3.tour_id tourId,
+        t1.image,
+        t2.title,
+        t3.trd_price price
+        FROM tm_indexconfig t1  JOIN
+        (SELECT t1.`content` title,t2.`id` id FROM ts_language t1 LEFT JOIN tm_tour t2 ON t1.`uuid`=t2.`title` WHERE TYPE=#{language}) t2
+        ON t1.itemid=t2.id JOIN (select min(trd_time),tour_id,trd_price from tm_tourdate  where trd_time>#{day3} group by tour_id) t3
+        ON t1.itemid=t3.tour_id
+        where t1.type='firstTrip' order by t1.sort  limit 0,3
+    </select>
+
+
+</mapper>

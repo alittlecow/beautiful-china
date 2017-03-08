@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper  namespace="com.beautifulchina.dao.toursdetail.ToursBookingMapper" >
+
+
+
+    <select id="selectBookingInfoById" resultType="com.beautifulchina.product.pojo.ToursBooking" parameterType="java.util.Map">
+        select
+        tm1.trd_time endTimes,
+        tm1.trd_price price,
+        tm1.trd_remain remain,
+        tm1.trd_warn warning,
+        tm2.advancedays advanceDays,
+
+        tm3.name startCity
+
+        from tm_tourdate tm1 left JOIN tm_tour tm2 ON tm1.tour_id = tm2.id
+        LEFT JOIN
+        (SELECT t1.content `name`,t2.id  id FROM ts_language t1 LEFT JOIN tm_city t2 ON t1.uuid =t2.name  WHERE TYPE=#{language} ) tm3 on tm2.startcity = tm3.id
+        where tm1.tour_id = #{tourId}
+
+        ORDER BY trd_time
+
+    </select>
+
+
+
+
+    <select id="getBookingInfo" resultType="com.beautifulchina.product.pojo.ToursBooking" parameterType="java.util.Map" >
+        select
+        trd_price price,
+        trd_inventory inventory
+        from tm_tourdate
+        where tour_id = #{tourId} and trd_time=#{curDay}
+        limit 0,1
+    </select>
+
+    <update id="BuyOne" parameterType="java.util.Map">
+        UPDATE tm_tourdate SET trd_inventory = trd_inventory-#{num} WHERE tour_id =#{tourId}
+        AND trd_time=#{date}
+
+    </update>
+
+
+</mapper>

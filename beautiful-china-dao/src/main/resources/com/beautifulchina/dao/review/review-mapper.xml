@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.beautifulchina.dao.review.ReviewMapper">
+    <!--获取评论条数-->
+    <select id="getReview" resultType="java.lang.Integer" parameterType="java.lang.String">
+        SELECT count(r.id) FROM th_rating r,ts_user u
+        WHERE r.targetid=#{tourId} and r.user_id=u.id
+    </select>
+    <!--获取好、中、差评条数-->
+    <select id="getReviewCount" resultType="java.lang.Integer">
+        SELECT count(r.id) FROM th_rating r,ts_user u
+        WHERE r.targetid=#{0} and alllevel=#{1} and r.user_id=u.id
+    </select>
+
+    <!--获取总评(用户)-->
+    <select id="getReviewByPage" resultType="com.beautifulchina.review.Review"
+            parameterType="com.beautifulchina.page.Page">
+          select t4.nickname nickname,
+            r.alllevel,
+            r.allcontent,
+            r.routinglevel,
+            r.routingcontent,
+            r.hotellevel,
+            r.hotelcontent,
+            r.trafficlevel,
+            r.trafficcontent,
+            r.ratingtime AS time from th_rating r
+            inner join tm_tour t2 on r.targetid = t2.id
+            inner join ts_user t3 on r.user_id = t3.id
+            inner join  ts_userinfo t4 on t3.id = t4.user_id
+          where t3.type='N' AND r.targetid=#{tourId}
+          limit #{startPos},#{pageSize}
+    </select>
+    <!--获取总评(代理商)-->
+    <select id="getReviewByPageA" resultType="com.beautifulchina.review.Review"
+            parameterType="com.beautifulchina.page.Page">
+        select t4.name nickname,
+            r.alllevel,
+            r.allcontent,
+            r.routinglevel,
+            r.routingcontent,
+            r.hotellevel,
+            r.hotelcontent,
+            r.trafficlevel,
+            r.trafficcontent,
+            r.ratingtime AS time from th_rating r
+            inner join tm_tour t2 on r.targetid = t2.id
+            inner join ts_user t3 on r.user_id = t3.id
+            inner join   ts_agent t4 on t3.id = t4.user_id
+          where t3.type='A' AND r.targetid=#{tourId}
+          limit #{startPos},#{pageSize}
+    </select>
+    <!--获取好、中、差评论-->
+    <select id="getGoodReviewByPage" resultType="com.beautifulchina.review.Review"
+            parameterType="com.beautifulchina.page.Page">
+          select t4.nickname nickname,
+            r.alllevel,
+            r.allcontent,
+            r.routinglevel,
+            r.routingcontent,
+            r.hotellevel,
+            r.hotelcontent,
+            r.trafficlevel,
+            r.trafficcontent,
+            r.ratingtime AS time from th_rating r
+            inner join tm_tour t2 on r.targetid = t2.id
+            inner join ts_user t3 on r.user_id = t3.id
+            inner join  ts_userinfo t4 on t3.id = t4.user_id
+          where t3.type='N' AND r.targetid=#{tourId} and r.alllevel=#{allLevel}
+          limit #{startPos},#{pageSize}
+    </select>
+
+    <select id="getGoodReviewByPageA" resultType="com.beautifulchina.review.Review"
+            parameterType="com.beautifulchina.page.Page">
+         select t4.name nickname,
+            r.alllevel,
+            r.allcontent,
+            r.routinglevel,
+            r.routingcontent,
+            r.hotellevel,
+            r.hotelcontent,
+            r.trafficlevel,
+            r.trafficcontent,
+            r.ratingtime AS time from th_rating r
+            inner join tm_tour t2 on r.targetid = t2.id
+            inner join ts_user t3 on r.user_id = t3.id
+            inner join  ts_agent t4 on t3.id = t4.user_id
+          where t3.type='A' AND r.targetid=#{tourId} and r.alllevel=#{allLevel}
+          limit #{startPos},#{pageSize}
+    </select>
+</mapper>

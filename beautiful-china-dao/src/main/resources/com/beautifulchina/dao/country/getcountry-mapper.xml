@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.beautifulchina.dao.country.GetCountryMapper" >
+    <select id="getCountry"  resultType="com.beautifulchina.country.Country">
+      SELECT code code,en_name nameen,cn_name namecn FROM ts_country
+    </select>
+    <select id="getProv" parameterType="java.lang.String"  resultType="com.beautifulchina.country.Country">
+        SELECT en_name nameen,cn_name namecn,itude longitude FROM ts_province WHERE country_code=#{code}
+    </select>
+</mapper>

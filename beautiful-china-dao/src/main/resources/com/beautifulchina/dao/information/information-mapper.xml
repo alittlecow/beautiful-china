@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.beautifulchina.dao.information.InformationMapper" >
+    <!--修改密码-->
+    <update id="passwordChang" parameterType="com.beautifulchina.user.vo.OrdinaryUserVO">
+        update ts_user set password=#{password},psw=#{psw} WHERE id=#{userId}
+    </update>
+    <!--验证原密码是否正确-->
+    <select id="passwordVerify" parameterType="java.lang.Long" resultType="com.beautifulchina.user.bo.OrdinaryUserBO">
+        select * from ts_user where id=#{userId}
+    </select>
+
+    <!--查询当前用户的订单-->
+    <select id="getALLOrder" resultMap="allOrder" parameterType="java.util.Map">
+        select
+        <if test="language =='en' || language=='zh'">
+            t1.title_en,
+        </if>
+        <if test="language =='fr'">
+            t1.title_fr,
+        </if>
+        t2.*,t3.image_url
+        FROM tm_tour t1 left join tb_order t2 on t1.id = t2.tour_id
+        LEFT JOIN tm_tour_image t3 on t1.id=t3.tour_id AND t3.thumbnail=1
+        where t2.user_id=#{userId}
+        ORDER BY t2.placedtime DESC limit #{number},6
+    </select>
+    <!--查询订单数量-->
+    <select id="getCount" resultType="java.lang.Integer" parameterType="java.util.Map">
+        select count(*)
+        FROM tm_tour t1 left join tb_order t2 on t1.id = t2.tour_id
+        LEFT JOIN tm_tour_image t3 on t1.id=t3.tour_id AND t3.thumbnail=1
+        where t2.user_id=#{userId}
+    </select>
+    <!--验证是否已评价-->
+    <select id="ratingVerify" parameterType="java.util.Map" resultType="java.lang.String">
+        select target FROM th_rating WHERE targetid=#{targetId} AND user_id=#{userId}
+    </select>
+    <!--删除订单-->
+    <delete id="deleteOrder" parameterType="java.util.Map">
+        DELETE FROM tb_order WHERE orderno=#{orderNo}
+    </delete>
+    <!--取消订单-->
+    <update id="cancelOrder" parameterType="java.util.Map">
+        update tb_order set state='CC' WHERE orderno=#{orderNo}
+    </update>
+
+    <resultMap id="allOrder" type="com.beautifulchina.order.bo.OrdersBO">
+        <result property="tourId" column="tour_id" />
+        <result property="title" column="title_en" />
+        <result property="title" column="title_fr" />
+        <result property="userId" column="user_id" />
+        <result property="orderNo" column="orderno" />
+        <result property="imageUrl" column="image_url" />
+        <result property="evaState" column="eva_state" />
+    </resultMap>
+</mapper>

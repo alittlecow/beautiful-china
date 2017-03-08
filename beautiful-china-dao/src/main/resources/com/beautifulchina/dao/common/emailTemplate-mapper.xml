@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.beautifulchina.dao.common.EmailTemplateMapper" >
+    <!--根据id查询邮件模板-->
+    <select id="selectById" parameterType="java.util.Map" resultMap="result">
+        select
+        <if test="language =='en' || language=='zh'">
+            title_en, content_en
+        </if>
+        <if test="language =='fr'">
+            title_fr,content_fr
+        </if>
+        FROM ts_mailtemplate
+        WHERE id=#{id}
+    </select>
+
+    <resultMap id="result" type="com.beautifulchina.email.bo.EmailTemplateBO">
+        <result property="title" column="title_en" />
+        <result property="title" column="title_fr" />
+        <result property="content" column="content_en" />
+        <result property="content" column="content_fr" />
+    </resultMap>
+</mapper>

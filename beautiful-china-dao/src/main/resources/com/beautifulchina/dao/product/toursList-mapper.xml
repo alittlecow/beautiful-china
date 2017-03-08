@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.beautifulchina.dao.product.ToursListMapper" >
+    <!-- 查询旅游线路列表 -->
+    <select id="getToursByCondition" resultMap="result" parameterType="java.util.Map">
+        select
+        <if test="language =='en' || language=='zh'">
+            t.title_en,t.subtitle_en,
+        </if>
+        <if test="language =='fr'">
+            t.title_fr,t.subtitle_fr,
+        </if>
+        t.id,t.days,
+        MIN(td.trd_time),
+        ti.image_url,
+        td.trd_price
+        from tm_tour t
+        left join tm_tour_image ti on t.id=ti.tour_id
+        left join tm_tourdate td  on t.id=td.tour_id
+        <include refid="sqlWhere"></include>
+        GROUP BY t.id
+        ORDER BY t.id
+        limit #{number},6
+    </select>
+
+    <select id="getCount" resultType="java.lang.Integer" parameterType="java.util.Map">
+        select count(*) from
+        (select
+        MIN(td.trd_time),
+        td.trd_price
+        from tm_tour t
+        left join tm_tour_image ti on t.id=ti.tour_id
+        left join tm_tourdate td  on t.id=td.tour_id
+        <include refid="sqlWhere"></include>
+        GROUP BY t.id) tour
+    </select>
+
+    <resultMap type="com.beautifulchina.product.bo.ToursListBO" id="result">
+        <result property="title" column="title_en" />
+        <result property="title" column="title_fr" />
+        <result property="subtitle" column="subtitle_en" />
+        <result property="subtitle" column="subtitle_fr" />
+        <result property="imageUrl" column="image_url" />
+        <result property="trdPrice" column="trd_price" />
+    </resultMap>
+
+    <sql id="sqlWhere">
+        <where>
+            ti.thumbnail=1
+            <if test="language =='en' and search !='%%' and search !='%null%'">
+                and title_en LIKE #{search}
+            </if>
+            <if test="language =='fr' and search !='%%' and search !='%null%'">
+                and title_fr LIKE #{search}
+            </if>
+            <if test="priceMin !=0 and priceMax !=0">
+                and td.trd_price between #{priceMin} and #{priceMax}
+            </if>
+            <if test="dayMin !=0 and dayMax !=0">
+                and t.days between #{dayMin} and #{dayMax}
+            </if>
+            and td.trd_time>=DATE_ADD(SYSDATE(), interval t.advancedays day)
+        </where>
+    </sql>
+</mapper>

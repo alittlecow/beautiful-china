@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.beautifulchina.dao.agent.AgentMapper">
+
+    <!-- 插入商家登陆信息 -->
+    <insert id="insertAgentLogin" parameterType="com.beautifulchina.user.vo.OrdinaryUserVO">
+        INSERT into ts_user(email,password,type,status,regtime,psw) VALUES (#{email},#{password},'A','N',#{regtime},#{psw});
+    </insert>
+
+    <!--获取商家用户ID-->
+    <select id="getAgentUserId" parameterType="java.lang.String" resultType="java.lang.Integer">
+        select id from ts_user where email=#{email}
+    </select>
+
+    <!-- 插入商家信息 -->
+    <insert id="insertAgent" parameterType="com.beautifulchina.user.vo.OrdinaryUserVO">
+        INSERT into ts_agent(user_id,name,address,firstname,lastname,email,tel,tel2,cardno,`desc`,status,`language`) VALUES (#{userId},#{agentName},#{address},#{firstName},#{lastName},#{email},#{telephone1},#{telephone2},#{cardNo},#{description},'W',#{language})
+    </insert>
+
+    <!--验证邮箱是否重复-->
+    <select id="uniqueEmail" parameterType="java.lang.String" resultType="java.lang.Integer">
+        select count(*) from ts_user where email=#{email}
+    </select>
+</mapper>

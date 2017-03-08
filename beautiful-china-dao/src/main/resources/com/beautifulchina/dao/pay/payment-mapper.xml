@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.beautifulchina.dao.pay.PaymentMapper">
+        <update id="pay" parameterType="java.lang.String">
+                UPDATE tb_order SET state='P' WHERE orderno=#{orderNo}
+        </update>
+
+        <select id="getOrderUser" parameterType="java.lang.String" resultType="com.beautifulchina.pay.vo.OrderUser">
+                  SELECT user_id userId,
+                  contact,
+                  email
+                  FROM tb_order WHERE orderno=#{orderNo}
+        </select>
+</mapper>

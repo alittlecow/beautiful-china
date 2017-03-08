@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.beautifulchina.dao.option.OptionMapper">
+
+    <!--根据线路id查询所有配置-->
+
+    <select id="getAllOption" resultType="com.beautifulchina.option.bo.OptionBO" parameterType="java.util.Map">
+
+         SELECT
+        t1.tour_id tourId,
+        t1.value_id valueId,
+        t1.value_price optionPrice,
+        t3.name optionName,
+		t2.value optionValue,
+		t2.notes optionNotes,
+        t3.dept_code,
+        t1.`defaults` d
+        FROM
+        tm_tour_option_value t1 LEFT JOIN
+        (SELECT `value` ,`notes`, `id`,option_id FROM(
+        (SELECT t1.content `value` ,id,option_id FROM ts_language t1 LEFT JOIN tm_value t2 ON t1.uuid =t2.value WHERE TYPE=#{language}) A LEFT JOIN
+	    (SELECT t1.content `notes` ,id idb FROM ts_language t1 LEFT JOIN tm_value t2 ON t1.uuid =t2.notes WHERE TYPE=#{language}) B ON A.id = B.idB
+        ))  t2
+        ON t1.`value_id`=t2.`id`
+        LEFT JOIN (SELECT t1.content `name`, dept_code,id FROM ts_language t1 LEFT JOIN tm_option t2 ON t1.uuid =t2.name WHERE TYPE=#{language}) t3 ON
+        t2.`option_id`=t3.`id`
+        WHERE tour_id=#{tourId} ORDER BY optionName,d DESC
+    </select>
+
+</mapper>
