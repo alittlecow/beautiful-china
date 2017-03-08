@@ -26,7 +26,7 @@ import java.util.Date;
 /**
  * IP地址服务，用于查询IP的相关信息
  */
-@Service
+//@Service
 public class IPService {
 
     private Logger logger = LoggerFactory.getLogger(IPService.class);

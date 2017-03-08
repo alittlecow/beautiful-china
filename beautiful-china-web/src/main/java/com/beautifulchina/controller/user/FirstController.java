@@ -41,8 +41,8 @@ public class FirstController extends BaseController {
     private UserService userService;
     @Autowired
     private RedisManager redisManager;
-    @Autowired
-    private IPService ipService;
+//    @Autowired
+//    private IPService ipService;
 
     @RequestMapping(value = "test")
     public String first(HttpServletRequest request,Model model){
@@ -205,20 +205,19 @@ public class FirstController extends BaseController {
 
     }
 
-    @RequestMapping("/ip/{ipAddress}")
-    public ResponseEntity<Map<String, String>> ipTest(@PathVariable String ipAddress, HttpServletRequest request,HttpServletResponse response) throws RedisException {
-        Map<String, String> map = new HashMap<String, String>();
-        try {
-            String date = ipService.getTimeZone(ipAddress,new Date(),null);
-            Date date2 = ipService.getTimeZoneDate(ipAddress,new Date(),null);
-            map.put("date1",date);
-            map.put("date2",date2.toString());
-        } catch (CommonException e) {
-            e.printStackTrace();
-        }
-        return new ResponseEntity<Map<String, String>>(map, HttpStatus.OK);
-
-    }
+//    @RequestMapping("/ip/{ipAddress}")
+//    public ResponseEntity<Map<String, String>> ipTest(@PathVariable String ipAddress, HttpServletRequest request,HttpServletResponse response) throws RedisException {
+//        Map<String, String> map = new HashMap<String, String>();
+//        try {
+//            String date = ipService.getTimeZone(ipAddress,new Date(),null);
+//            Date date2 = ipService.getTimeZoneDate(ipAddress,new Date(),null);
+//            map.put("date1",date);
+//            map.put("date2",date2.toString());
+//        } catch (CommonException e) {
+//            e.printStackTrace();
+//        }
+//        return new ResponseEntity<Map<String, String>>(map, HttpStatus.OK);
+//    }
 
     @RequestMapping("/rollBackTest")
     public String rollBackTest(HttpServletRequest request,HttpServletResponse response) throws RedisException {
