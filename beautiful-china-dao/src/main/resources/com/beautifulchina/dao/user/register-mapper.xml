@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.beautifulchina.dao.user.RegisterMapper" >
     <!--普通用户注册-->
-    <insert id="register" parameterType="com.beautifulchina.user.vo.OrdinaryUserVO">
+    <insert id="register" parameterType="com.beautifulchina.user.vo.OrdinaryUserVO"  useGeneratedKeys="true" keyProperty="id">
         insert into ts_user (email,password,psw,regtime,type) values (#{email},#{password},#{psw},#{regtime},#{type})
     </insert>
     <!--添加用户信息-->

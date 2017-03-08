@@ -41,7 +41,7 @@
                         </div>
                         <div class="form-group">
                             <label><spring:message code="register_100005"/></label>
-                            <input type="email" class=" form-control" id="email" name="email" placeholder="<spring:message code="register_100005"/>">
+                            <input type="text" class=" form-control" id="email" name="email" placeholder="<spring:message code="register_100005"/>">
                             <label class="msg_error" id="email-info"></label>
                         </div>
                         <div class="form-group">

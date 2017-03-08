@@ -38,8 +38,8 @@ public class RegisterService {
         ordinaryUserVO = this.setPassword(ordinaryUserVO);
         String regTime = DateUtil.getCurrentDate();
         ordinaryUserVO.setRegtime(regTime);
-        registerMapper.register(ordinaryUserVO);
-        long userId = registerMapper.selectId(ordinaryUserVO.getEmail());
+        long userId  =    registerMapper.register(ordinaryUserVO);
+//        long userId = registerMapper.selectId(ordinaryUserVO.getEmail());
         UserInfoVO userInfo = new UserInfoVO();
         userInfo.setEmail(ordinaryUserVO.getEmail());
         userInfo.setNickname(nickname);
