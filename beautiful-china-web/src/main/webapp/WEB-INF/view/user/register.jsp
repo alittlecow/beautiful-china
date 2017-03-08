@@ -41,7 +41,7 @@
                         </div>
                         <div class="form-group">
                             <label><spring:message code="register_100005"/></label>
-                            <input type="text" class=" form-control" id="email" name="email" placeholder="<spring:message code="register_100005"/>">
+                            <input type="text" class=" form-control" id="email_p" name="email" placeholder="<spring:message code="register_100005"/>">
                             <label class="msg_error" id="email-info"></label>
                         </div>
                         <div class="form-group">
@@ -107,7 +107,7 @@
     //ID选择器
     var nickname      = $("#nickname");
     var usernameinfo = $("#user-info");
-    var email         = $("#email");
+    var email         = $("#email_p");
     var type          = $("#type");
     var emailinfo    = $("#email-info");
     var password     = $("#password1");
