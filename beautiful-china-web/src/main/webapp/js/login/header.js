@@ -102,7 +102,7 @@ function getProv(code, country) {
             $("#selecCountry").empty();
             if (list != "") {
                 for (var i = 0; i < list.length; i++) {
-                    $("#selecCountry").append("<li style='padding-left: 2px;'><a style='color: #080808;' href='javascript:changeCountry(\"" + list[i].nameen + "\",\"" + country + "\",\"" + list[i].longitude + "\");'>" + list[i].nameen + "</a></li>");
+                    $("#selecCountry").append("<li style='padding-left: 2px;'><a style='color: #080808;' href='#';'>" + list[i].nameen + "</a></li>");
                 }
             }
         },

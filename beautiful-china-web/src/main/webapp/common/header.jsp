@@ -89,13 +89,13 @@
                             </div>
                             <!-- End Dropdown access -->
                         </li>
-                        <li class="dropdown" style="float: none;">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="address" name="address" style="text-decoration: none;">
-                                 <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu pull-right" style="height:600px;overflow:scroll;float: none;width: 100px;" id="selecCountry">
-                            </ul>
-                        </li>
+                        <%--<li class="dropdown" style="float: none;">--%>
+                            <%--<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="address" name="address" style="text-decoration: none;">--%>
+                                 <%--<span class="caret"></span>--%>
+                            <%--</a>--%>
+                            <%--<ul class="dropdown-menu pull-right" style="height:600px;overflow:scroll;float: none;width: 100px;" id="selecCountry">--%>
+                            <%--</ul>--%>
+                        <%--</li>--%>
                         <%--<li><a href="wishlist.html" id="wishlist_link">Wishlist</a></li>--%>
                     </ul>
                 </div>

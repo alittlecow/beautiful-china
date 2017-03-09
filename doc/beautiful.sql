@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50171
 File Encoding         : 65001
 
-Date: 2017-03-08 17:45:31
+Date: 2017-03-09 17:01:50
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -43,7 +43,7 @@ CREATE TABLE `tb_answer` (
   `question_id` int(11) DEFAULT NULL COMMENT '问题id',
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '回复id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tb_answer
@@ -61,6 +61,7 @@ INSERT INTO `tb_answer` VALUES ('31', '2016-01-18 16:25:14', 'S', '搜索', '1',
 INSERT INTO `tb_answer` VALUES ('12', '2016-01-21 18:00:26', 'S', 'jk,j,kjh', '9', '11');
 INSERT INTO `tb_answer` VALUES ('21', '2016-01-19 18:00:57', 'S', '55555', '8', '12');
 INSERT INTO `tb_answer` VALUES ('102', '2016-01-27 10:55:01', 'S', 'qqqqqq', '1', '13');
+INSERT INTO `tb_answer` VALUES ('0', '2017-03-09 14:16:21', 'P', '我太喜欢这里了', '11', '14');
 
 -- ----------------------------
 -- Table structure for tb_contact
@@ -108,7 +109,7 @@ CREATE TABLE `tb_customline` (
   `pass_id` int(11) DEFAULT NULL,
   `dealtime` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tb_customline
@@ -130,6 +131,10 @@ INSERT INTO `tb_customline` VALUES ('20', '31', '1', '132@qq.com', '31', '21', '
 INSERT INTO `tb_customline` VALUES ('21', 'qwe', '1', 'qww@qq.com', '3212', '20', '2016-01-27 00:00:00', null, '4', 'ewqe', null, '2016-01-19 17:06:05', null, null, null);
 INSERT INTO `tb_customline` VALUES ('22', 'haha', '2', '22223@qq.com', '125', '10', '2016-01-29 00:00:00', null, '4', '没有', null, '2016-01-20 11:04:25', null, null, null);
 INSERT INTO `tb_customline` VALUES ('23', 'das', '2', '123@qq.com', '123', '12', '2016-01-27 00:00:00', null, '5', '12', null, '2016-01-20 15:36:44', null, null, null);
+INSERT INTO `tb_customline` VALUES ('24', 'kk', '1', 'kk@kk.com', '123456789', '5', '2017-03-22 00:00:00', null, '4', '我想看大海', null, '2017-03-09 11:28:56', null, null, null);
+INSERT INTO `tb_customline` VALUES ('25', 'gg', '1', 'gg@gg.cc', '1234567', '4', '2017-03-30 00:00:00', null, '5', '1111', null, '2017-03-09 11:29:55', null, null, null);
+INSERT INTO `tb_customline` VALUES ('26', 'ff', '1', 'ff@ff.com', '1234567', '1', '2017-03-29 00:00:00', null, '5', 'sf', null, '2017-03-09 11:37:08', null, null, null);
+INSERT INTO `tb_customline` VALUES ('27', 'df', '2', 'sdf@dd.com', 'sdf', '1', '2017-03-15 00:00:00', null, '5', '', null, '2017-03-09 11:43:21', null, null, null);
 
 -- ----------------------------
 -- Table structure for tb_destinationday
@@ -140,7 +145,7 @@ CREATE TABLE `tb_destinationday` (
   `city_id` int(11) NOT NULL,
   `day` int(11) NOT NULL,
   PRIMARY KEY (`cst_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tb_destinationday
@@ -153,6 +158,9 @@ INSERT INTO `tb_destinationday` VALUES ('6', '13', '123');
 INSERT INTO `tb_destinationday` VALUES ('7', '14', '1234');
 INSERT INTO `tb_destinationday` VALUES ('8', '12', '1');
 INSERT INTO `tb_destinationday` VALUES ('9', '18', '22');
+INSERT INTO `tb_destinationday` VALUES ('24', '1', '1');
+INSERT INTO `tb_destinationday` VALUES ('26', '4', '2');
+INSERT INTO `tb_destinationday` VALUES ('27', '1', '17');
 
 -- ----------------------------
 -- Table structure for tb_order
@@ -215,6 +223,95 @@ INSERT INTO `tb_order` VALUES ('201602032042231000001', '1', '11', '11@qq.com', 
 INSERT INTO `tb_order` VALUES ('201602032043361000002', '1', '11', '11@qq.com', '11', '1', '1', '2', '2', '0', '2016-03-05 00:00:00', '420.00', 'CC', '2016-02-03 20:43:37', '0', '0.00', '0.00', '0.00', 'F');
 INSERT INTO `tb_order` VALUES ('201602041014021000001', '1', '1212', '1065300897@qq.com', '11', '1', '1', '2', '2', '0', '2016-03-05 00:00:00', '420.00', 'CC', '2016-02-04 10:14:02', '0', '0.00', '0.00', '0.00', 'F');
 INSERT INTO `tb_order` VALUES ('201602041821104000002', '4', 'fengchangtong', '561163@qq.com', '15150572324', '1', '1', '0', '0', '0', '2016-03-05 00:00:00', '0.00', 'P', '2016-02-04 18:21:10', '0', '0.00', '0.00', '0.00', 'F');
+INSERT INTO `tb_order` VALUES ('2017030910394625000004', '25', 'hh', 'pengxyc@163.com', '13776540149', '1', '1', '1', '0', '0', '2018-05-09 00:00:00', '501.00', 'N', '2017-03-09 02:39:46', '0', '0.00', '0.00', '0.00', 'F');
+INSERT INTO `tb_order` VALUES ('2017030910414225000005', '25', 'hh', 'pengxyc@163.com', '13776540149', '1', '1', '1', '0', '0', '2018-05-09 00:00:00', '501.00', 'N', '2017-03-09 02:41:42', '0', '0.00', '0.00', '0.00', 'F');
+INSERT INTO `tb_order` VALUES ('2017030910420825000006', '25', 'hh', 'pengxyc@163.com', '13776540149', '1', '1', '1', '0', '0', '2018-05-09 00:00:00', '501.00', 'N', '2017-03-09 02:42:08', '0', '0.00', '0.00', '0.00', 'F');
+INSERT INTO `tb_order` VALUES ('2017030910545125000001', '25', 'ed', 'dfg@qq.cc', 'dfg', '1', '1', '2', '1', '0', '2018-05-09 00:00:00', '1503.00', 'N', '2017-03-09 02:54:51', '0', '0.00', '0.00', '0.00', 'F');
+INSERT INTO `tb_order` VALUES ('2017030910555225000002', '25', 'ed', 'dfg@qq.cc', 'dfg', '1', '1', '2', '1', '0', '2018-05-09 00:00:00', '1503.00', 'N', '2017-03-09 02:55:52', '0', '0.00', '0.00', '0.00', 'F');
+INSERT INTO `tb_order` VALUES ('2017030911074225000001', '25', 'sf', 'sdf@sdf.cc', 'sdf', '1', '1', '1', '0', '0', '2018-05-09 00:00:00', '501.00', 'N', '2017-03-09 03:07:42', '0', '0.00', '0.00', '0.00', 'F');
+
+-- ----------------------------
+-- Table structure for tb_orderdetail
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_orderdetail`;
+CREATE TABLE `tb_orderdetail` (
+  `orderno` varchar(128) DEFAULT NULL,
+  `type` varchar(128) DEFAULT NULL,
+  `valueid` varchar(128) DEFAULT NULL,
+  `upgrade` varchar(128) DEFAULT NULL,
+  `price` varchar(128) DEFAULT NULL,
+  `totalprice` varchar(128) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of tb_orderdetail
+-- ----------------------------
+INSERT INTO `tb_orderdetail` VALUES ('2017030910394625000004', 'X', '1', 'N', '1', '1');
+INSERT INTO `tb_orderdetail` VALUES ('2017030910394625000004', 'O', '27', 'N', '100.0', '100');
+INSERT INTO `tb_orderdetail` VALUES ('2017030910394625000004', 'O', '49', 'N', '100.0', '100');
+INSERT INTO `tb_orderdetail` VALUES ('2017030910394625000004', 'O', '43', 'N', '100.0', '100');
+INSERT INTO `tb_orderdetail` VALUES ('2017030910394625000004', 'O', '56', 'N', '100.0', '100');
+INSERT INTO `tb_orderdetail` VALUES ('2017030910394625000004', 'O', '1', 'N', '100.0', '100');
+INSERT INTO `tb_orderdetail` VALUES ('2017030910414225000005', 'X', '1', 'N', '1', '1');
+INSERT INTO `tb_orderdetail` VALUES ('2017030910414225000005', 'O', '27', 'N', '100.0', '100');
+INSERT INTO `tb_orderdetail` VALUES ('2017030910414225000005', 'O', '49', 'N', '100.0', '100');
+INSERT INTO `tb_orderdetail` VALUES ('2017030910414225000005', 'O', '43', 'N', '100.0', '100');
+INSERT INTO `tb_orderdetail` VALUES ('2017030910414225000005', 'O', '56', 'N', '100.0', '100');
+INSERT INTO `tb_orderdetail` VALUES ('2017030910414225000005', 'O', '1', 'N', '100.0', '100');
+INSERT INTO `tb_orderdetail` VALUES ('2017030910420825000006', 'X', '1', 'N', '1', '1');
+INSERT INTO `tb_orderdetail` VALUES ('2017030910420825000006', 'O', '27', 'N', '100.0', '100');
+INSERT INTO `tb_orderdetail` VALUES ('2017030910420825000006', 'O', '49', 'N', '100.0', '100');
+INSERT INTO `tb_orderdetail` VALUES ('2017030910420825000006', 'O', '43', 'N', '100.0', '100');
+INSERT INTO `tb_orderdetail` VALUES ('2017030910420825000006', 'O', '56', 'N', '100.0', '100');
+INSERT INTO `tb_orderdetail` VALUES ('2017030910420825000006', 'O', '1', 'N', '100.0', '100');
+INSERT INTO `tb_orderdetail` VALUES ('2017030910545125000001', 'X', '1', 'N', '1', '3');
+INSERT INTO `tb_orderdetail` VALUES ('2017030910545125000001', 'O', '27', 'N', '100.0', '300');
+INSERT INTO `tb_orderdetail` VALUES ('2017030910545125000001', 'O', '49', 'N', '100.0', '300');
+INSERT INTO `tb_orderdetail` VALUES ('2017030910545125000001', 'O', '43', 'N', '100.0', '300');
+INSERT INTO `tb_orderdetail` VALUES ('2017030910545125000001', 'O', '55', 'N', '100.0', '300');
+INSERT INTO `tb_orderdetail` VALUES ('2017030910545125000001', 'O', '1', 'N', '100.0', '300');
+INSERT INTO `tb_orderdetail` VALUES ('2017030910555225000002', 'X', '1', 'N', '1', '3');
+INSERT INTO `tb_orderdetail` VALUES ('2017030910555225000002', 'O', '27', 'N', '100.0', '300');
+INSERT INTO `tb_orderdetail` VALUES ('2017030910555225000002', 'O', '49', 'N', '100.0', '300');
+INSERT INTO `tb_orderdetail` VALUES ('2017030910555225000002', 'O', '43', 'N', '100.0', '300');
+INSERT INTO `tb_orderdetail` VALUES ('2017030910555225000002', 'O', '55', 'N', '100.0', '300');
+INSERT INTO `tb_orderdetail` VALUES ('2017030910555225000002', 'O', '1', 'N', '100.0', '300');
+INSERT INTO `tb_orderdetail` VALUES ('2017030911074225000001', 'X', '1', 'N', '1', '1');
+INSERT INTO `tb_orderdetail` VALUES ('2017030911074225000001', 'O', '27', 'N', '100.0', '100');
+INSERT INTO `tb_orderdetail` VALUES ('2017030911074225000001', 'O', '49', 'N', '100.0', '100');
+INSERT INTO `tb_orderdetail` VALUES ('2017030911074225000001', 'O', '43', 'N', '100.0', '100');
+INSERT INTO `tb_orderdetail` VALUES ('2017030911074225000001', 'O', '55', 'N', '100.0', '100');
+INSERT INTO `tb_orderdetail` VALUES ('2017030911074225000001', 'O', '1', 'N', '100.0', '100');
+
+-- ----------------------------
+-- Table structure for tb_order_passenger
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_order_passenger`;
+CREATE TABLE `tb_order_passenger` (
+  `orderno` varchar(128) DEFAULT NULL,
+  `email` varchar(128) DEFAULT NULL,
+  `fullname` varchar(128) DEFAULT NULL,
+  `sex` varchar(128) DEFAULT NULL,
+  `nationality` varchar(128) DEFAULT NULL,
+  `passport` varchar(128) DEFAULT NULL,
+  `phone` varchar(128) DEFAULT NULL,
+  `type` varchar(128) DEFAULT NULL,
+  `child_type` varchar(128) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of tb_order_passenger
+-- ----------------------------
+INSERT INTO `tb_order_passenger` VALUES ('2017030910394625000004', 'pengxyc@163.com', 'sdf', 'M', 'china', '1234567', '13776540149', 'adults', null);
+INSERT INTO `tb_order_passenger` VALUES ('2017030910414225000005', 'pengxyc@163.com', 'sdf', 'M', 'china', '1234567', '13776540149', 'adults', null);
+INSERT INTO `tb_order_passenger` VALUES ('2017030910420825000006', 'pengxyc@163.com', 'sdf', 'M', 'china', '1234567', '13776540149', 'adults', null);
+INSERT INTO `tb_order_passenger` VALUES ('2017030910545125000001', 'dfg@qq.cc', 'sfd', 'M', 'sf', 'sdf', '121346354', 'adults', null);
+INSERT INTO `tb_order_passenger` VALUES ('2017030910545125000001', 'dfg@qq.cc', 'sdf', 'F', 'sdf', 'sdf', 'sdf', 'adults', null);
+INSERT INTO `tb_order_passenger` VALUES ('2017030910545125000001', 'sdf@sdf.cc', 'sdf', 'F', 'sdf', 'sdf', 'sfdf', 'children', 'A');
+INSERT INTO `tb_order_passenger` VALUES ('2017030910555225000002', 'dfg@qq.cc', 'sfd', 'M', 'sf', 'sdf', '121346354', 'adults', null);
+INSERT INTO `tb_order_passenger` VALUES ('2017030910555225000002', 'dfg@qq.cc', 'sdf', 'F', 'sdf', 'sdf', 'sdf', 'adults', null);
+INSERT INTO `tb_order_passenger` VALUES ('2017030910555225000002', 'sdf@sdf.cc', 'sdf', 'F', 'sdf', 'sdf', 'sfdf', 'children', 'A');
+INSERT INTO `tb_order_passenger` VALUES ('2017030911074225000001', 'sdf@sdf.cc', 'sdf', 'F', 'sf', 'sdf', 'wrew', 'adults', null);
 
 -- ----------------------------
 -- Table structure for tb_question
@@ -228,7 +325,7 @@ CREATE TABLE `tb_question` (
   `tour_id` int(11) DEFAULT NULL COMMENT '线路id',
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tb_question
@@ -243,6 +340,7 @@ INSERT INTO `tb_question` VALUES ('C', '2016-01-18 15:50:38', '31', '你猜', '2
 INSERT INTO `tb_question` VALUES ('C', '2016-01-12 18:22:14', '55', '555', '2', '8');
 INSERT INTO `tb_question` VALUES ('C', '2016-01-12 18:22:14', '66', '555', '1', '9');
 INSERT INTO `tb_question` VALUES (null, '2016-02-03 15:35:32', '0', 'ssdssdsd', '63', '10');
+INSERT INTO `tb_question` VALUES ('O', '2017-03-09 14:16:10', '0', '这个地方好玩吗', '1', '11');
 
 -- ----------------------------
 -- Table structure for test
@@ -283,7 +381,7 @@ CREATE TABLE `th_order` (
   `operatetime` datetime DEFAULT NULL COMMENT '操作时间',
   `pass_id` int(11) DEFAULT NULL COMMENT '操作人id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=127 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=136 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of th_order
@@ -300,6 +398,12 @@ INSERT INTO `th_order` VALUES ('123', '201602032043361000002', '1', '11', '11@qq
 INSERT INTO `th_order` VALUES ('124', '201602041014021000001', '1', '1212', '1065300897@qq.com', '11', '1', '1', '2', '2', '0', '2016-03-05 00:00:00', '420.00', 'N', '2016-02-04 10:14:02', '0', '0.00', '0.00', '0.00', null, null);
 INSERT INTO `th_order` VALUES ('125', '201602041817054000001', '4', 'fct', 'fengchangtong110@126.com', '15150572324', '1', '1', '1', '0', '0', '2016-03-05 00:00:00', '105.00', 'N', '2016-02-04 18:17:06', '0', '0.00', '0.00', '0.00', null, null);
 INSERT INTO `th_order` VALUES ('126', '201602041821104000002', '4', 'fengchangtong', '561163@qq.com', '15150572324', '1', '1', '0', '0', '0', '2016-03-05 00:00:00', '0.00', 'N', '2016-02-04 18:21:10', '0', '0.00', '0.00', '0.00', null, null);
+INSERT INTO `th_order` VALUES ('130', '2017030910394625000004', '25', 'hh', 'pengxyc@163.com', '13776540149', '1', '1', '1', '0', '0', '2018-05-09 00:00:00', '501.00', 'N', '2017-03-09 02:39:46', '0', '0.00', '0.00', '0.00', null, null);
+INSERT INTO `th_order` VALUES ('131', '2017030910414225000005', '25', 'hh', 'pengxyc@163.com', '13776540149', '1', '1', '1', '0', '0', '2018-05-09 00:00:00', '501.00', 'N', '2017-03-09 02:41:42', '0', '0.00', '0.00', '0.00', null, null);
+INSERT INTO `th_order` VALUES ('132', '2017030910420825000006', '25', 'hh', 'pengxyc@163.com', '13776540149', '1', '1', '1', '0', '0', '2018-05-09 00:00:00', '501.00', 'N', '2017-03-09 02:42:08', '0', '0.00', '0.00', '0.00', null, null);
+INSERT INTO `th_order` VALUES ('133', '2017030910545125000001', '25', 'ed', 'dfg@qq.cc', 'dfg', '1', '1', '2', '1', '0', '2018-05-09 00:00:00', '1503.00', 'N', '2017-03-09 02:54:51', '0', '0.00', '0.00', '0.00', null, null);
+INSERT INTO `th_order` VALUES ('134', '2017030910555225000002', '25', 'ed', 'dfg@qq.cc', 'dfg', '1', '1', '2', '1', '0', '2018-05-09 00:00:00', '1503.00', 'N', '2017-03-09 02:55:52', '0', '0.00', '0.00', '0.00', null, null);
+INSERT INTO `th_order` VALUES ('135', '2017030911074225000001', '25', 'sf', 'sdf@sdf.cc', 'sdf', '1', '1', '1', '0', '0', '2018-05-09 00:00:00', '501.00', 'N', '2017-03-09 03:07:42', '0', '0.00', '0.00', '0.00', null, null);
 
 -- ----------------------------
 -- Table structure for th_rating
@@ -461,21 +565,26 @@ DROP TABLE IF EXISTS `tm_city`;
 CREATE TABLE `tm_city` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '城市ID',
   `name` varchar(100) DEFAULT NULL COMMENT '城市名英语',
+  `photo_one` varchar(128) DEFAULT NULL,
+  `photo_two` varchar(128) DEFAULT NULL,
+  `photo_three` varchar(128) DEFAULT NULL,
+  `photo_four` varchar(128) DEFAULT NULL,
+  `desc` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tm_city
 -- ----------------------------
-INSERT INTO `tm_city` VALUES ('1', '24980149862662155');
-INSERT INTO `tm_city` VALUES ('2', '24980149862662156');
-INSERT INTO `tm_city` VALUES ('3', '24980149862662157');
-INSERT INTO `tm_city` VALUES ('4', '24980149862662158');
-INSERT INTO `tm_city` VALUES ('5', '24980149862662159');
-INSERT INTO `tm_city` VALUES ('6', '24980149862662160');
-INSERT INTO `tm_city` VALUES ('7', '24980149862662160');
-INSERT INTO `tm_city` VALUES ('45', 'beijing');
-INSERT INTO `tm_city` VALUES ('100', 'nanjing');
+INSERT INTO `tm_city` VALUES ('1', '24980149862662155', '/img/test/9_medium.jpg', '/img/test/10_medium.jpg', '/img/test/11_medium.jpg', '/img/test/12_medium.jpg', '24981593374326808');
+INSERT INTO `tm_city` VALUES ('2', '24980149862662156', '/img/test/9_medium.jpg', '/img/test/10_medium.jpg', '/img/test/11_medium.jpg', '/img/test/12_medium.jpg', '24981593374326809');
+INSERT INTO `tm_city` VALUES ('3', '24980149862662157', '/img/test/9_medium.jpg', '/img/test/10_medium.jpg', '/img/test/11_medium.jpg', '/img/test/12_medium.jpg', '24981593374326810');
+INSERT INTO `tm_city` VALUES ('4', '24980149862662158', '/img/test/9_medium.jpg', '/img/test/10_medium.jpg', '/img/test/11_medium.jpg', '/img/test/12_medium.jpg', '24981593374326811');
+INSERT INTO `tm_city` VALUES ('5', '24980149862662159', '/img/test/9_medium.jpg', '/img/test/10_medium.jpg', '/img/test/11_medium.jpg', '/img/test/12_medium.jpg', '24981593374326812');
+INSERT INTO `tm_city` VALUES ('6', '24980149862662160', '/img/test/9_medium.jpg', '/img/test/10_medium.jpg', '/img/test/11_medium.jpg', '/img/test/12_medium.jpg', '24981593374326813');
+INSERT INTO `tm_city` VALUES ('45', 'beijing', '/img/test/9_medium.jpg', '/img/test/10_medium.jpg', '/img/test/11_medium.jpg', '/img/test/12_medium.jpg', '24981593374326815');
+INSERT INTO `tm_city` VALUES ('100', 'nanjing', null, null, null, null, null);
+INSERT INTO `tm_city` VALUES ('161', '24980149862662160', '/img/test/9_medium.jpg', '/img/test/10_medium.jpg', '/img/test/11_medium.jpg', '/img/test/12_medium.jpg', '24981593374326814');
 
 -- ----------------------------
 -- Table structure for tm_destination_city
@@ -484,10 +593,8 @@ DROP TABLE IF EXISTS `tm_destination_city`;
 CREATE TABLE `tm_destination_city` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `city_id` int(11) NOT NULL,
-  `title_en` varchar(50) NOT NULL,
-  `title_fr` varchar(50) NOT NULL,
-  `desc_en` text,
-  `desc_fr` text,
+  `title` varchar(50) NOT NULL,
+  `desc` text,
   `status` varchar(1) NOT NULL,
   `photo_one` varchar(100) DEFAULT NULL,
   `photo_two` varchar(100) DEFAULT NULL,
@@ -499,20 +606,20 @@ CREATE TABLE `tm_destination_city` (
 -- ----------------------------
 -- Records of tm_destination_city
 -- ----------------------------
-INSERT INTO `tm_destination_city` VALUES ('100', '100', 'abc', 'abcfr', 'dfsafdsfsafaaaaaaaaaaafddddd', 'fdsafddddddddddddddddddddddddddddrrrrrrrrrrrrrrrr', 'N', '/img/product/1.jpg', '/img/product/2.jpg', '/img/product/3.jpg', '/img/product/4.jpg');
-INSERT INTO `tm_destination_city` VALUES ('131', '17', 'rfedsaASDFG', 'GFDSA', '', '', 'N', '/upload/destination/root/1454307664497.jpg', null, null, null);
-INSERT INTO `tm_destination_city` VALUES ('132', '17', 'ces11WE', 'cse11WEW', '3rwesdfasASDDDDDDDDDDDDDD', 'sdFSADFASDFASDF', 'S', '/upload/destination/root/1454225634785.jpg', null, null, '/upload/destination/root/1454225657664.jpg');
-INSERT INTO `tm_destination_city` VALUES ('134', '13', '电风扇', '是的', '的撒', '的', 'N', null, null, null, null);
-INSERT INTO `tm_destination_city` VALUES ('135', '28', '111', 'qeer', '', '', 'N', null, null, null, null);
-INSERT INTO `tm_destination_city` VALUES ('136', '13', 'dfd', 'fd', 'fd', 'fd', 'N', '/upload/destination/root/1454307909125.jpg', '/upload/destination/root/1454307909134.jpg', null, null);
-INSERT INTO `tm_destination_city` VALUES ('137', '13', 'fds', 'sd ', 'd', 'd', 'N', '/upload/destination/root/1454307883870.jpg', '/upload/destination/root/1454307883876.jpg', null, null);
-INSERT INTO `tm_destination_city` VALUES ('149', '17', 's', 's', '', '', 'N', '/upload/destination/root/1454308384319.jpg', null, null, null);
-INSERT INTO `tm_destination_city` VALUES ('150', '17', 'gfds', 'fds', '', '', 'N', null, null, null, null);
-INSERT INTO `tm_destination_city` VALUES ('161', '1', '1', '1', '', '', 'N', '/upload/destination/root/1454384151980.jpg', '/upload/destination/root/1454384151986.jpg', '/upload/destination/root/1454384151990.bmp', '');
-INSERT INTO `tm_destination_city` VALUES ('162', '17', '232', '234', '', '', 'N', '/upload/destination/root/1454385687700.jpg', '', '', null);
-INSERT INTO `tm_destination_city` VALUES ('163', '17', '123123', '123123', '', '', 'N', '/upload/destination/root/1454385821163.jpg', '/upload/destination/root/1454385821167.jpg', '', null);
-INSERT INTO `tm_destination_city` VALUES ('164', '1', 'aa', 'aa', '', '', 'N', '', null, null, null);
-INSERT INTO `tm_destination_city` VALUES ('165', '28', 'sdaf', 'asdf', '', '', 'N', '', '', null, null);
+INSERT INTO `tm_destination_city` VALUES ('1', '1', '24981593374326828', '24981593374326828', 'N', '/img/product/1.jpg', '/img/product/2.jpg', '/img/product/3.jpg', '/img/product/4.jpg');
+INSERT INTO `tm_destination_city` VALUES ('2', '2', '24981593374326829', '24981593374326828', 'N', '/upload/destination/root/1454307664497.jpg', null, null, null);
+INSERT INTO `tm_destination_city` VALUES ('3', '3', '24981593374326830', '24981593374326830', 'S', '/upload/destination/root/1454225634785.jpg', null, null, '/upload/destination/root/1454225657664.jpg');
+INSERT INTO `tm_destination_city` VALUES ('4', '4', '24981593374326831', '24981593374326831', 'N', null, null, null, null);
+INSERT INTO `tm_destination_city` VALUES ('5', '5', '111', '', 'N', null, null, null, null);
+INSERT INTO `tm_destination_city` VALUES ('6', '6', 'dfd', 'fd', 'N', '/upload/destination/root/1454307909125.jpg', '/upload/destination/root/1454307909134.jpg', null, null);
+INSERT INTO `tm_destination_city` VALUES ('7', '7', 'fds', 'd', 'N', '/upload/destination/root/1454307883870.jpg', '/upload/destination/root/1454307883876.jpg', null, null);
+INSERT INTO `tm_destination_city` VALUES ('149', '17', 's', '', 'N', '/upload/destination/root/1454308384319.jpg', null, null, null);
+INSERT INTO `tm_destination_city` VALUES ('150', '17', 'gfds', '', 'N', null, null, null, null);
+INSERT INTO `tm_destination_city` VALUES ('161', '161', '24981593374326832', '24981593374326832', 'N', '/upload/destination/root/1454384151980.jpg', '/upload/destination/root/1454384151986.jpg', '/upload/destination/root/1454384151990.bmp', '');
+INSERT INTO `tm_destination_city` VALUES ('162', '17', '232', '', 'N', '/upload/destination/root/1454385687700.jpg', '', '', null);
+INSERT INTO `tm_destination_city` VALUES ('163', '17', '123123', '', 'N', '/upload/destination/root/1454385821163.jpg', '/upload/destination/root/1454385821167.jpg', '', null);
+INSERT INTO `tm_destination_city` VALUES ('164', '1', 'aa', '', 'N', '', null, null, null);
+INSERT INTO `tm_destination_city` VALUES ('165', '28', 'sdaf', '', 'N', '', '', null, null);
 
 -- ----------------------------
 -- Table structure for tm_display
@@ -588,16 +695,11 @@ DROP TABLE IF EXISTS `tm_hotel`;
 CREATE TABLE `tm_hotel` (
   `htl_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '酒店id',
   `dept_code` varchar(20) NOT NULL,
-  `htl_name_cn` varchar(50) NOT NULL COMMENT '酒店名称中文',
-  `htl_name_en` varchar(50) NOT NULL COMMENT '酒店名称英文',
-  `htl_name_fr` varchar(50) NOT NULL COMMENT '酒店名称法语',
+  `name` varchar(50) NOT NULL COMMENT '酒店名称英文',
   `htl_tel` varchar(50) NOT NULL COMMENT '联系电话',
   `htl_fax` varchar(50) NOT NULL COMMENT '传真',
-  `htl_desc_en` varchar(50) NOT NULL COMMENT '酒店描述英文',
-  `htl_desc_fr` varchar(50) NOT NULL COMMENT '酒店描述法语',
-  `htl_address_cn` varchar(50) NOT NULL COMMENT '酒店详细地址中文',
-  `htl_address_en` varchar(50) NOT NULL COMMENT '酒店详细地址英文',
-  `htl_address_fr` varchar(50) NOT NULL COMMENT '酒店详细地址法语',
+  `desc` varchar(50) NOT NULL COMMENT '酒店描述英文',
+  `htl_address` varchar(50) NOT NULL COMMENT '酒店详细地址英文',
   `htl_status` varchar(1) NOT NULL,
   `htl_createtime` datetime NOT NULL COMMENT '创建时间',
   `htl_user` varchar(50) NOT NULL COMMENT '创建人',
@@ -608,15 +710,15 @@ CREATE TABLE `tm_hotel` (
 -- ----------------------------
 -- Records of tm_hotel
 -- ----------------------------
-INSERT INTO `tm_hotel` VALUES ('7', 'TNLY', '3', '22', '3', '1234567', '3', '3', '3', '3', '33', '3', 'N', '2016-02-01 13:58:46', 'root', '28');
-INSERT INTO `tm_hotel` VALUES ('10', 'fd', '11', '11', '111', '11112323', '11', '111', '111', '11', '11', '11', 'N', '2016-01-10 14:01:33', 'root', '13');
-INSERT INTO `tm_hotel` VALUES ('11', 'TNLY', '234', '44', '234', '2343243', '234', '', '', 'werqw', 'eqw', 'eqwe', 'N', '2016-01-11 11:55:01', 'root', '14');
-INSERT INTO `tm_hotel` VALUES ('12', '22', 'rwqerqw', 'wqetqwe', 'erqwer', '12312423', 'weqrqwer', 'qwe', 'rqwer', 'werq', 'wqer', 'qwer', 'N', '2016-01-31 17:52:19', 'root', '28');
-INSERT INTO `tm_hotel` VALUES ('13', '22', 'wqer', 'wqer', 'wqer', '13223423232', 'dafgdgffew', 'asd', 'fasdf', 'sadf', 'sadf', 'ads', 'N', '2016-01-31 17:52:53', 'root', '17');
-INSERT INTO `tm_hotel` VALUES ('18', '22', '222', '222', '222', '2222222', '22', '', '', '2', '2', '2', 'N', '2016-01-31 17:58:17', 'root', '17');
-INSERT INTO `tm_hotel` VALUES ('19', 'TNLY', 'gfds', 'tgrfrde', 'gfbvdc', '32432433', 'bcvx', '', '', '234', '234', '34', 'N', '2016-02-02 15:45:48', 'root', '17');
-INSERT INTO `tm_hotel` VALUES ('20', 'TNLY', '橘子水晶', 'orange', 'orange\'s', '13212345678', 'asddas', '高端大气上档次', 'gao duan da qi shang dangci', '南京市秦淮区桔子水晶酒店', 'orange hotel', 'orange\'s hotel', 'N', '2016-02-02 15:46:16', 'root', '1');
-INSERT INTO `tm_hotel` VALUES ('21', 'TNLY', 'hotel-cn-px', 'hotel-en-px', 'hotel-fr-px', '1234567', '123123123123', 'hotel-desc-en-px', 'hotel-desc-fr-px', '12312312--pc-cn', '12312312--pc-en', '12312312--pc-fr', 'N', '2016-02-02 15:49:44', 'root', '28');
+INSERT INTO `tm_hotel` VALUES ('7', 'TNLY', '24981593374326818', '1234567', '3', '24981593374326827', '24981593374326827', 'N', '2016-02-01 13:58:46', 'root', '28');
+INSERT INTO `tm_hotel` VALUES ('10', 'fd', '24981593374326819', '11112323', '11', '24981593374326827', '24981593374326828', 'N', '2016-01-10 14:01:33', 'root', '13');
+INSERT INTO `tm_hotel` VALUES ('11', 'TNLY', '24981593374326820', '2343243', '234', '24981593374326827', '24981593374326829', 'N', '2016-01-11 11:55:01', 'root', '14');
+INSERT INTO `tm_hotel` VALUES ('12', '22', '24981593374326821', '12312423', 'weqrqwer', '24981593374326827', '24981593374326830', 'N', '2016-01-31 17:52:19', 'root', '28');
+INSERT INTO `tm_hotel` VALUES ('13', '22', '24981593374326822', '13223423232', 'dafgdgffew', '24981593374326827', '24981593374326831', 'N', '2016-01-31 17:52:53', 'root', '17');
+INSERT INTO `tm_hotel` VALUES ('18', '22', '24981593374326823', '2222222', '22', '24981593374326827', '24981593374326832', 'N', '2016-01-31 17:58:17', 'root', '17');
+INSERT INTO `tm_hotel` VALUES ('19', 'TNLY', '24981593374326824', '32432433', 'bcvx', '24981593374326827', '24981593374326833', 'N', '2016-02-02 15:45:48', 'root', '17');
+INSERT INTO `tm_hotel` VALUES ('20', 'TNLY', '24981593374326825', '13212345678', 'asddas', '24981593374326827', '24981593374326834', 'N', '2016-02-02 15:46:16', 'root', '1');
+INSERT INTO `tm_hotel` VALUES ('21', 'TNLY', '24981593374326826', '1234567', '123123123123', '24981593374326827', '24981593374326835', 'N', '2016-02-02 15:49:44', 'root', '28');
 
 -- ----------------------------
 -- Table structure for tm_hoteltype
@@ -687,19 +789,20 @@ INSERT INTO `tm_indexconfig` VALUES ('26', '6', 'city', '/img/test/1.jpg', '1');
 DROP TABLE IF EXISTS `tm_option`;
 CREATE TABLE `tm_option` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name_en` varchar(100) NOT NULL COMMENT '英文名称',
-  `name_fr` varchar(100) NOT NULL COMMENT '法文名称',
+  `name` varchar(100) NOT NULL COMMENT '英文名称',
+  `dept_code` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tm_option
 -- ----------------------------
-INSERT INTO `tm_option` VALUES ('2', 'as', 'as');
-INSERT INTO `tm_option` VALUES ('11', 'zs', 'as');
-INSERT INTO `tm_option` VALUES ('15', 'a', 'a');
-INSERT INTO `tm_option` VALUES ('16', 'sd', 'sd');
-INSERT INTO `tm_option` VALUES ('18', 'efrewqf', 'feqf');
+INSERT INTO `tm_option` VALUES ('2', '24981593374326788', null);
+INSERT INTO `tm_option` VALUES ('8', '24981593374326785', null);
+INSERT INTO `tm_option` VALUES ('11', '24981593374326787', null);
+INSERT INTO `tm_option` VALUES ('15', '24981593374326786', null);
+INSERT INTO `tm_option` VALUES ('16', '24981593374326784', null);
+INSERT INTO `tm_option` VALUES ('19', '24981593374326789', null);
 
 -- ----------------------------
 -- Table structure for tm_product_attribute
@@ -726,10 +829,8 @@ DROP TABLE IF EXISTS `tm_sights`;
 CREATE TABLE `tm_sights` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `city_id` int(11) NOT NULL,
-  `name_en` varchar(50) NOT NULL,
-  `name_fr` varchar(50) NOT NULL,
-  `desc_en` varchar(2000) DEFAULT NULL,
-  `desc_fr` varchar(2000) DEFAULT NULL,
+  `name` varchar(50) NOT NULL,
+  `desc` varchar(2000) DEFAULT NULL,
   `level` varchar(20) NOT NULL,
   `price` decimal(8,2) NOT NULL,
   PRIMARY KEY (`id`)
@@ -738,8 +839,8 @@ CREATE TABLE `tm_sights` (
 -- ----------------------------
 -- Records of tm_sights
 -- ----------------------------
-INSERT INTO `tm_sights` VALUES ('10', '4', '43', '43', '4', '', 'todo', '43.00');
-INSERT INTO `tm_sights` VALUES ('15', '106', 'qw', 'qw', '', '', 'todo', '2.00');
+INSERT INTO `tm_sights` VALUES ('10', '1', '24980149862662156', '24981593374326816', 'todo', '43.00');
+INSERT INTO `tm_sights` VALUES ('15', '2', '24980149862662157', '24981593374326817', 'todo', '2.00');
 
 -- ----------------------------
 -- Table structure for tm_startcity
@@ -993,7 +1094,7 @@ INSERT INTO `tm_tourdate` VALUES ('17', '16', '2016-03-05', '105.00', '0', '0', 
 INSERT INTO `tm_tourdate` VALUES ('18', '17', '2016-03-05', '105.00', '0', '0', '0', '0', '0');
 INSERT INTO `tm_tourdate` VALUES ('19', '18', '2016-03-05', '105.00', '0', '0', '0', '0', '0');
 INSERT INTO `tm_tourdate` VALUES ('20', '19', '2016-03-05', '105.00', '0', '0', '0', '0', '0');
-INSERT INTO `tm_tourdate` VALUES ('21', '1', '2016-03-05', '1.00', '108', '1', '1', '1', '1');
+INSERT INTO `tm_tourdate` VALUES ('21', '1', '2018-05-09', '1.00', '98', '1', '1', '1', '1');
 INSERT INTO `tm_tourdate` VALUES ('22', '20', '2016-03-05', '105.00', '0', '0', '0', '0', '0');
 INSERT INTO `tm_tourdate` VALUES ('23', '21', '2016-03-05', '105.00', '0', '0', '0', '0', '0');
 INSERT INTO `tm_tourdate` VALUES ('24', '22', '2016-03-05', '105.00', '0', '0', '0', '0', '0');
@@ -1339,12 +1440,28 @@ DROP TABLE IF EXISTS `tm_tour_option_value`;
 CREATE TABLE `tm_tour_option_value` (
   `tour_id` int(11) NOT NULL COMMENT '旅游线路ID',
   `value_id` int(11) NOT NULL COMMENT '选项值ID',
-  `value_price` decimal(8,2) NOT NULL COMMENT '线路选项差价'
+  `value_price` decimal(8,2) NOT NULL COMMENT '线路选项差价',
+  `defaults` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tm_tour_option_value
 -- ----------------------------
+INSERT INTO `tm_tour_option_value` VALUES ('1', '1', '100.00', null);
+INSERT INTO `tm_tour_option_value` VALUES ('2', '25', '200.00', null);
+INSERT INTO `tm_tour_option_value` VALUES ('1', '43', '100.00', null);
+INSERT INTO `tm_tour_option_value` VALUES ('1', '49', '100.00', null);
+INSERT INTO `tm_tour_option_value` VALUES ('1', '50', '100.00', null);
+INSERT INTO `tm_tour_option_value` VALUES ('1', '51', '100.00', null);
+INSERT INTO `tm_tour_option_value` VALUES ('1', '55', '100.00', null);
+INSERT INTO `tm_tour_option_value` VALUES ('1', '56', '100.00', null);
+INSERT INTO `tm_tour_option_value` VALUES ('1', '27', '100.00', null);
+INSERT INTO `tm_tour_option_value` VALUES ('1', '27', '100.00', null);
+INSERT INTO `tm_tour_option_value` VALUES ('1', '27', '100.00', null);
+INSERT INTO `tm_tour_option_value` VALUES ('1', '27', '100.00', null);
+INSERT INTO `tm_tour_option_value` VALUES ('1', '27', '100.00', null);
+INSERT INTO `tm_tour_option_value` VALUES ('1', '27', '100.00', null);
+INSERT INTO `tm_tour_option_value` VALUES ('1', '27', '100.00', null);
 
 -- ----------------------------
 -- Table structure for tm_tour_theme
@@ -1414,10 +1531,8 @@ DROP TABLE IF EXISTS `tm_value`;
 CREATE TABLE `tm_value` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `option_id` int(11) NOT NULL,
-  `value_en` varchar(100) NOT NULL COMMENT '选项值英文',
-  `value_fr` varchar(100) NOT NULL COMMENT '选项值法文',
-  `notes_en` varchar(100) NOT NULL COMMENT '选项值英文备注',
-  `notes_fr` varchar(100) NOT NULL COMMENT '选项值法文备注',
+  `value` varchar(100) NOT NULL COMMENT '选项值英文',
+  `notes` varchar(100) NOT NULL COMMENT '选项值英文备注',
   `price` decimal(8,2) NOT NULL COMMENT '选项差价（套餐自带为0）',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8;
@@ -1425,15 +1540,15 @@ CREATE TABLE `tm_value` (
 -- ----------------------------
 -- Records of tm_value
 -- ----------------------------
-INSERT INTO `tm_value` VALUES ('1', '2', 'sdddddddddddd', 'asdfs', 'dfsdf', 'ffsdf', '0.00');
-INSERT INTO `tm_value` VALUES ('25', '2', 'we', 'sf', 'sdf', 'sf', '0.00');
-INSERT INTO `tm_value` VALUES ('27', '8', 'dsf', 'sdf', 'sd', 'fsf', '0.00');
-INSERT INTO `tm_value` VALUES ('43', '11', 'we', 'we', 'we', 'ew', '0.00');
-INSERT INTO `tm_value` VALUES ('49', '15', 'eew', 'wee', '', '', '0.00');
-INSERT INTO `tm_value` VALUES ('50', '11', '我问问', 'ww', 'we', '', '0.00');
-INSERT INTO `tm_value` VALUES ('51', '11', 'd', 'd', 'd', 'd', '0.00');
-INSERT INTO `tm_value` VALUES ('55', '16', '123', '12', '3123123', '123123', '0.00');
-INSERT INTO `tm_value` VALUES ('56', '16', 'ftrwq', 'egv', 'rgeq', 'rgerq', '0.00');
+INSERT INTO `tm_value` VALUES ('1', '2', '24981593374326789', '24981593374326799', '0.00');
+INSERT INTO `tm_value` VALUES ('25', '2', '24981593374326788', '24981593374326800', '0.00');
+INSERT INTO `tm_value` VALUES ('27', '8', '24981593374326787', '24981593374326801', '0.00');
+INSERT INTO `tm_value` VALUES ('43', '11', '24981593374326786', '24981593374326802', '0.00');
+INSERT INTO `tm_value` VALUES ('49', '15', '24981593374326785', '24981593374326803', '0.00');
+INSERT INTO `tm_value` VALUES ('50', '11', '24981593374326784', '24981593374326804', '0.00');
+INSERT INTO `tm_value` VALUES ('51', '11', '24981593374326797', '24981593374326805', '0.00');
+INSERT INTO `tm_value` VALUES ('55', '16', '24981593374326798', '24981593374326806', '0.00');
+INSERT INTO `tm_value` VALUES ('56', '16', '24981593374326798', '24981593374326807', '0.00');
 
 -- ----------------------------
 -- Table structure for ts_dept
@@ -1465,6 +1580,31 @@ INSERT INTO `ts_dept` VALUES ('25', '测试', 'ces', '测试', 'text', 'ADMIN', 
 INSERT INTO `ts_dept` VALUES ('36', 'shanji', 'sdd', 'gfdasd', 'asda', '', 'N', '2016-01-05 10:40:55', 'root');
 INSERT INTO `ts_dept` VALUES ('37', 'dfas', 'fd', 'rrr', 'abc', 'shanji', 'N', '2016-01-05 10:41:37', 'root');
 INSERT INTO `ts_dept` VALUES ('38', '77', '77', '77', 'adas', 'cscode', 'N', '2016-01-29 20:12:41', 'root');
+
+-- ----------------------------
+-- Table structure for ts_dispatch
+-- ----------------------------
+DROP TABLE IF EXISTS `ts_dispatch`;
+CREATE TABLE `ts_dispatch` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `disno` varchar(128) DEFAULT NULL,
+  `type` varchar(128) DEFAULT NULL,
+  `status` varchar(128) DEFAULT NULL,
+  `description` varchar(128) DEFAULT NULL,
+  `phone` varchar(128) DEFAULT NULL,
+  `email` varchar(128) DEFAULT NULL,
+  `firstname` varchar(128) DEFAULT NULL,
+  `lastname` varchar(128) DEFAULT NULL,
+  `sex` varchar(128) DEFAULT NULL,
+  `nationality` varchar(128) DEFAULT NULL,
+  `recordtime` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of ts_dispatch
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for ts_language
@@ -1499,6 +1639,68 @@ INSERT INTO `ts_language` VALUES ('24980149862662157', 'en', 'Beijing', '2017-03
 INSERT INTO `ts_language` VALUES ('24980149862662158', 'en', '桂林英', '2017-03-08 00:00:00', 'PX');
 INSERT INTO `ts_language` VALUES ('24980149862662159', 'en', '测试城市en', '2017-03-08 00:00:00', 'PX');
 INSERT INTO `ts_language` VALUES ('24980149862662160', 'en', 'shangirla', '2017-03-08 00:00:00', 'PX');
+INSERT INTO `ts_language` VALUES ('24981593374326784', 'en', 'qwer', '2017-03-09 00:00:00', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326785', 'en', 'fff', '2017-03-09 00:00:00', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326786', 'en', 'ggg', '2017-03-09 00:00:00', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326787', 'en', 'pp', '2017-03-09 00:00:00', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326788', 'en', 'xx', '2017-03-09 00:00:00', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326789', 'en', 'hello', '2017-03-09 00:00:00', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326790', 'en', 'sdddddddddddd', '2017-03-09 00:00:00', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326791', 'en', 'we', '2017-03-09 00:00:00', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326792', 'en', 'dsf', '2017-03-09 00:00:00', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326793', 'en', 'we', '2017-03-09 00:00:00', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326794', 'en', '我问问', '2017-03-09 00:00:00', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326795', 'en', '123', '2017-03-09 00:00:00', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326796', 'en', 'ftrwq', '2017-03-09 00:00:00', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326797', 'en', 'jxh', '2017-03-09 09:18:35', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326798', 'en', 'jxh2', '2017-03-09 09:19:37', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326799', 'en', 'Patrolling ', '2017-03-09 09:22:46', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326800', 'en', 'the  ', '2017-03-09 09:23:00', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326801', 'en', 'congested ', '2017-03-09 09:23:15', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326802', 'en', 'halls  ', '2017-03-09 09:23:24', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326803', 'en', 'Barcelonas   ', '2017-03-09 09:23:33', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326804', 'en', 'Mobile', '2017-03-09 09:23:45', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326805', 'en', 'World ', '2017-03-09 09:23:51', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326806', 'en', 'Congress ', '2017-03-09 09:24:00', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326807', 'en', 'you', '2017-03-09 09:24:15', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326808', 'en', 'help ', '2017-03-09 09:24:24', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326809', 'en', 'But what precisely ', '2017-03-09 09:59:24', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326810', 'en', 'is 5G and when will', '2017-03-09 09:59:40', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326811', 'en', ' it impact our everyday lives', '2017-03-09 09:59:52', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326812', 'en', 'The quick takeaway', '2017-03-09 10:00:08', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326813', 'en', 'generation of mobile technology', '2017-03-09 10:00:20', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326814', 'en', 'all about blistering speeds', '2017-03-09 10:00:32', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326815', 'en', 'smartphones in our pockets', '2017-03-09 10:00:43', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326816', 'en', 'have a broad bearing', '2017-03-09 10:00:55', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326817', 'en', 'society at large', '2017-03-09 10:05:30', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326818', 'en', 'peach', '2017-03-09 10:09:34', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326819', 'en', 'Lemon ', '2017-03-09 10:09:43', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326820', 'en', 'Pear  ', '2017-03-09 10:09:51', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326821', 'en', 'avocado', '2017-03-09 10:10:05', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326822', 'en', 'cantaloupe', '2017-03-09 10:10:11', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326823', 'en', 'Banana ', '2017-03-09 10:10:16', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326824', 'en', 'Grape ', '2017-03-09 10:10:24', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326825', 'en', 'raisins', '2017-03-09 10:10:34', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326826', 'en', 'plum ', '2017-03-09 10:10:42', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326827', 'en', 'apricot', '2017-03-09 10:10:50', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326828', 'en', 'nectarine', '2017-03-09 10:10:57', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326829', 'en', 'honeydew', '2017-03-09 10:11:04', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326830', 'en', 'orange ', '2017-03-09 10:11:11', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326831', 'en', 'tangerine ', '2017-03-09 10:11:19', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326832', 'en', 'guava ', '2017-03-09 10:11:26', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326833', 'en', 'Golden apple  ', '2017-03-09 10:11:34', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326834', 'en', 'Bramley', '2017-03-09 10:11:42', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326835', 'en', 'Mclntosh', '2017-03-09 10:11:50', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326836', 'en', 'nanjing', '2017-03-09 10:12:57', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326837', 'en', 'sichuan', '2017-03-09 10:13:01', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326838', 'en', 'china', '2017-03-09 10:13:04', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326839', 'en', 'nanning', '2017-03-09 10:13:10', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326840', 'en', 'hangzhou', '2017-03-09 10:14:35', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326841', 'en', 'xihu', '2017-03-09 10:14:39', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326842', 'en', 'loudi', '2017-03-09 10:14:44', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326843', 'en', 'hunan', '2017-03-09 10:14:50', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326844', 'en', 'riben', '2017-03-09 10:14:58', 'px');
+INSERT INTO `ts_language` VALUES ('24981593374326845', 'en', 'meiguo', '2017-03-09 10:15:01', 'px');
 
 -- ----------------------------
 -- Table structure for ts_level
@@ -1534,7 +1736,7 @@ CREATE TABLE `ts_mailhistory` (
   `orderno` varchar(30) DEFAULT NULL COMMENT '关联单号如果是订单就指订单号，也可以是其他单号',
   `operatetime` datetime DEFAULT NULL COMMENT '发送时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8 COMMENT='邮件发送历史表';
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8 COMMENT='邮件发送历史表';
 
 -- ----------------------------
 -- Records of ts_mailhistory
@@ -1573,6 +1775,13 @@ INSERT INTO `ts_mailhistory` VALUES ('31', 'To reset your password', 'The reset 
 INSERT INTO `ts_mailhistory` VALUES ('32', 'Register successfully', '<div>Dear &nbsp;#Username#,</div><div><br></div><div>Welcome to Beautiful China!&nbsp;Your &nbsp;Beautiful China&nbsp;account has been created.<br><br></div><div><p>Sincerely,</p>\n<p>Beautiful China<br></p><p><br></p><p><br></p><p>Please do not reply to this email.<br></p></div>', '8', '', null, null, '2017-03-08 17:03:29');
 INSERT INTO `ts_mailhistory` VALUES ('33', 'Register successfully', '<div>Dear &nbsp;#Username#,</div><div><br></div><div>Welcome to Beautiful China!&nbsp;Your &nbsp;Beautiful China&nbsp;account has been created.<br><br></div><div><p>Sincerely,</p>\n<p>Beautiful China<br></p><p><br></p><p><br></p><p>Please do not reply to this email.<br></p></div>', '14', '', null, null, '2017-03-08 17:15:14');
 INSERT INTO `ts_mailhistory` VALUES ('34', 'Register successfully', '<div>Dear &nbsp;#Username#,</div><div><br></div><div>Welcome to Beautiful China!&nbsp;Your &nbsp;Beautiful China&nbsp;account has been created.<br><br></div><div><p>Sincerely,</p>\n<p>Beautiful China<br></p><p><br></p><p><br></p><p>Please do not reply to this email.<br></p></div>', '15', '', null, null, '2017-03-08 17:16:08');
+INSERT INTO `ts_mailhistory` VALUES ('35', 'Register successfully', '<div>Dear &nbsp;#Username#,</div><div><br></div><div>Welcome to Beautiful China!&nbsp;Your &nbsp;Beautiful China&nbsp;account has been created.<br><br></div><div><p>Sincerely,</p>\n<p>Beautiful China<br></p><p><br></p><p><br></p><p>Please do not reply to this email.<br></p></div>', '24', 'pp@pp.com', null, null, '2017-03-08 17:52:10');
+INSERT INTO `ts_mailhistory` VALUES ('36', 'Register successfully', '<div>Dear &nbsp;#Username#,</div><div><br></div><div>Welcome to Beautiful China!&nbsp;Your &nbsp;Beautiful China&nbsp;account has been created.<br><br></div><div><p>Sincerely,</p>\n<p>Beautiful China<br></p><p><br></p><p><br></p><p>Please do not reply to this email.<br></p></div>', '25', 'pp@pp.com', null, null, '2017-03-08 17:59:01');
+INSERT INTO `ts_mailhistory` VALUES ('37', '下单成功', '恭喜你下单成功！', '25', 'pengxyc@163.com', null, null, '2017-03-09 10:41:44');
+INSERT INTO `ts_mailhistory` VALUES ('38', '下单成功', '恭喜你下单成功！', '25', 'pengxyc@163.com', null, null, '2017-03-09 10:42:09');
+INSERT INTO `ts_mailhistory` VALUES ('39', '下单成功', '恭喜你下单成功！', '25', 'dfg@qq.cc', null, null, '2017-03-09 10:54:53');
+INSERT INTO `ts_mailhistory` VALUES ('40', '下单成功', '恭喜你下单成功！', '25', 'dfg@qq.cc', null, null, '2017-03-09 10:55:53');
+INSERT INTO `ts_mailhistory` VALUES ('41', '下单成功', '恭喜你下单成功！', '25', 'sdf@sdf.cc', null, null, '2017-03-09 11:07:44');
 
 -- ----------------------------
 -- Table structure for ts_mailtemplate
@@ -1595,7 +1804,7 @@ CREATE TABLE `ts_mailtemplate` (
 -- ----------------------------
 INSERT INTO `ts_mailtemplate` VALUES ('1', 'register', 'Register successfully', 'agréé', '<div>Dear &nbsp;#Username#,</div><div><br></div><div>Welcome to Beautiful China!&nbsp;Your &nbsp;Beautiful China&nbsp;account has been created.<br><br></div><div><p>Sincerely,</p>\n<p>Beautiful China<br></p><p><br></p><p><br></p><p>Please do not reply to this email.<br></p></div>', '<span class=\"hps\">Cher</span> <span class=\"hps\">#</span><span class=\"hps\">Username#</span>,<br><br><span class=\"hps\">Bienvenue à</span> <span class=\"hps\">Belle</span> <span class=\"hps\">Chine!</span> <span class=\"hps\">Votre</span> <span class=\"hps\">Belle</span> <span class=\"hps\">compte</span> <span class=\"hps\">la Chine</span> <span class=\"hps\">a été créé.</span><br><br><span class=\"hps\">Cordialement,</span><br><br><span class=\"hps\">belle</span> <span class=\"hps\">Chine</span><br><br><br><br><br><br><span class=\"hps\">S\'il vous plait ne répondez pas à cet email.</span>', '2015-11-25 13:56:35', '101');
 INSERT INTO `ts_mailtemplate` VALUES ('2', 'resetPassword', 'To reset your password', 'Mot de passe de remplacement', 'The reset password link:#domain#resetPassword?id=#id#&authcode=#authcode#', 'Mot de passe de remplacement liaisons:#domain#resetPassword?id=#id#&amp;authcode=#authcode#', null, null);
-INSERT INTO `ts_mailtemplate` VALUES ('32', '的撒', '的飞洒', ' 撒', '的撒', '的撒', null, null);
+INSERT INTO `ts_mailtemplate` VALUES ('6', '下单成功', '下单成功', ' 撒', '恭喜你下单成功！', '的撒', '2017-03-09 10:41:26', null);
 INSERT INTO `ts_mailtemplate` VALUES ('33', 'kjhmngfbds', 'fghjm,..', 'mgfvbdc', 'gfdsa', 'dfvghjk,hjmgfbadsfvghj', null, null);
 INSERT INTO `ts_mailtemplate` VALUES ('34', 'gfh', 'gh', 'sfgh', 'dfgh', 'fghdfgh', null, null);
 
@@ -2122,19 +2331,12 @@ CREATE TABLE `ts_user` (
   PRIMARY KEY (`id`),
   KEY `idx_user_email` (`email`),
   KEY `idx_user_password` (`password`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COMMENT='用户表';
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COMMENT='用户表';
 
 -- ----------------------------
 -- Records of ts_user
 -- ----------------------------
-INSERT INTO `ts_user` VALUES ('1', null, null, '', '6b91b1424dadb1f4c579fd60d01bacbc', null, null, 'N', null, null, '2017-03-08 17:16:07', null, null, 'N', null, null, null, null, null, '15ad13ffbfb1c67b288a6b3c5d23e3097ffffea56d9c539e7bcc5b0d30d6ec8a');
-INSERT INTO `ts_user` VALUES ('16', null, null, '', 'a4388f1041a9928ac153c118f6b01eb8', null, null, 'N', null, null, '2017-03-08 17:24:26', null, null, 'N', null, null, null, null, null, '6fd9f69b3c070bcdec825c9593c680f07ffffea56d93cf58684778c2d26876a6');
-INSERT INTO `ts_user` VALUES ('17', null, null, '', 'c6604b96d425444ced73c1f3e81400e8', null, null, 'N', null, null, '2017-03-08 17:34:49', null, null, 'N', null, null, null, null, null, 'cfa31a67b50c84328036d1fc9d964ff47ffffea56ded727950ea40897b262157');
-INSERT INTO `ts_user` VALUES ('18', null, null, '', '80abf74d52ac608f99b6e23e2e121ef3', null, null, 'N', null, null, '2017-03-08 17:34:53', null, null, 'N', null, null, null, null, null, 'c093c2976b71d2ff61a7c82436062e217ffffea56ded7f9b333ae646f0e84a14');
-INSERT INTO `ts_user` VALUES ('19', null, null, '', 'a6e16f84486248144a949d847e76f2e1', null, null, 'N', null, null, '2017-03-08 17:34:52', null, null, 'N', null, null, null, null, null, '8a58da3a8f9baae054aedd418f23621e7ffffea56ded7e0a5da04d3e94ff963a');
-INSERT INTO `ts_user` VALUES ('20', null, null, '', 'fcb167375a7d596d2d76d563845485f7', null, null, 'N', null, null, '2017-03-08 17:36:26', null, null, 'N', null, null, null, null, null, '4474e1c971ea99e204bda3cb03698eb87ffffea56deec9cf1461a488cd59c788');
-INSERT INTO `ts_user` VALUES ('21', null, null, '', '5c3c0a1b365b98362e1a200562d38a0b', null, null, 'N', null, null, '2017-03-08 17:42:05', null, null, 'N', null, null, null, null, null, '11bf3443f560a723255f3dbd0622cd727ffffea56de4186d3d25c517cc60b018');
-INSERT INTO `ts_user` VALUES ('22', null, null, '', '9211b01abc7771bac5fa5764a45bd53e', null, null, 'N', null, null, '2017-03-08 17:42:28', null, null, 'N', null, null, null, null, null, '85e1b3a60d1284bf49c42070e5fff77b7ffffea56de4705b72eca7e9a95d0848');
+INSERT INTO `ts_user` VALUES ('25', null, null, 'pp@pp.com', 'bcfb36cf29792093282aaa69b7792134', null, null, 'N', null, null, '2017-03-08 17:59:01', null, null, 'N', null, null, null, null, null, '7919387d1eb4ab9844e63a3fe1703e127ffffea56df397603509b431a9f04159');
 
 -- ----------------------------
 -- Table structure for ts_userinfo
@@ -2156,14 +2358,7 @@ CREATE TABLE `ts_userinfo` (
 -- ----------------------------
 -- Records of ts_userinfo
 -- ----------------------------
-INSERT INTO `ts_userinfo` VALUES ('1', 'pp', null, null, '', null, null, null, null, null);
-INSERT INTO `ts_userinfo` VALUES ('1', 'yy', null, null, '', null, null, null, null, null);
-INSERT INTO `ts_userinfo` VALUES ('1', 'yy', null, null, '', null, null, null, null, null);
-INSERT INTO `ts_userinfo` VALUES ('1', 'yy', null, null, '', null, null, null, null, null);
-INSERT INTO `ts_userinfo` VALUES ('1', 'yy', null, null, '', null, null, null, null, null);
-INSERT INTO `ts_userinfo` VALUES ('1', '11', null, null, '', null, null, null, null, null);
-INSERT INTO `ts_userinfo` VALUES ('1', 'pp', null, null, '', null, null, null, null, null);
-INSERT INTO `ts_userinfo` VALUES ('1', 'pp', null, null, '', null, null, null, null, null);
+INSERT INTO `ts_userinfo` VALUES ('25', 'pp', null, null, 'pp@pp.com', null, null, null, null, null);
 
 -- ----------------------------
 -- Procedure structure for pxproc

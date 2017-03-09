@@ -88,7 +88,7 @@ public class MainService {
         List<TourBO> list=null;
 
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("day3",getDate(3));
+        map.put("day3","");
         map.put("language",language);
         try{
             list = tourMapper.getTourIndex(map);

@@ -4,12 +4,8 @@
     <!-- 查询旅游线路列表 -->
     <select id="getToursByCondition" resultMap="result" parameterType="java.util.Map">
         select
-        <if test="language =='en' || language=='zh'">
-            t.title_en,t.subtitle_en,
-        </if>
-        <if test="language =='fr'">
-            t.title_fr,t.subtitle_fr,
-        </if>
+        A.title,
+        B.subtitle,
         t.id,t.days,
         MIN(td.trd_time),
         ti.image_url,
@@ -17,6 +13,10 @@
         from tm_tour t
         left join tm_tour_image ti on t.id=ti.tour_id
         left join tm_tourdate td  on t.id=td.tour_id
+        LEFT JOIN
+        (SELECT b.content  title , a.id FROM tm_tour a JOIN ts_language b ON a.title = b.uuid and b.type='en') A ON t.id = A.id
+        LEFT JOIN
+        (SELECT b.content  subtitle ,a.id FROM tm_tour a JOIN ts_language b ON a.subtitle = b.uuid and b.type='en') B ON t.id = B.id
         <include refid="sqlWhere"></include>
         GROUP BY t.id
         ORDER BY t.id
