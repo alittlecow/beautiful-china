@@ -15,10 +15,10 @@ $(document).ready(function () {
             order();
         }
     });
-    //$("#sure1").on("click",function(){
-    //    //跳转到支付页面
-    //    window.location.href = "/payment?orderNo=" + orderNo + url;
-    //})
+    $("#sure1").on("click",function(){
+       //跳转到支付页面
+       window.location.href = "/payment?orderNo=" + orderNo + url;
+    })
 
 });
 /**
