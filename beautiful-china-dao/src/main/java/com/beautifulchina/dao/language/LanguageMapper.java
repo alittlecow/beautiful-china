@@ -12,6 +12,7 @@ import com.beautifulchina.language.Language;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public interface LanguageMapper extends SqlMapper {
@@ -23,4 +24,6 @@ public interface LanguageMapper extends SqlMapper {
     void insertLanguageItem(List<Language> languages);
 
     void insertLanguage(Language language);
+
+    String getLanguageContent(Map map);
 }

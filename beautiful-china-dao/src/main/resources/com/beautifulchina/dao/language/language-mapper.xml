@@ -16,4 +16,11 @@
         (uuid, type, content)
         values  (#{uuid},#{type},#{content})
     </insert>
+
+    <select id="getLanguageContent"  parameterType="java.util.Map" >
+
+        SELECT ts.content  FROM ts_language ts WHERE  ts.uuid = #{key} AND  ts.type=#{local}
+
+    </select>
+
 </mapper>
