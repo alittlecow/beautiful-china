@@ -13,13 +13,28 @@
 
     <!--获取英文主题列表-->
     <select id="getThemeById" resultType="com.beautifulchina.theme.bo.ThemeBO" parameterType="java.lang.String">
-       select A.id id,title,description `desc`,
-       photoOne,photoTwo,photoThree,photoFour
-       from(select t2.id id,t1.content title from
-       ts_language t1 left join tm_theme t2 on t1.uuid =t2.title  where type=#{language}) A
-       left join (select t2.id id,t1.content description, photo_one photoOne, photo_two photoTwo,
-       photo_three photoThree,photo_four photoFour from ts_language t1 left join tm_theme t2
-       on t1.uuid =t2.title  where type=#{language}) B on A.id=B.id where A.id=#{id}
+--        select A.id id,title,description `desc`,
+--        photoOne,photoTwo,photoThree,photoFour
+--        from(select t2.id id,t1.content title from
+--        ts_language t1 left join tm_theme t2 on t1.uuid =t2.title  where type=#{language}) A
+--        left join (select t2.id id,t1.content description, photo_one photoOne, photo_two photoTwo,
+--        photo_three photoThree,photo_four photoFour from ts_language t1 left join tm_theme t2
+--        on t1.uuid =t2.title  where type=#{language}) B on A.id=B.id where A.id=#{id};
+       SELECT
+        a.id id,
+        title,
+        `desc`,
+       photo_one photoOne,
+        photo_two photoTwo,
+       photo_three photoThree,
+       photo_four photoFour
+       from
+       tm_theme a
+       WHERE a.id=#{id}
+
+
+
+
     </select>
 
     <!--获取主页要显示主题-->

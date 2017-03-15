@@ -36,6 +36,7 @@
 
 <script src="/js/login/security.js"></script>
 <script src="/js/common/header.js"></script>
+<script src="/js/common/footer.js"></script>
 
 <div class="layer"></div>
 
