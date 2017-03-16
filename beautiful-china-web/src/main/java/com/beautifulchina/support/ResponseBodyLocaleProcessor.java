@@ -59,21 +59,7 @@ public class ResponseBodyLocaleProcessor extends AbstractMessageConverterMethodP
         String local = "en";
         // TODO: 2017/3/15
         //对本地化字段进行更新
-        doProcess(returnValue, local);
+        localeSupport.localeContent(returnValue, local);
         writeWithMessageConverters(returnValue, returnType, webRequest);
-    }
-
-    private Object doProcess(Object returnValue, String local) throws IllegalAccessException {
-        Field[] fields = returnValue.getClass().getDeclaredFields();
-        for (Field f : fields) {
-            Locale localeAnnotation = f.getAnnotation(Locale.class);
-            if (localeAnnotation != null) {
-                String fieldName = f.getName();
-                String key = (String) ReflectionUtils.getFieldValue(returnValue, fieldName);
-                String newContent = localeSupport.getLanguageContent(key, local);
-                ReflectionUtils.invokeSetterMethod(returnValue, fieldName, newContent);
-            }
-        }
-        return returnValue;
     }
 }

@@ -17,7 +17,7 @@
         values  (#{uuid},#{type},#{content})
     </insert>
 
-    <select id="getLanguageContent"  parameterType="java.util.Map" >
+    <select id="getLanguageContent" parameterType="java.util.Map" resultType="java.lang.String">
 
         SELECT ts.content  FROM ts_language ts WHERE  ts.uuid = #{key} AND  ts.type=#{local}
 

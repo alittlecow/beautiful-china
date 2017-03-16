@@ -28,7 +28,7 @@ import java.util.Locale;
  */
 @Controller
 @RequestMapping(value = "/")
-public class MainController extends BaseController {
+public class  MainController extends BaseController {
 
     @Autowired
     private MainService mainService;

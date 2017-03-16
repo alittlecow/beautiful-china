@@ -1,6 +1,4 @@
-package com.beautifulchina.support;
-
-import org.springframework.data.mongodb.core.mapping.Document;
+package core.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -12,7 +10,6 @@ import java.lang.annotation.Target;
  * @date 2017/3/15
  */
 @Target(ElementType.FIELD)
-@Document
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Locale {
 }

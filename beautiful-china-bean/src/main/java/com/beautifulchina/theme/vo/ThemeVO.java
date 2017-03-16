@@ -8,6 +8,7 @@ package com.beautifulchina.theme.vo;
 
 
 import com.beautifulchina.base.BaseBean;
+import core.annotation.Locale;
 
 /**
  * 主页要显示的主题
@@ -27,10 +28,12 @@ public class ThemeVO extends BaseBean {
     /**
      * 目的地标题
      */
+    @Locale
     private String title;
     /**
      * 主题描述
      */
+    @Locale
     private String desc;
 
     public String getDesc() {

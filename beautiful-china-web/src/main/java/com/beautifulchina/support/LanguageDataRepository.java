@@ -1,11 +1,13 @@
 package com.beautifulchina.support;
 
 import com.beautifulchina.dao.language.LanguageMapper;
+import com.beautifulchina.util.ReflectionUtils;
+import core.annotation.Locale;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.lang.reflect.Field;
+import java.util.*;
 
 /**
  * @author pengx
@@ -23,5 +25,26 @@ public class LanguageDataRepository implements LocaleSupport {
         params.put("local", local);
         String content = languageMapper.getLanguageContent(params);
         return content != null ? content : "";
+    }
+
+
+    public void localeContent(Object object, String local) {
+        //获取所有父类中的字段
+        List<Field> fieldList = new ArrayList<Field>();
+        Class cls = object.getClass();
+        do {
+            fieldList.addAll(Arrays.asList(cls.getDeclaredFields()));
+            cls = cls.getSuperclass();
+        } while (cls != null);
+
+        for (Field f : fieldList) {
+            Locale localeAnnotation = f.getAnnotation(Locale.class);
+            if (localeAnnotation != null) {
+                String fieldName = f.getName();
+                String key = (String) ReflectionUtils.getFieldValue(object, fieldName);
+                String newContent = getLanguageContent(key, local);
+                ReflectionUtils.invokeSetterMethod(object, fieldName, newContent);
+            }
+        }
     }
 }

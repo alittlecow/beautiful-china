@@ -10,6 +10,7 @@ package com.beautifulchina.base;
 import com.beautifulchina.constants.CommonErrorCode;
 import com.beautifulchina.exception.BaseException;
 import com.beautifulchina.exception.CommonException;
+import com.beautifulchina.support.LocaleSupport;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +25,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.support.RequestContext;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 
@@ -33,6 +35,8 @@ import java.util.*;
 public class BaseController implements MessageSourceAware {
 
     protected MessageSource resource;
+    @Resource
+    protected LocaleSupport localeSupport;
 
     /**
      * 成功的Status Code.
@@ -212,12 +216,14 @@ public class BaseController implements MessageSourceAware {
         map.put("msg", "System error!");
         return new ResponseEntity<Map<String, String>>(map, HttpStatus.OK);
     }
+
     /**
      * 获取当前请求语言类型
+     *
      * @param request
      * @return
      */
-    public String getLocal(HttpServletRequest request){
+    public String getLocal(HttpServletRequest request) {
         RequestContext requestContext = new RequestContext(request);
         Locale locale = requestContext.getLocale();
         String language = locale.getLanguage();
