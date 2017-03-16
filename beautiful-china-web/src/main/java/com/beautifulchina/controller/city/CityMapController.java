@@ -20,14 +20,14 @@ import java.util.Map;
  * date: 2016-01-16
  */
 @Controller
-@RequestMapping("geoMap")
+@RequestMapping(value="geoMap")
 public class CityMapController extends BaseController{
     @Autowired
     private CityMapService cityMapService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String index() {
-        return "/city/CityMap";
+        return "/city/cityMap";
     }
 
     @RequestMapping(value = "getIdbyCItyName")

@@ -23,12 +23,11 @@ $(document).ready(function () {
             for (var i = 0; i < tourDetails.length; i++) {
                 var html = "<div> <div> <h4><span>" + theDay + tourDetails[i].day + "</span>&nbsp;&nbsp;&nbsp;" + tourDetails[i].title +
                     "</h4> </div> <div>" +
-                    "<div class='tourContent'><br/>" + tourDetails[i].content + "</div><br/><br/><hr> " +
-                    " <div ><b>" + destinations + "&nbsp;&nbsp;</b><br/><br/>" + tourDetails[i].destination + "<br/><br/><hr>" +
-                    "<b>" + transport + "&nbsp;&nbsp;</b>" + tourDetails[i].transport + "<br/><br/><hr></div> " +
-
-                    "<div> <b>" + hotel + "&nbsp;&nbsp;</b><br/><br/>" + tourDetails[i].hotel + "<br/><br/><hr>" +
-                    "<b>" + meals + "&nbsp;&nbsp;</b>" + tourDetails[i].meals + "</div> </div> </div><br/><br/>"
+                    "<div class='tourContent'><br/>" + tourDetails[i].content + "</div> " +
+                    " <div >"+
+                    "<b>" + transport + "&nbsp;&nbsp;</b>" + tourDetails[i].transport + "</div> " +
+                    "<div> <b>" + hotel + "&nbsp;&nbsp;</b>" + tourDetails[i].hotel + "<br/>" +
+                    "<b>" + meals + "&nbsp;&nbsp;</b>" + tourDetails[i].meals + "</div> </div> </div><br/>"
 
                 //将封装好的div添加到tourBox中
                 var div = $("<div></div>").html(html).addClass("dayTourList");

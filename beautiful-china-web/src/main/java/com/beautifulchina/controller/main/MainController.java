@@ -44,12 +44,12 @@ public class  MainController extends BaseController {
         List<IndexBO> bannerList = mainService.getBanner();//首页四张图片的查询
         List<TourBO> tourList = mainService.getTour(language);//获取6条旅游线路图片,价格,标题等信息
         List<ThemeVO> themeList =  mainService.getTheme(language);
-        List<TourBO> tourListFirst = mainService.getTourFirst(language);//获取3条旅游线路图片,价格,标题等信息
+//        List<TourBO> tourListFirst = mainService.getTourFirst(language);//获取3条旅游线路图片,价格,标题等信息
         List<CityVO> indexCityVOList = mainService.getIndexCity(language);//获取6个城市展示，图片，名称
         request.setAttribute("bannerList",bannerList);
         request.setAttribute("tourList", tourList);
         request.setAttribute("themeList", themeList);
-        request.setAttribute("tourListFirst", tourListFirst);
+//        request.setAttribute("tourListFirst", tourListFirst);
         request.setAttribute("indexCityVOList", indexCityVOList);
         return "index";
     }

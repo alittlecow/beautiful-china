@@ -44,20 +44,20 @@ public class ToursImageService {
             //图片路径
             toursImageBO.setImageUrl(toursImage.getImageUrl());
             String Url = toursImage.getImageUrl();
-            String[] str = Url.split("\\/");
-            //图片 "."之前的路径
-            String prefix = "";
-            //图片的格式
-            String suffix = str[str.length - 1];
-            for (int i = 0; i < str.length - 1; i++) {
-                prefix += str[i] + "/";
-            }
+//            String[] str = Url.split("\\/");
+//            //图片 "."之前的路径
+//            String prefix = "";
+//            //图片的格式
+//            String suffix = str[str.length - 1];
+//            for (int i = 0; i < str.length - 1; i++) {
+//                prefix += str[i] + "/";
+//            }
             //大图片路径
-            toursImageBO.setImageLarge(prefix + "large_" + suffix);
+            toursImageBO.setImageLarge(Url);
             //中等图片路径
-            toursImageBO.setImageMedium(prefix + "medium_" + suffix);
+            toursImageBO.setImageMedium(Url);
             //小图片路径
-            toursImageBO.setImageSmall(prefix + "small_" + suffix);
+            toursImageBO.setImageSmall(Url);
             toursImageBO.setOrders(toursImage.getOrders());
             toursImageBOList.add(toursImageBO);
         }

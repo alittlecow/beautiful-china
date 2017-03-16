@@ -26,9 +26,6 @@
        tm_theme a
        WHERE a.id=#{id}
 
-
-
-
     </select>
 
     <!--获取主页要显示主题-->
