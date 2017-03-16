@@ -8,6 +8,7 @@
 package com.beautifulchina.city;
 
 import com.beautifulchina.base.BaseBean;
+import core.annotation.Locale;
 
 /**
  * 城市类
@@ -22,6 +23,7 @@ public class CityVO extends BaseBean {
     /**
      * 城市名
      */
+    @Locale
     private String name;
 
     /**

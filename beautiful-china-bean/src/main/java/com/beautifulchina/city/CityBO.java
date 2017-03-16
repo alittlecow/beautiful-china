@@ -8,10 +8,13 @@
 package com.beautifulchina.city;
 
 
+import core.annotation.Locale;
+
 public class CityBO extends CityVO {
     /**
      * 城市描述
      */
+    @Locale
     private String desc;
     /**
      * 城市图片1

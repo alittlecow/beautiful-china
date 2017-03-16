@@ -54,6 +54,7 @@ public class  MainController extends BaseController {
         return "index";
     }
 
+
     /**
      * 设置语言的类型
      * @param request

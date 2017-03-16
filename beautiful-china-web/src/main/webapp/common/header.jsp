@@ -107,9 +107,9 @@
     </div>
     <input type="hidden" id="longitudeT" name="longitudeT">
     <!-- End top line-->
-    <%--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9vTacp_Xq7PPdTb9-d7-tpHGnZJUEI_c&signed_in=true&callback=initMap"--%>
-            <%--async defer>--%>
-    <%--</script>--%>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9vTacp_Xq7PPdTb9-d7-tpHGnZJUEI_c&signed_in=true&callback=initMap"
+            async defer>
+    </script>
     <script type="text/javascript">
         //谷歌地图定位
         function initMap() {

@@ -4,10 +4,10 @@
     <!--新增多语言数据-->
     <insert id="insertLanguageItem">
         insert into ts_language
-        (uuid, type, content)
+        (uuid, type, content, operate_at,operate_by)
         values
         <foreach collection="list" item="item" index="index" separator=",">
-            (#{item.uuid},#{item.type},#{item.content})
+            (#{item.uuid},#{item.type},#{item.content},#{item.operatorAt},#{item.operateBy})
         </foreach>
     </insert>
     <!--新增多语言数据-->

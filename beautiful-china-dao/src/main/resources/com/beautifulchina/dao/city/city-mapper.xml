@@ -32,16 +32,9 @@
         photo_two photoTwo,
         photo_three photoThree,
         photo_four photoFour,
-        c.`desc` ,
-        c.`name`
-        FROM tm_city t1  JOIN
-        (
-        SELECT `name`, `desc`,A.`id` FROM
-        (SELECT t1.content `name`,t2.id  id FROM ts_language t1 LEFT JOIN tm_city t2 ON t1.uuid =t2.name  WHERE TYPE=#{language} AND t2.`id`=#{id}) A
-        LEFT JOIN
-        (SELECT t1.content `desc`,t2.id  id FROM ts_language t1 LEFT JOIN tm_city t2 ON t1.uuid =t2.name  WHERE TYPE=#{language} AND t2.`id`=#{id}) B  ON A.id =B.id
-        )c
-        ON t1.`id` = c.id
+        t1.`desc` ,
+        t1.`name`
+        FROM tm_city t1
         WHERE t1.id=#{id}
     </select>
 

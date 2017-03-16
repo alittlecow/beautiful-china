@@ -8,15 +8,16 @@
 package com.beautifulchina.controller.json;
 
 import com.beautifulchina.base.BaseController;
+import com.beautifulchina.dao.language.LanguageMapper;
+import com.beautifulchina.language.Language;
 import com.beautifulchina.user.vo.UserVO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * json相关请求测试类
@@ -24,6 +25,8 @@ import java.util.Map;
 @Controller
 @RequestMapping(value = "/json")
 public class JsonTestController extends BaseController {
+    @Autowired
+    private LanguageMapper languageMapper;
 
     /**
      * 简单对象转换实例
@@ -37,6 +40,32 @@ public class JsonTestController extends BaseController {
         System.out.println(userVO.getUserId());
         System.out.println(userVO.getUserName());
         System.out.println("------getJSON1---end----");
+        Map<String, Object> result = successResult();
+        return result;
+    }
+
+    @RequestMapping(value = "insertData")
+    public Map<String, Object> testInsert() {
+        int count = 300;
+        for (int i = 0; i < count; i++) {
+            List<Language> languageList = new ArrayList<Language>();
+            String uuid = UUID.randomUUID().toString().replace("-", "");
+            Language language;
+            List<String> languages = Arrays.asList(new String[]{"en", "fr", "zh"});
+            for (int j = 0; j < languages.size(); j++) {
+                language = new Language();
+                language.setUuid(uuid);
+                String num = "00" + i;
+                language.setContent("待使用uuid" + num.substring(num.length()-3));
+                language.setType(languages.get(j));
+                language.setOperatorAt(new Date());
+                language.setOperateBy("root");
+                languageList.add(language);
+            }
+            languageMapper.insertLanguageItem(languageList);
+            System.out.println("....count=" + i);
+
+        }
         Map<String, Object> result = successResult();
         return result;
     }

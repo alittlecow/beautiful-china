@@ -7,6 +7,8 @@
 package com.beautifulchina.language;
 
 
+import java.util.Date;
+
 /**
  *
  * 多语言数据字典类
@@ -24,6 +26,26 @@ public class Language {
      * 内容
      */
     private String content;
+
+    private Date operatorAt;
+
+    private String  operateBy;
+
+    public Date getOperatorAt() {
+        return operatorAt;
+    }
+
+    public void setOperatorAt(Date operatorAt) {
+        this.operatorAt = operatorAt;
+    }
+
+    public String getOperateBy() {
+        return operateBy;
+    }
+
+    public void setOperateBy(String operateBy) {
+        this.operateBy = operateBy;
+    }
 
     public String getUuid() {
         return uuid;

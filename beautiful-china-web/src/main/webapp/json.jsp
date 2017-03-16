@@ -88,19 +88,32 @@
       }
 
 
-      function test5(){
-        var jsonArray=[{userId:"1",userName:"name1"},{userId:"2",userName:"name2"}];
-        var jsonString=JSON.stringify(jsonArray);
+      function test6(){
         $.ajax({
           type: "POST",
-          data: jsonString,
-          url: "/json/getJSON5?t=" + new Date().getTime(),
+          url: "/json/insertData" ,
           contentType: "application/json",
           dataType:'json',
           success:function(msg){
             alert(msg.result);
           }
         });
+      }
+
+
+      function test5(){
+          var jsonArray=[{userId:"1",userName:"name1"},{userId:"2",userName:"name2"}];
+          var jsonString=JSON.stringify(jsonArray);
+          $.ajax({
+              type: "POST",
+              data: jsonString,
+              url: "/json/getJSON5?t=" + new Date().getTime(),
+              contentType: "application/json",
+              dataType:'json',
+              success:function(msg){
+                  alert(msg.result);
+              }
+          });
       }
     </script>
 </head>
@@ -110,6 +123,7 @@
 <button type="button" onclick="test3()">test3</button>
 <button type="button" onclick="test4()">test4</button>
 <button type="button" onclick="test5()">test5</button>
+<button type="button" onclick="test6()">插入数据</button>
 
 
 </body>
