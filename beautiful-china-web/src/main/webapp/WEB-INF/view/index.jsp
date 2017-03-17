@@ -337,7 +337,7 @@
 
 
 
-                <div align="middle"><h2><span><spring:message code="Firsttour"/></span> <spring:message code="trips"/></h2></div>
+                <%--<div align="middle"><h2><span><spring:message code="Firsttour"/></span> <spring:message code="trips"/></h2></div>--%>
                 <%--<div class="row">--%>
                     <%--<div class="col-md-3 col-sm-6 text-center">--%>
                         <%--<p>--%>
@@ -376,36 +376,36 @@
                         <%--</p>--%>
                     <%--</div>--%>
                 <%--</div><!-- End row -->--%>
-                <div class="row">
-                    <!-- 循环输入6条线路的图片,标题,价格 -->
-                    <c:forEach var="tour" items="${tourListFirst}" varStatus="status">
-                        <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.${status.count}s">
-                            <div class="tour_container">
-                                <div class="img_container">
-                                    <a href="/toursdetail/${tour.tourId}">
-                                        <img src="${tour.image}" class="img-responsive"  width="358" height="258" alt="">
-                                        <%--<div class="ribbon popular"></div>--%>
-                                        <div class="short_info">
-                                        <span class="price"><sup>$</sup>
-                                            <fmt:formatNumber value="${tour.price}"/>
-                                        </span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="tour_title">
-                                    <h3><strong>${tour.title}</strong> tour</h3>
-                                        <%--<div class="rating">--%>
-                                        <%--<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><small>(75)</small>--%>
-                                        <%--</div><!-- end rating -->--%>
-                                        <%--<div class="wishlist">--%>
-                                        <%--<a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);">+<span class="tooltip-content-flip"><span class="tooltip-back">Add to wishlist</span></span></a>--%>
-                                        <%--</div><!-- End wish list-->--%>
-                                </div>
-                            </div><!-- End box tour -->
-                        </div><!-- End col-md-4 -->
-                    </c:forEach>
+                <%--<div class="row">--%>
+                    <%--<!-- 循环输入6条线路的图片,标题,价格 -->--%>
+                    <%--<c:forEach var="tour" items="${tourListFirst}" varStatus="status">--%>
+                        <%--<div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.${status.count}s">--%>
+                            <%--<div class="tour_container">--%>
+                                <%--<div class="img_container">--%>
+                                    <%--<a href="/toursdetail/${tour.tourId}">--%>
+                                        <%--<img src="${tour.image}" class="img-responsive"  width="358" height="258" alt="">--%>
+                                        <%--&lt;%&ndash;<div class="ribbon popular"></div>&ndash;%&gt;--%>
+                                        <%--<div class="short_info">--%>
+                                        <%--<span class="price"><sup>$</sup>--%>
+                                            <%--<fmt:formatNumber value="${tour.price}"/>--%>
+                                        <%--</span>--%>
+                                        <%--</div>--%>
+                                    <%--</a>--%>
+                                <%--</div>--%>
+                                <%--<div class="tour_title">--%>
+                                    <%--<h3><strong>${tour.title}</strong> tour</h3>--%>
+                                        <%--&lt;%&ndash;<div class="rating">&ndash;%&gt;--%>
+                                        <%--&lt;%&ndash;<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><small>(75)</small>&ndash;%&gt;--%>
+                                        <%--&lt;%&ndash;</div><!-- end rating -->&ndash;%&gt;--%>
+                                        <%--&lt;%&ndash;<div class="wishlist">&ndash;%&gt;--%>
+                                        <%--&lt;%&ndash;<a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);">+<span class="tooltip-content-flip"><span class="tooltip-back">Add to wishlist</span></span></a>&ndash;%&gt;--%>
+                                        <%--&lt;%&ndash;</div><!-- End wish list-->&ndash;%&gt;--%>
+                                <%--</div>--%>
+                            <%--</div><!-- End box tour -->--%>
+                        <%--</div><!-- End col-md-4 -->--%>
+                    <%--</c:forEach>--%>
 
-                </div>
+                <%--</div>--%>
             </div><!-- End container -->
         </div><!-- End white_bg -->
 

@@ -11,12 +11,17 @@ import com.beautifulchina.base.BaseController;
 import com.beautifulchina.dao.language.LanguageMapper;
 import com.beautifulchina.language.Language;
 import com.beautifulchina.user.vo.UserVO;
+import org.apache.commons.lang.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.*;
 
 /**
@@ -27,6 +32,38 @@ import java.util.*;
 public class JsonTestController extends BaseController {
     @Autowired
     private LanguageMapper languageMapper;
+
+
+    public static void main(String[] args) {
+
+        try {
+            insertTourDate();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void insertTourDate() throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.jdbc.Driver");
+        String url = "jdbc:mysql://139.199.63.230:3306/beautiful?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull";
+        String user = "root";
+        String password = "a6P7yGnpw4Z9";
+        Connection connection = DriverManager.getConnection(url, user, password);
+        String insertSql = "INSERT INTO tm_tourdate(tour_id,trd_time,trd_price,trd_inventory,trd_sales,trd_pending,trd_remain,trd_warn) " +
+                "VALUES(1,?,39854,100,0,0,100,10)";
+        PreparedStatement preparedStatement = connection.prepareStatement(insertSql);
+        Date day = new Date();
+        for (int i = 0; i < 365; i++) {
+            preparedStatement.setObject(1, day);
+            day = DateUtils.addDays(day, 1);
+            System.out.println("日期:"+day +"  数量:"+i);
+            preparedStatement.addBatch();
+        }
+        preparedStatement.executeBatch();
+
+    }
 
     /**
      * 简单对象转换实例
@@ -56,7 +93,7 @@ public class JsonTestController extends BaseController {
                 language = new Language();
                 language.setUuid(uuid);
                 String num = "00" + i;
-                language.setContent("待使用uuid" + num.substring(num.length()-3));
+                language.setContent("待使用uuid" + num.substring(num.length() - 3));
                 language.setType(languages.get(j));
                 language.setOperatorAt(new Date());
                 language.setOperateBy("root");

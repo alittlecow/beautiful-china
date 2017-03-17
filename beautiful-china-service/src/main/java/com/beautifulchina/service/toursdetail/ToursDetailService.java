@@ -43,6 +43,8 @@ public class ToursDetailService {
             ToursDetailBO toursDetailBO = new ToursDetailBO();
             //行程第几天
             toursDetailBO.setDay(toursDetail.getDay());
+            toursDetailBO.setPhotoOne(toursDetail.getPhotoOne());
+            toursDetailBO.setPhotoTwo(toursDetail.getPhotoTwo());
             // 根据前端语言类型查询对应的字段
             if ("fr".equals(language)) {
                 //法文
@@ -52,6 +54,7 @@ public class ToursDetailService {
                 toursDetailBO.setHotel(toursDetail.getHotelFr());
                 toursDetailBO.setMeals(toursDetail.getMealsFr());
                 toursDetailBO.setTransport(toursDetail.getTransportFr());
+
             } else {
                 //英文
                 toursDetailBO.setTitle(toursDetail.getTitleEn());
