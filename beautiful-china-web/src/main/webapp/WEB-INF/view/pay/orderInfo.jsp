@@ -6,7 +6,7 @@
 <html> <!--<![endif]-->
 <head>
 
-    <%@ include file="/common/head.jsp" %>
+
 
     <title>BEAUTIFUL CHINA</title>
 
@@ -23,7 +23,6 @@
         font-size: 12px;
         color: red;
     }
-
     span.adult {
         font-size: 14px;
         background: #60b7ff;
@@ -36,6 +35,22 @@
         padding: 2px;
     }
 </style>
+<!-- header -->
+<%@ include file="/common/head.jsp" %>
+<%@include file="/common/header.jsp" %>
+
+<script src="/js/pay/orderinfo.js"></script>
+<script src="/js/common/icheck.js"></script>
+<script src="/js/common/jquery.validate.js"></script>
+<script>
+    var agreePolicy = "<spring:message code="agreePolicy"/>";
+    var notnull = "<spring:message code="required_100000"/>";
+    var error_tel_en = "<spring:message code="payment_100001"/>";
+    var error_ensure_email = "<spring:message code="payment_100002"/>";
+    var orderSuccess = "<spring:message code="payment_100003"/>";
+    var orderFail = "<spring:message code="payment_100004"/>";
+    var nonlogin = "<spring:message code="payment_100005"/>";
+</script>
 
 <script>
     $(document).ready(function () {
@@ -96,50 +111,49 @@
             },
             messages: {
                 policy_terms: {
-                    required: agreePolicy,
+                    required: "需要同意相关协议",
                 },
                 fullname_booking: {
-                    required: notnull,
+                    required: "不能为空",
                 },
                 telephone_booking: {
-                    required: notnull
+                    required: "不能为空"
                 },
                 email_booking: {
-                    email: erroremail,
-                    required: notnull
+                    email: "邮箱格式错误",
+                    required: "不能为空"
 
                 },
                 email_booking_2: {
-                    required: notnull,
-                    email: erroremail,
-                    equalTo: error_ensure_email
+                    required: "不能为空",
+                    email: "邮箱格式错误",
+                    equalTo: "邮箱重复校验错误"
                 },
                 <%
                     for(int i = 1; i <= count; i++) {
                 %>
                 fullName<%=i%>: {
-                    required: notnull
+                    required: "不能为空"
                 },
                 email<%=i%>: {
-                    email: erroremail,
-                    required: notnull
+                    email: "邮箱格式错误",
+                    required: "不能为空"
                 },
                 sex<%=i%>: {
-                    required: notnull
+                    required: "不能为空"
                 },
                 phone<%=i%>: {
-                    required: notnull
+                    required: "不能为空"
                 },
                 nationality<%=i%>: {
-                    required: notnull
+                    required: "不能为空"
                 },
                 passport<%=i%>: {
-                    required: notnull
+                    required: "不能为空"
                 },
                 childAge<%=i%>: {
-                    required: notnull
+                    required: "不能为空"
                 },
-
                 <%
                     }
                 %>
@@ -166,8 +180,7 @@
 </script>
 <body>
 
-<!-- header -->
-<%@include file="/common/header.jsp" %>
+
 
 <!--tourid -->
 <input type="hidden" id="tourId" value="${param.tourId}">
@@ -572,18 +585,6 @@
 <%--<!-- Common scripts -->--%>
 <%--<%@include file="/common/script.jsp" %>--%>
 <!-- Specific scripts -->
-<script src="/js/pay/orderinfo.js"></script>
-<script src="/js/common/icheck.js"></script>
-<script src="/js/common/jquery.validate.js"></script>
-<script>
-    var agreePolicy = "<spring:message code="agreePolicy"/>";
-    var notnull = "<spring:message code="required_100000"/>";
-    var error_tel_en = "<spring:message code="payment_100001"/>";
-    var error_ensure_email = "<spring:message code="payment_100002"/>";
-    var orderSuccess = "<spring:message code="payment_100003"/>";
-    var orderFail = "<spring:message code="payment_100004"/>";
-    var nonlogin = "<spring:message code="payment_100005"/>";
-</script>
 
 </body>
 </html>

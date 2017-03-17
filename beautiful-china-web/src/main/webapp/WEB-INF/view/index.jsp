@@ -72,7 +72,7 @@
                                 </a>
                             </div>
                             <div class="tour_title">
-                                <h3><strong>${tour.title}
+                                <h3><strong>${tour.title}</strong> tour</h3>
                             </div>
                         </div><!-- End box tour -->
                     </div><!-- End col-md-4 -->
@@ -100,7 +100,7 @@
                                 </a>
                             </div>
                             <div class="tour_title">
-                                <h3><strong>${theme.title}
+                                <h3><strong>${theme.title}</strong> tour</h3>
                                     <%--<div class="rating">--%>
                                     <%--<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><small>(75)</small>--%>
                                     <%--</div><!-- end rating -->--%>
@@ -260,7 +260,7 @@
                                     </a>
                                 </div>
                                 <div class="tour_title">
-                                    <h3><strong>${city.name} </h3>
+                                    <h3><strong>${city.name}</strong> <spring:message code="City"/> </h3>
 
                                 </div>
                             </div><!-- End box cities -->
@@ -376,8 +376,8 @@
                         <%--</p>--%>
                     <%--</div>--%>
                 <%--</div><!-- End row -->--%>
-                <div class="row">
-                    <!-- 循环输入6条线路的图片,标题,价格 -->
+                <%--<div class="row">--%>
+                    <%--<!-- 循环输入6条线路的图片,标题,价格 -->--%>
                     <%--<c:forEach var="tour" items="${tourListFirst}" varStatus="status">--%>
                         <%--<div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.${status.count}s">--%>
                             <%--<div class="tour_container">--%>
@@ -405,7 +405,7 @@
                         <%--</div><!-- End col-md-4 -->--%>
                     <%--</c:forEach>--%>
 
-                </div>
+                <%--</div>--%>
             </div><!-- End container -->
         </div><!-- End white_bg -->
 

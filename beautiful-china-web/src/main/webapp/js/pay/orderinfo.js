@@ -6,25 +6,31 @@ $(document).ready(function () {
 
     $("#book2").on('click', function () {
         //验证用户是否登录
-        userId = $("#userId").val();
-        if (userId == "") {
-            $("#loginFirst").modal();
-            return;
-        }
-        if ($("#orderForm").valid()) {
-            order();
-        }
+        // userId = $("#userId").val();
+        // if (userId == "") {
+        //     $("#loginFirst").modal();
+        //     return;
+        // }
+        // if ($("#orderForm").valid()) {
+        //     order();
+        // }
+        $("#myModal2").modal();
+        $("#modal-body2").show();
+        $("#modal-body3").hide();
+        $("#myModal2").modal('show');
+
+        // $("#myModal2").modal("toggle");
     });
-    $("#sure1").on("click",function(){
-       //跳转到支付页面
-       window.location.href = "/payment?orderNo=" + orderNo + url;
+    $("#sure1").on("click", function () {
+        //跳转到支付页面
+        window.location.href = "/payment?orderNo=" + orderNo + url;
     })
 
 });
 /**
  * 添加联系人信息
  */
-function addContact(obj){
+function addContact(obj) {
     // 联系人信息
     var contact = obj.value;
     //全名
@@ -46,7 +52,7 @@ function addContact(obj){
     $("#telephone_booking").val(tel);
     $("#nationality_booking").val(nationality);
     //$("#sex_booking").val(sex);
-   // $("#sex_booking").attr("value",sex);
+    // $("#sex_booking").attr("value",sex);
     $("#sex_booking").val(sex);
 
     //$("#sex_booking").get(0).value = sex;
@@ -59,7 +65,7 @@ function addContact(obj){
 }
 
 //旅客对象
-function passenger(fullName,email, sex, nationality, passport, phone, type,childType) {
+function passenger(fullName, email, sex, nationality, passport, phone, type, childType) {
     this.fullName = fullName;
     this.email = email;
     this.sex = sex;
@@ -67,34 +73,34 @@ function passenger(fullName,email, sex, nationality, passport, phone, type,child
     this.passport = passport;
     this.phone = phone;
     this.type = type;
-    this.childType= childType;
+    this.childType = childType;
 }
 //订单付款明细对象
-function orderDetail(type,valueId,upGrade,price,totalPrice){
-    this.type=type;
-    this.valueId=valueId;
-    this.upGrade=upGrade;
-    this.price=price;
-    this.totalPrice=totalPrice;
+function orderDetail(type, valueId, upGrade, price, totalPrice) {
+    this.type = type;
+    this.valueId = valueId;
+    this.upGrade = upGrade;
+    this.price = price;
+    this.totalPrice = totalPrice;
 
 }
-function getAllOrderDetail(){
+function getAllOrderDetail() {
     var orderDetails = new Array();
     //保存付款详情条数
-    var count=0;
+    var count = 0;
     //总人数
     var total_person = $("#total_person").text();
     //自身价格
-    var x_price=$("#tourPrice").text();
-    var tourId=$("#tourId").val();
-    orderDetails[count++] = new orderDetail("X",tourId,"N",x_price,total_person*x_price);
+    var x_price = $("#tourPrice").text();
+    var tourId = $("#tourId").val();
+    orderDetails[count++] = new orderDetail("X", tourId, "N", x_price, total_person * x_price);
 
     //获取增值服务价格
     var options = document.getElementsByName("option");
-    for(var i=0; i<options.length;i++){
-        var price=options[i].value.split("-")[0];
-        var valueId=options[i].value.split("-")[1];
-        orderDetails[count++] = new orderDetail("O",valueId,"N",price,total_person*price);
+    for (var i = 0; i < options.length; i++) {
+        var price = options[i].value.split("-")[0];
+        var valueId = options[i].value.split("-")[1];
+        orderDetails[count++] = new orderDetail("O", valueId, "N", price, total_person * price);
     }
     //TODO:酒店和税金
     return orderDetails;
@@ -138,10 +144,12 @@ function order() {
     //旅客列表
     var passengerVOList = getAllPassenger();
     //订单付款明细列表
-    var orderDetailVOList=getAllOrderDetail();
+    var orderDetailVOList = getAllOrderDetail();
     //json对象
-    var jsonObject = {orderVO: orderVO, passengerVOList: passengerVOList,
-        orderDetailVOList:orderDetailVOList};
+    var jsonObject = {
+        orderVO: orderVO, passengerVOList: passengerVOList,
+        orderDetailVOList: orderDetailVOList
+    };
     var jsonString = JSON.stringify(jsonObject);
     $.ajax({
         type: "POST",
@@ -150,6 +158,7 @@ function order() {
         contentType: "application/json",
         dataType: 'json',
         success: function (msg) {
+            $("#myModal2").modal('show');
             if (msg.result == 'ok') {
                 orderNo = msg.data;
                 //页面跳转bootstrap弹出框不显示
@@ -161,7 +170,6 @@ function order() {
                 $("#modal-body3").show();
             }
             $("#myModal2").modal("toggle");
-
         }
     });
 }

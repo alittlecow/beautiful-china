@@ -18,16 +18,32 @@ $(document).ready(function () {
             //标题
             var tourDetails = msg.data;
 
+
             //按照day的顺序从小到大排列
             //加载线路明细
             for (var i = 0; i < tourDetails.length; i++) {
                 var html = "<div> <div> <h4><span>" + theDay + tourDetails[i].day + "</span>&nbsp;&nbsp;&nbsp;" + tourDetails[i].title +
                     "</h4> </div> <div>" +
-                    "<div class='tourContent'><br/>" + tourDetails[i].content + "</div> " +
-                    " <div >"+
-                    "<b>" + transport + "&nbsp;&nbsp;</b>" + tourDetails[i].transport + "</div> " +
-                    "<div> <b>" + hotel + "&nbsp;&nbsp;</b>" + tourDetails[i].hotel + "<br/>" +
-                    "<b>" + meals + "&nbsp;&nbsp;</b>" + tourDetails[i].meals + "</div> </div> </div><br/>"
+                    "<div class='tourContent'>" + tourDetails[i].content +
+                    "<div class='row'>" +
+                    "<div class='ol-md-4 col-sm-6 wow zoomIn' data-wow-delay='0.1'>" +
+                    "<div class='img_container'> " +
+                    " <img src='  " + tourDetails[i].photoOne + "' class='img-responsive' width='358' height='258' >" +
+                    "</div>" +
+                    "</div>" +
+                    "<div class='ol-md-4 col-sm-6 wow zoomIn' data-wow-delay='0.2'>" +
+                    "<div class='img_container'> " +
+                    " <img src='  " + tourDetails[i].photoTwo + "' class='img-responsive' width='358' height='258' >" +
+                    "</div>" +
+                    "</div>" +
+                    "</div>" +
+                    "</div><br/> " +
+                    "<ul>" +
+                    " <li><font color='teal'>目的地:&nbsp;&nbsp;</font>" + tourDetails[i].destination + "</li>" +
+                    " <li><font color='teal'>住宿:&nbsp;&nbsp;</font>" + tourDetails[i].hotel + "</li>" +
+                    "<li><font color='teal'>餐饮:&nbsp;&nbsp;</font>" + tourDetails[i].meals + "</li>" +
+                    "</ul>" +
+                    " </div> </div><br/>"
 
                 //将封装好的div添加到tourBox中
                 var div = $("<div></div>").html(html).addClass("dayTourList");
@@ -49,71 +65,36 @@ $(document).ready(function () {
             for (i = 0; i < toursConfigBO.length; i++) {
                 var type = toursConfigBO[i].type;
                 if (type == "include") {
-                    var includes = toursConfigBO[i].content;
-                    var inlcude = includes.split("(;)");
-                    //分成两栏
-                    for (x = 0; x < inlcude.length - 1; x++) {
-                        var includelist = $("<li></li>").text(inlcude[x]);
-                        if (x % 2 == 0) {
-                            $("#includeList_left").append(includelist);
-                        }
-                        else {
-                            $("#includeList_right").append(includelist);
-                        }
-                    }
+                    var includelist = $("<li></li>").html("<font color='teal'>" + toursConfigBO[i].name + "&nbsp;&nbsp;:&nbsp;&nbsp;</font>" + toursConfigBO[i].content);
+                    $("#includeList_left").append(includelist);
                 }
                 //type类型为exclude
                 if (type == "exclude") {
-                    var excludes = toursConfigBO[i].content;
-                    //分成两栏
-                    var exclude = excludes.split("(;)");
-                    for (y = 0; y < exclude.length - 1; y++) {
-                        var excludeList = $("<li></li>").text(exclude[y]);
-                        if (y % 2 == 0) {
-                            $("#excludeList_left").append(excludeList);
-                        }
-                        else {
-                            $("#excludeList_right").append(excludeList);
-                        }
-                    }
+                    var execlude = $("<li></li>").html("<font color='teal'>" + toursConfigBO[i].name + "&nbsp;&nbsp;:&nbsp;&nbsp;</font>" + toursConfigBO[i].content);
+                    $("#excludeList_left").append(execlude);
                 }
                 //type类型为term
                 if (type == "term") {
-                    var terms = toursConfigBO[i].content;
-                    //分成两栏
-                    var term = terms.split("(;)");
-                    for (y = 0; y < term.length - 1; y++) {
-                        var termList = $("<li></li>").text(term[y]);
-                        $("#term").append(termList);
-                    }
-
+                    var term = $("<li></li>").html("<font color='teal'>" + toursConfigBO[i].name + "&nbsp;&nbsp;:&nbsp;&nbsp;</font>" + toursConfigBO[i].content);
+                    $("#term").append(term);
                 }
                 //type类型为important
                 if (type == "important") {
-                    var importants = toursConfigBO[i].content;
-                    //分成两栏
-                    var important = importants.split("(;)");
-                    for (y = 0; y < important.length - 1; y++) {
-                        var importantList = $("<li></li>").text(important[y]);
-                        $("#important").append(importantList);
-                    }
+                    var important = $("<li></li>").html("<font color='teal'>" + toursConfigBO[i].name + "&nbsp;&nbsp;:&nbsp;&nbsp;</font>" + toursConfigBO[i].content);
+                    $("#important").append(important);
                 }
-                //type类型为triphint
-                if (type == "triphint") {
-                    var triphints = toursConfigBO[i].content;
-                    //分成两栏
-                    var triphint = triphints.split("(;)");
-                    for (y = 0; y < triphint.length - 1; y++) {
-                        var tripintList = $("<li></li>").text(triphint[y]);
-                        $("#triphint").append(tripintList);
-                    }
-
-                }
+                // //type类型为triphint
+                // if (type == "triphint") {
+                //     var triphint = $("<li></li>").html("<font color='teal'>" + toursConfigBO[i].name + "&nbsp;&nbsp;:&nbsp;&nbsp;</font>" + toursConfigBO[i].content);
+                //     $("#triphint").append(triphint);
+                // }
             }
+
+
         }
     });
 
-    //加载出团信息
+//加载出团信息
     $.ajax({
         type: "GET",
         url: "/toursdetail/selectBookingInfoById?tourId=" + tourId,
@@ -146,7 +127,8 @@ $(document).ready(function () {
 
         }
     });
-});
+})
+;
 
 //字符串转日期格式，strDate要转为日期格式的字符串
 function getDate(strDate) {
@@ -189,25 +171,25 @@ function all_num() {
 }
 
 //增值服务价格
-function option_price(){
-    var options=document.getElementsByName("options");
-    var total=0;
-    for(var i=0; i<options.length;i++){
-        total=parseFloat(total);
-        var optionPrice=options[i].value.split("-")[0];
-        total+=parseFloat(optionPrice);
+function option_price() {
+    var options = document.getElementsByName("options");
+    var total = 0;
+    for (var i = 0; i < options.length; i++) {
+        total = parseFloat(total);
+        var optionPrice = options[i].value.split("-")[0];
+        total += parseFloat(optionPrice);
     }
     return total;
 }
 //计算总价格
 function total_cost() {
     //增值服务总价格
-    var optionPrice=option_price();
+    var optionPrice = option_price();
     var num = $("#amount_all").html();
     num = parseFloat(num);
     var price = $("#price").html();
     price = parseFloat(price);
-    var all_cost = num *(price+parseFloat(optionPrice)) ;
+    var all_cost = num * (price + parseFloat(optionPrice));
     $("#total_cost").text(all_cost);
 }
 //同步成人人数
@@ -237,68 +219,68 @@ function payment() {
 
     //POST提交
     var postForm = document.createElement("form");//表单对象
-    postForm.method="post" ;
+    postForm.method = "post";
     //隐藏显示该form表单
-    postForm.style="display: none" ;
-    postForm.action = '/orderInfo' ;//订单信息页面
+    postForm.style = "display: none";
+    postForm.action = '/orderInfo';//订单信息页面
     //线路id
     var tourId = $("#tourId").val();
     var tourIdInput = document.createElement("input");// tourId input
-    tourIdInput.setAttribute("name","tourId");
-    tourIdInput.setAttribute("value",tourId);
+    tourIdInput.setAttribute("name", "tourId");
+    tourIdInput.setAttribute("value", tourId);
     postForm.appendChild(tourIdInput);
     //成人数量
     var adults = $("#adults_quantity").html();
     var adultsInput = document.createElement("input");// adults input
-    adultsInput.setAttribute("name","adults");
-    adultsInput.setAttribute("value",adults);
+    adultsInput.setAttribute("name", "adults");
+    adultsInput.setAttribute("value", adults);
     postForm.appendChild(adultsInput);
     //儿童数量
     var children = $("#children_quantity").html();
     var childrenInput = document.createElement("input");// children input
-    childrenInput.setAttribute("name","children");
-    childrenInput.setAttribute("value",children);
+    childrenInput.setAttribute("name", "children");
+    childrenInput.setAttribute("value", children);
     postForm.appendChild(childrenInput);
 
     //总量
     var total = $("#total_cost").html();
     var totalInput = document.createElement("input");// total input
-    totalInput.setAttribute("name","total");
-    totalInput.setAttribute("value",total);
+    totalInput.setAttribute("name", "total");
+    totalInput.setAttribute("value", total);
     postForm.appendChild(totalInput);
 
     //日期
     var date = document.getElementById("date-pick").value;
     var dateInput = document.createElement("input");// date input
-    dateInput.setAttribute("name","date");
-    dateInput.setAttribute("value",date);
+    dateInput.setAttribute("name", "date");
+    dateInput.setAttribute("value", date);
     postForm.appendChild(dateInput);
 
     //增值服务价格
-    var optionPrice=option_price();
+    var optionPrice = option_price();
     var optionPriceInput = document.createElement("input");// optionPrice input
-    optionPriceInput.setAttribute("name","optionPrice");
-    optionPriceInput.setAttribute("value",optionPrice);
+    optionPriceInput.setAttribute("name", "optionPrice");
+    optionPriceInput.setAttribute("value", optionPrice);
     postForm.appendChild(optionPriceInput);
 
     //线路单价
-    var tourPrice=$("#price").html();
+    var tourPrice = $("#price").html();
     var tourPriceInput = document.createElement("input");// tourPrice input
-    tourPriceInput.setAttribute("name","tourPrice");
-    tourPriceInput.setAttribute("value",tourPrice);
+    tourPriceInput.setAttribute("name", "tourPrice");
+    tourPriceInput.setAttribute("value", tourPrice);
     postForm.appendChild(tourPriceInput);
     //库存数量验证
     var num = parseInt(children) + parseInt(adults);
 
-    var options=document.getElementsByName("options");
-    for(var i=0; i<options.length;i++){
+    var options = document.getElementsByName("options");
+    for (var i = 0; i < options.length; i++) {
         var optionIdInput = document.createElement("input");// optionId input
-        optionIdInput.setAttribute("name","optionId");
-        optionIdInput.setAttribute("value",options[i].value);
+        optionIdInput.setAttribute("name", "optionId");
+        optionIdInput.setAttribute("value", options[i].value);
         postForm.appendChild(optionIdInput);
         var optionNameInput = document.createElement("input");// optionNameInput input
-        optionNameInput.setAttribute("name","optionName");
-        optionNameInput.setAttribute("value",options[i].options[options[i].selectedIndex].text);
+        optionNameInput.setAttribute("name", "optionName");
+        optionNameInput.setAttribute("value", options[i].options[options[i].selectedIndex].text);
         postForm.appendChild(optionNameInput);
     }
     $.ajax({
@@ -320,9 +302,9 @@ function payment() {
                 types[i] = adults;
             }
             //跳转到订单信息页面
-            document.body.appendChild(postForm) ;
-            postForm.submit() ;
-            document.body.removeChild(postForm) ;
+            document.body.appendChild(postForm);
+            postForm.submit();
+            document.body.removeChild(postForm);
         }
     });
 

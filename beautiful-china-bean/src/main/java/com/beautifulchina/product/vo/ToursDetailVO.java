@@ -31,6 +31,25 @@ public class ToursDetailVO extends BaseBean {
 
     private String hotel;//酒店安排
 
+    private String photoOne;
+    private String photoTwo;
+
+    public String getPhotoOne() {
+        return photoOne;
+    }
+
+    public void setPhotoOne(String photoOne) {
+        this.photoOne = photoOne;
+    }
+
+    public String getPhotoTwo() {
+        return photoTwo;
+    }
+
+    public void setPhotoTwo(String photoTwo) {
+        this.photoTwo = photoTwo;
+    }
+
     public String getDestination() {
         return destination;
     }

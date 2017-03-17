@@ -42,7 +42,7 @@
         <ul>
             <li><a href="#"><spring:message code="Home"/> </a></li>
             <li><a href="#"><spring:message code="Category"/> </a></li>
-            <li><spring:message code="PageActive"/> </li>
+            <li><spring:message code="PageActive"/></li>
         </ul>
     </div>
 </div>
@@ -94,64 +94,60 @@
                         <h3 style="padding-top: 20px"><spring:message code="WhatIsInclude"/></h3>
 
                         <div class="row">
-                            <div class="col-md-6 col-sm-6">
+                            <div class="col-md-12 col-sm-12">
                                 <ul class="list_ok" id="includeList_left">
                                     <!--不加载包含的内容 -->
                                 </ul>
                             </div>
-                            <div class="col-md-6 col-sm-6">
-                                <ul class="list_ok" id="includeList_right">
-                                    <!--不加载包含的内容 -->
-                                </ul>
-                            </div>
+                            <%--<div class="col-md-6 col-sm-6">--%>
+                            <%--<ul class="list_ok" id="includeList_right">--%>
+                            <%--<!--不加载包含的内容 -->--%>
+                            <%--</ul>--%>
+                            <%--</div>--%>
                         </div>
                     </div>
                     <div class="exclude">
-                        <h3><spring:message code="WhatDoesNotInclude"/></h3><br/>
-
+                        <h3><spring:message code="WhatDoesNotInclude"/></h3>
                         <div class="row">
-                            <div class="col-md-6 col-sm-6">
+                            <div class="col-md-12 col-sm-12">
                                 <ul class="list_notok" id="excludeList_left">
                                     <!--不加载包含的内容 -->
                                 </ul>
                             </div>
-                            <div class="col-md-6 col-sm-6">
-                                <ul class="list_notok" id="excludeList_right">
-                                    <!--不加载包含的内容 -->
-                                </ul>
-                            </div>
+                            <%--<div class="col-md-6 col-sm-6">--%>
+                            <%--<ul class="list_notok" id="excludeList_right">--%>
+                            <%--<!--不加载包含的内容 -->--%>
+                            <%--</ul>--%>
+                            <%--</div>--%>
                         </div>
                     </div>
                 </div>
                 <!--include  and not end -->
                 <hr>
                 <!--impportant -->
-                <h3><spring:message code="important"/></h3><br/>
-
-                <ol id="important">
-                    <!--加载重要提示-->
-                </ol>
-
-                <!--important end-->
-
-                <hr>
-                <!--triphint -->
-                <h3><spring:message code="triphint"/></h3><br/>
-                <ol id="triphint">
-                    <!--加载旅途提示-->
-                </ol>
-                <!--triphint end-->
-
-                <hr>
-                <!--term -->
+                <h3><spring:message code="important"/></h3>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <ol id="important">
+                            <!--加载重要提示-->
+                        </ol>
+                    </div>
+                </div>
+                <%--<h3><spring:message code="triphint"/></h3><br/>--%>
+                <%--<div class="row">--%>
+                    <%--<div class="col-md-12 col-sm-12">--%>
+                        <%--<ol id="triphint">--%>
+                        <%--</ol>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
                 <h3><spring:message code="term"/></h3><br/>
-                <ol id="term">
-                    <!--加载条款-->
-                </ol>
-                <!--term end-->
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <ol id="term">
+                        </ol>
+                    </div>
+                </div>
                 <hr>
-
-
                 <!-------------------------------reviews--------------------------------->
                 <script>
                     var nullreviewcount = "<spring:message code="question_answer_100007"/>";
@@ -170,8 +166,9 @@
                                 <li id="allReviewLi"><a href="javascript:changeReview(1);" id="all_reviews"><h5
                                         style="color: blue"></h5>
                                 </a></li>
-                                <li id="goodReviewLi"><a href="javascript:changeReview(2);" id="good_reviews"><h5
-                                        style="color: blue"></h5>
+                                <li id="goodReviewLi"><a href="javascript:changeReview(2);" id="good_reviews">
+                                    <h5
+                                            style="color: blue"></h5>
                                 </a></li>
                                 <li id="midReviewLi"><a href="javascript:changeReview(3);" id="mid_reviews"><h5
                                         style="color: blue"></h5></a>
@@ -212,7 +209,8 @@
                         <h3><spring:message code="questionAndRe"/></h3>
 
                         <div align="right">
-                            <button class="btn btn-info" id="add_question"><spring:message code="addQuestion"/></button>
+                            <button class="btn btn-info" id="add_question"><spring:message
+                                    code="addQuestion"/></button>
                         </div>
                     </div>
                     <hr>
@@ -240,7 +238,8 @@
                             <div class="row" style="width: 90%" align="left">
 
 
-                                <p><textarea rows="5" id="question_contact" name="message_contact" class="form-control"
+                                <p><textarea rows="5" id="question_contact" name="message_contact"
+                                             class="form-control"
                                              placeholder="Write your question"
                                              style="height:200px;"></textarea>
                                 </p>
@@ -293,12 +292,12 @@
                             <!--提前天数-->
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
-                                    <label>&nbsp;&nbsp;&nbsp;<spring:message code="advanceDay"/> :</label>
+                                    <label>&nbsp;&nbsp;&nbsp;<spring:message code="advanceDay"/> </label>
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
-                                    <label id="advanceDays" style="color: red"></label>
+                                    <label id="advanceDays" style="color: #575761"></label>
                                 </div>
                             </div>
                         </div>
@@ -373,16 +372,14 @@
                                     <label>${option.optionName}</label>
                                     <select name="options" class="form-control" onchange="total_cost()">
                                     <!--valueId -->
-
-
-                                    <option selected
-                                            value="${option.optionPrice}-${option.valueId}">${option.optionName}--${option.optionPrice}</option>
-
+                                    <option selected value="0-0">${option.optionName}</option>
+                                    <option
+                                            value="${option.optionPrice}-${option.valueId}">${option.optionValue} &nbsp; &nbsp; &nbsp; &nbsp;
+                                        $${option.optionPrice}</option>
                                 </c:when>
                                 <c:otherwise>
                                     <option
                                             value="${option.optionPrice}-${option.valueId}">${option.optionName}--${option.optionPrice}</option>
-
                                 </c:otherwise>
                             </c:choose>
                             <c:if test="${s.last}">
@@ -455,7 +452,8 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input name="email_review" id="email_review" type="email" placeholder="Your email"
+                                <input name="email_review" id="email_review" type="email"
+                                       placeholder="Your email"
                                        class="form-control">
                             </div>
                         </div>
