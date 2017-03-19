@@ -36,9 +36,10 @@
     }
 </style>
 <!-- header -->
+<%@include file="/common/script.jsp" %>
 <%@ include file="/common/head.jsp" %>
 <%@include file="/common/header.jsp" %>
-
+<script src="/js/common/bootstrap.js"></script>
 <script src="/js/pay/orderinfo.js"></script>
 <script src="/js/common/icheck.js"></script>
 <script src="/js/common/jquery.validate.js"></script>
@@ -489,12 +490,12 @@
                         </td>
                         <td class="text-right" id="children">${param.children}</td>
                     </tr>
-                    <tr>
-                        <td>
-                            <spring:message code="hotel"/>
-                        </td>
-                        <td class="text-right" id="hotel">${param.children+param.adults}x$0</td>
-                    </tr>
+                    <%--<tr>--%>
+                        <%--<td>--%>
+                            <%--<spring:message code="hotel"/>--%>
+                        <%--</td>--%>
+                        <%--<td class="text-right" id="hotel">${param.children+param.adults}x$0</td>--%>
+                    <%--</tr>--%>
                     <%
                         //Option的名字和价格
                         String[] optionNames = request.getParameterValues("optionName");
@@ -502,8 +503,8 @@
                             for (int i = 0; i < optionNames.length; i++) {
                                 //String option = new String(optionNames[i].getBytes("iso-8859-1"), "utf-8");
                                 String option = optionNames[i];
-                                String optionName = option.split("--")[0];
-                                String optionPrice = option.split("--")[1];
+                                String optionName = option.split(" +")[0];
+                                String optionPrice = option.split(" +")[1];
                     %>
                     <tr>
                         <td><%=optionName%>
@@ -549,6 +550,7 @@
     <!--End row -->
 
 </div>
+
 <!-- 确认信息模态框（Modal） -->
 <div class="modal fade" id="myModal2" tabindex="-1" role="dialog"
      aria-labelledby="myModalLabel" aria-hidden="true">

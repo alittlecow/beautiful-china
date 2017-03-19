@@ -35,14 +35,11 @@ public class JsonTestController extends BaseController {
 
 
     public static void main(String[] args) {
+        String s = "首都国际机场T2航站楼         $100.0";
+        System.out.println(s.split(" +")[0]);
+        System.out.println(s.split(" +")[1]);
+        System.out.println(s.split(" +").length);
 
-        try {
-            insertTourDate();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 
     public static void insertTourDate() throws ClassNotFoundException, SQLException {

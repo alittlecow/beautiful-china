@@ -3,24 +3,19 @@
 var url;
 $(document).ready(function () {
 
-
     $("#book2").on('click', function () {
         //验证用户是否登录
-        // userId = $("#userId").val();
-        // if (userId == "") {
-        //     $("#loginFirst").modal();
-        //     return;
-        // }
-        // if ($("#orderForm").valid()) {
-        //     order();
-        // }
-        $("#myModal2").modal();
-        $("#modal-body2").show();
-        $("#modal-body3").hide();
-        $("#myModal2").modal('show');
+        userId = $("#userId").val();
+        if (userId == "") {
+            $("#loginFirst").modal();
+            return;
+        }
+        if($("#orderForm").valid()) {
+            order();
+        }
 
-        // $("#myModal2").modal("toggle");
     });
+    //草他妈的失效了？？？
     $("#sure1").on("click", function () {
         //跳转到支付页面
         window.location.href = "/payment?orderNo=" + orderNo + url;
@@ -158,16 +153,13 @@ function order() {
         contentType: "application/json",
         dataType: 'json',
         success: function (msg) {
-            $("#myModal2").modal('show');
+            // $("#myModal2").modal('show');
             if (msg.result == 'ok') {
                 orderNo = msg.data;
-                //页面跳转bootstrap弹出框不显示
-                $("#modal-body2").show();
-                $("#modal-body3").hide();
+                window.location.href = "/payment?orderNo=" + orderNo + url;
             }
             else {
-                $("#modal-body2").hide();
-                $("#modal-body3").show();
+               alert("下单失败！");
             }
             $("#myModal2").modal("toggle");
         }

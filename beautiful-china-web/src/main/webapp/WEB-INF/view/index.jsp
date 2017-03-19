@@ -72,7 +72,7 @@
                                 </a>
                             </div>
                             <div class="tour_title">
-                                <h3><strong>${tour.title}</strong> tour</h3>
+                                <h3><strong>${tour.title}
                             </div>
                         </div><!-- End box tour -->
                     </div><!-- End col-md-4 -->
@@ -100,7 +100,7 @@
                                 </a>
                             </div>
                             <div class="tour_title">
-                                <h3><strong>${theme.title}</strong> tour</h3>
+                                <h3><strong>${theme.title}
                                     <%--<div class="rating">--%>
                                     <%--<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><small>(75)</small>--%>
                                     <%--</div><!-- end rating -->--%>
@@ -260,7 +260,7 @@
                                     </a>
                                 </div>
                                 <div class="tour_title">
-                                    <h3><strong>${city.name}</strong> <spring:message code="City"/> </h3>
+                                    <h3><strong>${city.name}
 
                                 </div>
                             </div><!-- End box cities -->
