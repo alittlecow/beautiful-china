@@ -48,22 +48,6 @@ public class ToursListService {
         //修改图片路径
         map.put("number",number);
         List<ToursListBO> ListBO=toursListMapper.getToursByCondition(map);
-        try{
-            for(ToursListBO toursListBO:ListBO){
-                String Url=toursListBO.getImageUrl();
-                String[] str = Url.split("\\/");
-                //图片名之前的路径
-                String prefix = "";
-                //图片的格式
-                String suffix = str[str.length - 1];
-                for (int i = 0; i < str.length - 1; i++) {
-                    prefix += str[i] + "/";
-                }
-                //中等图片路径
-                toursListBO.setImageUrl(prefix + "medium_" + suffix);
-            }
-        }catch (Exception e){
-        }
         return ListBO;
     }
     public int getCount(String search,String language,double priceMin,double priceMax,int dayMin,int dayMax){

@@ -72,7 +72,7 @@
                                 </a>
                             </div>
                             <div class="tour_title">
-                                <h3><strong>${tour.title}
+                                <h3><strong>${tour.title}</strong></h3>
                             </div>
                         </div><!-- End box tour -->
                     </div><!-- End col-md-4 -->
@@ -267,9 +267,9 @@
                         </div><!-- End col-md-4 -->
                     </c:forEach>
                 </div>
-                <p class="text-center add_bottom_30">
-                    <a href="/geoMap" class="btn_1 medium"><i class="icon-eye-7"></i>View all cities</a>
-                </p>
+                <%--<p class="text-center add_bottom_30">--%>
+                    <%--<a href="/geoMap" class="btn_1 medium"><i class="icon-eye-7"></i>View all cities</a>--%>
+                <%--</p>--%>
                 <%--<div class="main_title">--%>
                     <%--<h2>Other <span>Popular</span> tours</h2>--%>
                     <%--<p>--%>

@@ -161,7 +161,7 @@ function order() {
             else {
                alert("下单失败！");
             }
-            $("#myModal2").modal("toggle");
+            // $("#myModal2").modal("toggle");
         }
     });
 }

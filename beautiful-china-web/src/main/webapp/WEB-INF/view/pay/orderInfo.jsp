@@ -502,9 +502,11 @@
                         if (optionNames != null) {
                             for (int i = 0; i < optionNames.length; i++) {
                                 //String option = new String(optionNames[i].getBytes("iso-8859-1"), "utf-8");
+                                String regex = " +";
                                 String option = optionNames[i];
-                                String optionName = option.split(" +")[0];
-                                String optionPrice = option.split(" +")[1];
+                                if(option.split(regex).length < 2 ) continue;
+                                String optionName = option.split(regex)[0];
+                                String optionPrice = option.split(regex)[1];
                     %>
                     <tr>
                         <td><%=optionName%>

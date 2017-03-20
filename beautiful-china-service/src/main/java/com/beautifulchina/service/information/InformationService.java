@@ -76,25 +76,6 @@ public class InformationService {
         map.put("language",language);
         //修改图片路径
         List<OrdersBO> list=informatinMapper.getALLOrder(map);
-        try{
-            for(OrdersBO ordersBO:list){
-                String Url=ordersBO.getImageUrl();
-                String[] str = Url.split("\\/");
-                //图片名之前的路径
-                String prefix = "";
-                //图片的格式
-                String suffix = str[str.length - 1];
-                for (int i = 0; i < str.length - 1; i++) {
-                    prefix += str[i] + "/";
-                }
-                //中等图片路径
-                ordersBO.setImageUrl(prefix + "medium_" + suffix);
-                //时间去掉最后一个.0
-                String orderTime=ordersBO.getPlacedtime();
-                ordersBO.setPlacedtime(orderTime.substring(0,orderTime.length()-2));
-            }
-        }catch(Exception e){
-        }
         return list;
     }
 

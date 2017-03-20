@@ -51,9 +51,9 @@
                         <h6><spring:message code="tourlist_100003"/></h6>
                         <ul>
                             <li><label><a href="javascript:searchPrice(1,0,0)"><spring:message code="tourlist_100004"/></a></label></li>
-                            <li><label><a href="javascript:searchPrice(1,10,50)"><spring:message code="tourlist_100001"/> $10 <spring:message code="tourlist_100002"/> $50</a></label></li>
-                            <li><label><a href="javascript:searchPrice(1,50,80)"><spring:message code="tourlist_100001"/> $50 <spring:message code="tourlist_100002"/> $80</a></label></li>
-                            <li><label><a href="javascript:searchPrice(1,80,100)"><spring:message code="tourlist_100001"/> $80 <spring:message code="tourlist_100002"/> $100</a></label></li>
+                            <li><label><a href="javascript:searchPrice(1,100,5000)"><spring:message code="tourlist_100001"/> $100 <spring:message code="tourlist_100002"/> $5000</a></label></li>
+                            <li><label><a href="javascript:searchPrice(1,5000,10000)"><spring:message code="tourlist_100001"/> $5000 <spring:message code="tourlist_100002"/> $10000</a></label></li>
+                            <li><label><a href="javascript:searchPrice(1,10000,50000)"><spring:message code="tourlist_100001"/> $10000 <spring:message code="tourlist_100002"/> $50000</a></label></li>
                         </ul>
                     </div>
                     <div class="filter_type">
@@ -118,7 +118,7 @@
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="tour_list_desc">
-                    <h3><strong>{{toursNo.title}}</strong> <spring:message code="tourlist_100008"/></h3>
+                    <h3><strong>{{toursNo.title}}</strong> </h3>
                     <p>{{toursNo.subtitle}}</p>
                 </div>
             </div>

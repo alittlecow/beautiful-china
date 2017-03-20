@@ -226,22 +226,22 @@
                         </td>
                         <td class="text-right" id="children">${param.children}</td>
                     </tr>
-                    <tr>
-                        <td>
-                            <spring:message code="DedicatedTourGuide"/>
-                        </td>
-                        <td class="text-right">
-                            $0
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <spring:message code="Insurance"/>
-                        </td>
-                        <td class="text-right">
-                            $${param.total}
-                        </td>
-                    </tr>
+                    <%--<tr>--%>
+                        <%--<td>--%>
+                            <%--<spring:message code="DedicatedTourGuide"/>--%>
+                        <%--</td>--%>
+                        <%--<td class="text-right">--%>
+                            <%--$0--%>
+                        <%--</td>--%>
+                    <%--</tr>--%>
+                    <%--<tr>--%>
+                        <%--<td>--%>
+                            <%--<spring:message code="Insurance"/>--%>
+                        <%--</td>--%>
+                        <%--<td class="text-right">--%>
+                            <%--$${param.total}--%>
+                        <%--</td>--%>
+                    <%--</tr>--%>
                     <tr class="total">
                         <td>
                             <spring:message code="TotalCost"/>
