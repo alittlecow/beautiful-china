@@ -59,8 +59,8 @@
         <div style="padding: 0 15px 0 15px;background-color: inherit">
             <h1>${city.name}</h1>
             <hr>
-            <p class="lead" style="line-height: normal">${city.desc}
-            </p>
+            <%--<p class="lead" style="line-height: normal">${city.desc}--%>
+            <%--</p>--%>
         </div>
     </div>
     <div class="col-md-12 col-sm-12">
