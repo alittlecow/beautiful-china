@@ -260,17 +260,17 @@
                                 <%--<option value="French"><img src="/img/FR_flag.png"></option>--%>
                                 <%--<option value="Chinese"><img src="/img/CN_flag.png"></option>--%>
                             <%--</select>--%>
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-primary dropdown-toggle"
-                                            data-toggle="dropdown" id="selectLanguage">
-                                        <spring:message code="Language"/> <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="javascript:changeLanguage('English');"><img src="/img/US_flag.png"><font style="color: black;"><spring:message code="English"/></font></a></li>
-                                        <li><a href="javascript:changeLanguage('French');"><img src="/img/FR_flag.png"><font style="color: black;"><spring:message code="French"/></font></a></li>
-                                        <li><a href="javascript:changeLanguage('Chinese');"><img src="/img/CN_flag.png"><font style="color: black;"><spring:message code="Chinese"/></font></a></li>
-                                    </ul>
-                                </div>
+                                <%--<div class="btn-group">--%>
+                                    <%--<button type="button" class="btn btn-primary dropdown-toggle"--%>
+                                            <%--data-toggle="dropdown" id="selectLanguage">--%>
+                                        <%--<spring:message code="Language"/> <span class="caret"></span>--%>
+                                    <%--</button>--%>
+                                    <%--<ul class="dropdown-menu" role="menu">--%>
+                                        <%--<li><a href="javascript:changeLanguage('English');"><img src="/img/US_flag.png"><font style="color: black;"><spring:message code="English"/></font></a></li>--%>
+                                        <%--<li><a href="javascript:changeLanguage('French');"><img src="/img/FR_flag.png"><font style="color: black;"><spring:message code="French"/></font></a></li>--%>
+                                        <%--<li><a href="javascript:changeLanguage('Chinese');"><img src="/img/CN_flag.png"><font style="color: black;"><spring:message code="Chinese"/></font></a></li>--%>
+                                    <%--</ul>--%>
+                                <%--</div>--%>
 
                         </div>
                         <!--
