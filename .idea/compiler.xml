@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="beautiful-china" target="1.5" />
+      <module name="beautiful-china-bean" target="1.5" />
+      <module name="beautiful-china-common" target="1.5" />
+      <module name="beautiful-china-dao" target="1.5" />
+      <module name="beautiful-china-service" target="1.5" />
+      <module name="beautiful-china-web" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

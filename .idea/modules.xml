@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/beautiful-china.iml" filepath="$PROJECT_DIR$/beautiful-china.iml" />
+      <module fileurl="file://$PROJECT_DIR$/beautiful-china-bean/beautiful-china-bean.iml" filepath="$PROJECT_DIR$/beautiful-china-bean/beautiful-china-bean.iml" />
+      <module fileurl="file://$PROJECT_DIR$/beautiful-china-common/beautiful-china-common.iml" filepath="$PROJECT_DIR$/beautiful-china-common/beautiful-china-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/beautiful-china-dao/beautiful-china-dao.iml" filepath="$PROJECT_DIR$/beautiful-china-dao/beautiful-china-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/beautiful-china-service/beautiful-china-service.iml" filepath="$PROJECT_DIR$/beautiful-china-service/beautiful-china-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/beautiful-china-web/beautiful-china-web.iml" filepath="$PROJECT_DIR$/beautiful-china-web/beautiful-china-web.iml" />
+    </modules>
+  </component>
+</project>

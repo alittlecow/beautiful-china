@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.beautifulchina.dao.city.CityMapper">
+
+    <!--获取城市列表-->
+    <select id="getAllCity" parameterType="java.lang.String" resultType="com.beautifulchina.city.CityVO">
+        SELECT t1.content `name`,
+        t2.id  id
+        FROM ts_language t1
+        JOIN tm_city t2
+        ON t1.uuid =t2.name
+        WHERE TYPE=#{language}
+    </select>
+
+    <!--获取首页展示城市列表-->
+    <select id="getIndexCity" parameterType="java.util.Map" resultType="com.beautifulchina.city.CityVO">
+        SELECT t2.id id,
+        t1.image image,
+        t2.name
+        FROM tm_indexconfig t1
+        JOIN (SELECT t1.content name,t2.id  id FROM ts_language t1 LEFT JOIN tm_city t2 ON t1.uuid =t2.name  WHERE TYPE=#{language}) t2
+        ON t2.id = t1.itemid
+        WHERE t1.type='city'
+        order by t1.sort LIMIT 0,6
+
+    </select>
+    <!--城市详情-->
+    <select id="getCityDetail" parameterType="java.util.Map" resultType="com.beautifulchina.city.CityBO">
+        SELECT
+        t1.id id,
+        photo_one photoOne,
+        photo_two photoTwo,
+        photo_three photoThree,
+        photo_four photoFour,
+        t1.`desc` ,
+        t1.`name`
+        FROM tm_city t1
+        WHERE t1.id=#{id}
+    </select>
+
+</mapper>

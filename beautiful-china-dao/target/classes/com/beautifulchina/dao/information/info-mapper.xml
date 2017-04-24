@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.beautifulchina.dao.information.InfoMapper">
+    <!--修改个人信息-->
+    <update id="changeInfo" parameterType="com.beautifulchina.user.vo.OrdinaryUserVO">
+    UPDATE ts_userinfo SET
+    firstname=#{firstName},
+    lastname=#{lastName},
+    nickname=#{nickname},
+    sex=#{sex},
+    passport=#{passport}
+    WHERE user_id=#{userId}
+   </update>
+
+    <select id="getUserInfo" parameterType="int" resultType="com.beautifulchina.user.bo.OrdinaryUserBO">
+        SELECT t1.id id,
+        t2.firstname firstName,
+        t2.lastname lastName,
+        t2.nickname nickname,
+        t1.email email,
+        t1.password password,
+        t2.sex sex,
+        t1.status status,
+        t1.type type,
+        t1.psw psw,
+        t2.passport passport,
+        t2.nationality nationality,
+        t2.address address,
+        t2.tel tel
+        FROM ts_user t1 left join ts_userinfo t2 on t1.id = t2.user_id
+        WHERE t1.id = #{id}
+    </select>
+    <!--批量新增联系-->
+    <insert id="saveContactInfo"  parameterType="list">
+        insert into ts_contact (user_id,firstname,lastname,sex,nationality,email,address,passport,tel)  values
+        <foreach collection="list" item="item" open="(" close=")" separator="," >
+            #{item.userId},#{item.firstName},#{item.lastName},#{item.sex},#{item.nationality},#{item.email},#{item.address},#{item.passport},#{item.tel}
+        </foreach>
+    </insert>
+
+    <!--新增联系人-->
+    <insert id="saveContact"  parameterType="com.beautifulchina.contact.vo.ContactVO">
+        insert into ts_contact (user_id,firstname,lastname,sex,nationality,email,address,passport,tel)  values
+       (#{userId},#{firstName},#{lastName},#{sex},#{nationality},#{email},#{address},#{passport},#{tel})
+    </insert>
+    <update id="updateContact"  parameterType="com.beautifulchina.contact.vo.ContactVO">
+      update ts_contact set
+        <if test="userId != null and userId !=''">
+
+       </if>
+        <if test="firstName != null and firstName !=''">
+            firstname = #{firstName},
+        </if>
+        <if test="lastName != null and lastName !=''">
+            lastname = #{lastName},
+        </if>
+        <if test="sex != null and sex !=''">
+            sex = #{sex},
+        </if>
+        <if test="nationality != null and nationality !=''">
+            nationality = #{nationality},
+        </if>
+        <if test="email != null and email !=''">
+            email = #{email},
+        </if>
+        <if test="address != null and address !=''">
+            address = #{address},
+        </if>
+        <if test="passport != null and passport !=''">
+            passport = #{passport},
+        </if>
+        <if test="tel != null and tel !=''">
+            tel = #{tel},
+        </if>
+        user_id = #{userId}
+        where id=#{id}
+    </update>
+
+    <select id="getContactByUser" parameterType="int"  resultType="com.beautifulchina.contact.vo.ContactVO">
+        select
+        id id,
+        user_id userId,
+        firstname firstName,
+        lastname lastName,
+        sex sex,
+        nationality nationality,
+        email email,address address,
+        passport passport,
+        tel tel,
+        type type
+        from ts_contact
+        where user_id = #{userId};
+    </select>
+
+    <delete id="deleteContact" parameterType="int">
+      delete from ts_contact where id = #{id};
+    </delete>
+</mapper>

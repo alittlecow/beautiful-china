@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.beautifulchina.dao.login.LoginUserMapper" >
+
+    <!--&lt;!&ndash; 通过nickname查找用户&ndash;&gt;-->
+    <!--<select id="getUserByNickName" resultType="com.beautifulchina.login.pojo.LoginUser" parameterType="com.beautifulchina.login.vo.LoginUserVO">-->
+        <!--SELECT id,-->
+        <!--name,-->
+        <!--nickname,-->
+        <!--email,-->
+        <!--password,-->
+        <!--sex,-->
+        <!--status,-->
+        <!--type,-->
+        <!--psw-->
+        <!--FROM ts_user-->
+        <!--WHERE nickname = #{nickName}-->
+    <!--</select>-->
+
+    <!-- 通过email查找用户-->
+    <select id="getUserByEmail" parameterType="com.beautifulchina.user.vo.OrdinaryUserVO" resultType="com.beautifulchina.user.bo.OrdinaryUserBO">
+        SELECT t1.id id,
+        t2.firstname firstName,
+        t2.lastname lastName,
+        t2.nickname nickname,
+        t1.email email,
+        t1.password password,
+        t2.sex sex,
+        t1.status status,
+        t1.type type,
+        t1.psw psw,
+        t2.passport passport,
+        t2.nationality nationality,
+        t2.address address,
+        t2.tel tel
+        FROM ts_user t1 left join ts_userinfo t2 on t1.id = t2.user_id
+        WHERE t1.email = #{email}
+    </select>
+
+
+</mapper>

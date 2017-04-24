@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.beautifulchina.dao.pay.OrderDetailMapper">
+
+    <!--添加付款明细-->
+    <insert id="addOrderDetail" parameterType="com.beautifulchina.pay.vo.OrderDetailVO">
+        insert into tb_orderdetail
+        (orderno,type,valueid,upgrade,price,totalprice)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.orderNo},#{item.type},#{item.valueId},#{item.upGrade},
+            #{item.price},#{item.totalPrice})
+        </foreach>
+    </insert>
+</mapper>

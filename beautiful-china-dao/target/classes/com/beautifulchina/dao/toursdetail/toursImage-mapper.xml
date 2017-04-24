@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper  namespace="com.beautifulchina.dao.toursdetail.ToursImageMapper" >
+
+
+
+    <select id="selectTourImageById" resultType="com.beautifulchina.product.pojo.ToursImage" parameterType="java.lang.Integer" >
+        select
+        tm1.image_url imageUrl,
+        tm1.orders,
+        tm2.id
+        from tm_tour_image tm1 LEFT JOIN  tm_tour tm2 ON tm1.tour_id = tm2.id
+        where tour_id = #{tourId} and orders != -1
+        ORDER BY orders<!--按照order字段排序-->
+    </select>
+</mapper>

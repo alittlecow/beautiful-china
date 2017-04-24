@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.beautifulchina.dao.question.QuestionMapper">
+
+    <!-- 查询所有问题列表-->
+    <select id="getAllQuestions" resultType="java.lang.Integer">
+        select count(*)
+        FROM (select q.id from tb_question q
+        left JOIN tb_answer a on q.id=a.question_id
+        where q.tour_id=#{tourId}
+        group by q.id) t
+    </select>
+
+    <!-- 查询所有问题列表-->
+    <select id="getQuestionsByPage" resultType="com.beautifulchina.questions.bo.QuestionBO"
+            parameterType="com.beautifulchina.page.Page">
+        SELECT q.id,
+        q.content,
+        q.status,
+        a.type,
+        q.time
+        FROM tb_question q
+        left JOIN tb_answer a on q.id=a.question_id
+        where q.tour_id=#{tourId}
+        group by q.id
+        ORDER by q.time desc
+        limit #{startPos},#{pageSize}
+    </select>
+
+    <!-- 插入问题 -->
+    <insert id="insertQuestion" parameterType="com.beautifulchina.questions.vo.QuestionVO">
+        INSERT INTO tb_question(tour_id,
+                                content,
+                                user_id,
+                                status,
+                                time)
+                                VALUES(#{tourId},#{content},#{userId},'O',#{time})
+    </insert>
+    <!--根据问题id获取回答信息-->
+    <select id="getAnswerById" parameterType="int" resultType="com.beautifulchina.answer.bo.AnswerBO">
+        SELECT
+        pass_id userId,
+        time,
+        type,
+        content
+        FROM tb_answer
+        where  question_id=#{id}
+    </select>
+
+</mapper>

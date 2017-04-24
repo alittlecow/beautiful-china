@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.beautifulchina.dao.answer.AnswerMapper">
+
+    <!--插入问题-->
+    <insert id="insertAnswer" parameterType="com.beautifulchina.answer.vo.AnswerVO">
+    INSERT INTO tb_answer(question_id,
+                          content,
+                          type,
+                          time,
+                          pass_id)
+                          VALUES(#{questionId},#{content},#{type},#{time},#{userId})
+    </insert>
+
+</mapper>

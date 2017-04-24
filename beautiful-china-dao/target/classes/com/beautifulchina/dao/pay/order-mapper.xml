@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.beautifulchina.dao.pay.OrderMapper">
+
+    <insert id="createOrderTB" parameterType="com.beautifulchina.pay.vo.OrderVO">
+        insert  into `tb_order`
+        (`orderno`,`user_id`,`contact`,`tel`,`email`,
+        `dept_id`,`tour_id`,`adults`,`children`,
+        `room`,`departure`,`total`,`state`,
+        `placedtime`,`point`,`gross`,`net`,`tax`)
+         values (#{orderNo}, #{userId},#{contact},#{tel},#{email},
+         (SELECT t1.dept_id   FROM  ts_dept t1  LEFT JOIN tm_tour t2 ON t1.dept_code=t2.dept_code
+        WHERE id=#{tourId}),<!-- 供应商代码-->
+         #{tourId},#{adults},#{children},#{room},
+        (SELECT trd_time FROM tm_tourdate WHERE tour_id=#{tourId} ORDER BY trd_time DESC LIMIT 1),<!--发团日期 -->
+        #{total},#{state},
+         #{placedtime},#{point},#{gross},#{net},#{tax}
+         );
+    </insert>
+    <insert id="createOrderTH" parameterType="com.beautifulchina.pay.vo.OrderVO">
+        insert  into `th_order`
+        (`orderno`,`user_id`,`contact`,`tel`,`email`,
+        `dept_id`,`tour_id`,`adults`,`children`,
+        `room`,`departure`,`total`,`state`,
+        `placedtime`,`point`,`gross`,`net`,`tax`)
+        values (#{orderNo}, #{userId},#{contact},#{tel},#{email},
+        (SELECT t1.dept_id   FROM  ts_dept t1  LEFT JOIN tm_tour t2 ON t1.dept_code=t2.dept_code
+        WHERE id=#{tourId}),<!-- 供应商代码-->
+        #{tourId},#{adults},#{children},#{room},
+        (SELECT trd_time FROM tm_tourdate WHERE tour_id=#{tourId} ORDER BY trd_time DESC LIMIT 1),<!--发团日期 -->
+        #{total},#{state},
+        #{placedtime},#{point},#{gross},#{net},#{tax}
+        );
+
+    </insert>
+
+    <!--添加旅客信息 -->
+    <insert id="addPassenger" parameterType="com.beautifulchina.pay.vo.PassengerVO">
+        insert into tb_order_passenger
+        (orderno,email,fullname,sex,nationality,passport,phone,type,child_type)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.orderNo},#{item.email},#{item.fullName},#{item.sex},#{item.nationality},
+            #{item.passport},#{item.phone},#{item.type},#{item.childType})
+        </foreach>
+    </insert>
+
+
+</mapper>

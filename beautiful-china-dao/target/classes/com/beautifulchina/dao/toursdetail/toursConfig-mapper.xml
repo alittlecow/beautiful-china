@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper  namespace="com.beautifulchina.dao.toursdetail.ToursConfigMapper" >
+
+
+
+    <select id="selectTourConfigById" resultType="com.beautifulchina.product.pojo.ToursConfig" parameterType="java.lang.Integer" >
+        select
+        type,
+        name,
+        content_en contentEn,
+        content_fr  contentFr
+
+        from tm_tourconfig
+        where tour_id = #{tourId}
+    </select>
+
+
+</mapper>

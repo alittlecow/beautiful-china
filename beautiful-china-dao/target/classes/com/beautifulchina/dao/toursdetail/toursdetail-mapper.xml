@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.beautifulchina.dao.toursdetail.ToursDetailMapper">
+
+    <sql id="Base_Column_List">
+         trde_day day,
+         trde_title_en titleEn,
+         trde_title_fr titleFr,
+         trde_content_en contentEn,
+         trde_content_fr contentFr,
+         trde_destination_en  destinationEn,
+         trde_destination_fr  destinationFr,
+         trde_meals_en  mealsEn,
+         trde_meals_fr  mealsFr,
+         trde_transport_en  transportEn,
+         trde_transport_fr  transportFr,
+         trde_hotel_en  hotelEn,
+         trde_hotel_fr  hotelFr,
+         photo_one photoOne,
+         photo_two photoTwo
+    </sql>
+
+    <select id="selectByTourCode" resultType="com.beautifulchina.product.pojo.ToursDetail"
+            parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from tm_tourdetail
+        where tour_id = #{tourId}
+        ORDER BY day
+    </select>
+
+
+
+</mapper>

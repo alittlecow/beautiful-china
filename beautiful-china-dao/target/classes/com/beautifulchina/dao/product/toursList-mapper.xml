@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.beautifulchina.dao.product.ToursListMapper" >
+    <!-- 查询旅游线路列表 -->
+    <select id="getToursByCondition" resultMap="result" parameterType="java.util.Map">
+        select
+        A.title,
+        B.subtitle,
+        t.id,t.days,
+        td.trd_time,
+        ti.image_url,
+        td.trd_price
+        from tm_tour t
+        left join tm_tour_image ti on t.id=ti.tour_id AND      ti.thumbnail=1
+        left join
+
+        ( SELECT a.tour_id, MIN(a.trd_time) trd_time, a.trd_price FROM  tm_tourdate  a GROUP BY tour_id) td  on t.id=td.tour_id
+        LEFT JOIN
+        (SELECT b.content  title , a.id FROM tm_tour a LEFT JOIN ts_language b ON a.title = b.uuid and b.type='en') A ON t.id = A.id
+        LEFT JOIN
+        (SELECT b.content  subtitle ,a.id FROM tm_tour a LEFT JOIN ts_language b ON a.subtitle = b.uuid and b.type='en') B ON t.id = B.id
+        <include refid="sqlWhere"></include>
+        GROUP BY t.id
+        ORDER BY t.id
+        limit #{number},6
+    </select>
+
+    <select id="getCount" resultType="java.lang.Integer" parameterType="java.util.Map">
+        select count(*) from
+        (select
+        MIN(td.trd_time),
+        td.trd_price
+        from tm_tour t
+        left join tm_tour_image ti on t.id=ti.tour_id AND      ti.thumbnail=1
+        left join tm_tourdate td  on t.id=td.tour_id
+        <include refid="sqlWhere"></include>
+        GROUP BY t.id) tour
+    </select>
+
+    <resultMap type="com.beautifulchina.product.bo.ToursListBO" id="result">
+        <result property="title" column="title_en" />
+        <result property="title" column="title_fr" />
+        <result property="subtitle" column="subtitle_en" />
+        <result property="subtitle" column="subtitle_fr" />
+        <result property="imageUrl" column="image_url" />
+        <result property="trdPrice" column="trd_price" />
+    </resultMap>
+
+    <sql id="sqlWhere">
+        <where>
+            <if test="priceMin !=0 and priceMax !=0">
+                and td.trd_price between #{priceMin} and #{priceMax}
+            </if>
+            <if test="dayMin !=0 and dayMax !=0">
+                and t.days between #{dayMin} and #{dayMax}
+            </if>
+        </where>
+    </sql>
+</mapper>

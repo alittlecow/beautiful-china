@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.beautifulchina.dao.cityMap.CityMapMapper">
+
+    <select id="getIdbyCItyName" resultType="java.lang.Integer">
+      select A.id from (SELECT t2.id id, t1.content FROM ts_language t1 inner JOIN tm_city t2 on t1.uuid=t2.name WHERE t1.type=#{language}) A where A.content=#{name}
+    </select>
+
+    <select id="getInfoById" resultType="com.beautifulchina.cityMap.CityMap">
+      SELECT B.name name,C.cityDesc cityDesc from
+        (SELECT t1.content name,t3.id id from ts_language t1  JOIN tm_city t3 on t1.uuid=t3.name WHERE t1.type=#{language}) B  LEFT JOIN
+        (SELECT t1.content cityDesc,t3.id id from ts_language t1  JOIN tm_city t3 on t1.uuid=t3.desc WHERE t1.type=#{language}) C ON B.id=C.id WHERE C.id=#{id}
+    </select>
+
+    <select id="getSightsInfoById" resultType="com.beautifulchina.cityMap.CityMap">
+      SELECT B.sightsName sightsName,C.sightsDesc sightsDesc from
+          (SELECT t1.content sightsName,t3.city_id id from ts_language t1 LEFT JOIN tm_sights t3 on t1.uuid=t3.name WHERE t1.type=#{language}) B  LEFT JOIN
+          (SELECT t1.content sightsDesc,t3.city_id id from ts_language t1 LEFT JOIN tm_sights t3 on t1.uuid=t3.desc WHERE t1.type=#{language}) C ON B.id=C.id
+      WHERE C.id=#{id}
+    </select>
+    <select id="getHotelInfoById" resultType="com.beautifulchina.cityMap.CityMap">
+      SELECT A.hotelName hotelName,B.hotelDesc hotelDesc FROM
+        (SELECT t1.content hotelName,t4.htl_city_id id from ts_language t1 LEFT JOIN tm_hotel t4 on t1.uuid=t4.name WHERE t1.type=#{language}) A LEFT JOIN
+        (SELECT t1.content hotelDesc,t4.htl_city_id id from ts_language t1 LEFT JOIN tm_hotel t4 on t1.uuid=t4.desc WHERE t1.type=#{language}) B ON A.id=B.id
+      WHERE B.id=#{id}
+    </select>
+</mapper>

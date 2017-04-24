@@ -41,12 +41,6 @@ public class AnswerController extends BaseController {
         Map<String, Object> result = null;
         String time = DateUtil.getCurrentDate();
         answerVO.setTime(time);
-//        String type = answerVO.getType();
-//        if (("N").equals(type)) {
-//            type = "P";
-//        } else {
-//            type = "S";
-//        }
         answerVO.setType("P");
         try {
             answerService.insertAnswer(answerVO);

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.beautifulchina.dao.user.RegisterMapper" >
+    <!--普通用户注册-->
+    <insert id="register" parameterType="com.beautifulchina.user.vo.OrdinaryUserVO"  useGeneratedKeys="true" keyProperty="id">
+        insert into ts_user (email,password,psw,regtime,type) values (#{email},#{password},#{psw},#{regtime},#{type})
+    </insert>
+    <!--添加用户信息-->
+    <insert id="saveUserInfo" parameterType="com.beautifulchina.user.vo.UserInfoVO">
+        insert into ts_userinfo (user_id,nickname,firstname,lastname,email,sex,nationality,address,passport,tel)
+        values(#{userId},#{nickname},#{firstName},#{lastName},#{email},#{sex},#{nationality},#{address},#{passport},#{tel})
+    </insert>
+    <!--根据已注册的用户名邮箱查询用户ID-->
+    <select id="selectId"  resultType="java.lang.Long">
+        select id FROM ts_user WHERE  email=#{email}
+    </select>
+
+    <!--查询用户名是否存在-->
+    <select id="uniqueUsername" parameterType="java.lang.String" resultType="com.beautifulchina.user.bo.OrdinaryUserBO">
+        select * from ts_userinfo where nickname=#{nickname}
+    </select>
+
+    <!--查询邮箱是否注册-->
+    <select id="uniqueEmail" parameterType="java.lang.String" resultType="java.lang.Integer">
+        select count(*) from ts_user where email=#{email}
+    </select>
+
+
+</mapper>
