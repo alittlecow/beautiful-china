@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="beautiful-china-web:war">
-    <output-path>$PROJECT_DIR$/beautiful-china-web/target</output-path>
-    <root id="archive" name="beautiful-china-web-1.1.10-wx-RELEASE-SNAPSHOT.war">
-      <element id="artifact" artifact-name="beautiful-china-web:war exploded" />
-    </root>
-  </artifact>
-</component>
