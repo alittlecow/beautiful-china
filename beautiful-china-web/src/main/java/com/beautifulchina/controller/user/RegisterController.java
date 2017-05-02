@@ -8,6 +8,7 @@
 package com.beautifulchina.controller.user;
 
 import com.beautifulchina.base.BaseController;
+import com.beautifulchina.dao.login.LoginUserMapper;
 import com.beautifulchina.email.bo.EmailTemplateBO;
 import com.beautifulchina.service.common.EmailHistoryService;
 import com.beautifulchina.service.common.EmailTemplateService;
@@ -40,6 +41,10 @@ public class RegisterController extends BaseController {
     private EmailHistoryService emailHistoryService;
     @Autowired
     private EmailTemplateService emailTemplateService;
+
+    @Autowired
+    private LoginUserMapper loginUserMapper;
+
     private static Logger logger = LoggerFactory.getLogger(BaseController.class);
 
     /**
@@ -63,6 +68,8 @@ public class RegisterController extends BaseController {
         Map<String, Object> result = null;
         String language = this.getLocal(request);
         ordinaryUserVO.setLanguage(language);
+        OrdinaryUserBO ordinaryUserBO = loginUserMapper.getUserByEmail(ordinaryUserVO);
+
         try {
             registerService.register(ordinaryUserVO);
             new MitiSay(ordinaryUserVO).start();

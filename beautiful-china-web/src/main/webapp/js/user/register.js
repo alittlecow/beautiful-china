@@ -117,6 +117,9 @@ $(document).ready(function () {
                         })
                     } else {
                         //注册失败
+                        if(msg.msg != ""){
+                            $("#Message2").text(msg.msg);
+                        }
                         $("#Message2").text(register_100001);
                         $("#Message").modal("toggle");
                     }

@@ -484,7 +484,7 @@
                              <%--T代表true已评价 F代表false未评价--%>
                             <%--去付款--%>
                                 <div class="to_pay_{{userOrder.state}}" hidden="hidden">
-                                    <a class="btn_1" href="#"><spring:message code="bookings_100005"/></a>
+                                    <a class="btn_1" href="/payment?orderNo={{userOrder.orderNo}}&total={{userOrder.total}}"><spring:message code="bookings_100005"/></a>
                                 </div>
                             <%--订单已经支付成功--%>
                                 <div class="pay_success_{{userOrder.state}}" hidden="hidden">
