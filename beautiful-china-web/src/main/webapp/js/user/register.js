@@ -120,7 +120,10 @@ $(document).ready(function () {
                         if(msg.msg != ""){
                             $("#Message2").text(msg.msg);
                         }
-                        $("#Message2").text(register_100001);
+                        else {
+                            $("#Message2").text(register_100001);
+
+                        }
                         $("#Message").modal("toggle");
                     }
                 }

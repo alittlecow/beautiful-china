@@ -69,6 +69,8 @@ public class RegisterController extends BaseController {
         String language = this.getLocal(request);
         ordinaryUserVO.setLanguage(language);
         OrdinaryUserBO ordinaryUserBO = loginUserMapper.getUserByEmail(ordinaryUserVO);
+        if (ordinaryUserBO != null)
+            return createJson(false, 201, "邮箱已注册", null);
 
         try {
             registerService.register(ordinaryUserVO);
