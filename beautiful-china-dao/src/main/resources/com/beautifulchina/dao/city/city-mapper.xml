@@ -33,7 +33,9 @@
         photo_three photoThree,
         photo_four photoFour,
         t1.`desc` ,
-        t1.`name`
+        t1.`name`,
+        t1.longitude,
+        t1.latitude
         FROM tm_city t1
         WHERE t1.id=#{id}
     </select>

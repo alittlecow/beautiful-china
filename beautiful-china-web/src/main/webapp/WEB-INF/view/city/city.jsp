@@ -95,7 +95,9 @@
     // 百度地图API功能
     var map = new BMap.Map("mapByCity");
     //云南24.9819259739,102.7699183100
-    map.centerAndZoom(new BMap.Point(102.7699183100, 24.9819259739), 10);  // 初始化地图,设置中心点坐标和地图级别
+    var longitude = ${city.longitude};
+    var latitude = ${city.latitude};
+    map.centerAndZoom(new BMap.Point(latitude, longitude), 10);  // 初始化地图,设置中心点坐标和地图级别
     map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
     map.setCurrentCity("云南");          // 设置地图显示的城市 此项是必须设置的
     map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放

@@ -54,7 +54,7 @@ public class CityController extends BaseController {
         map.put("id", id);
         CityBO cityBO = cityMapper.getCityDetail(map);
         localeSupport.localeContent(cityBO,language);
-        request.setAttribute("city",cityBO);
+        request.setAttribute("city", cityBO);
         return "forward:/city";
     }
 
