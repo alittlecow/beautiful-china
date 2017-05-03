@@ -9,12 +9,12 @@
 
 <head>
     <%@ include file="/common/head.jsp" %>
-
     <title>BEAUTIFUL CHINA - ${city.name}</title>
 
     <!-- REVOLUTION SLIDER CSS -->
     <link href="/rs-plugin/css/settings.css" rel="stylesheet">
     <link href="/css/extralayers.css" rel="stylesheet">
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=7eTHy7BrPv7CV5NpRBgR2V4oHCFteFmt"></script>
 </head>
 
 <body>
@@ -84,15 +84,22 @@
 </div>
 <script type="text/javascript">
     var geocoder = null;
-    if (document.getElementById('mapByCity')) {
-        var map = new google.maps.Map(document.getElementById('mapByCity'), {
-            zoom: 8,
-            center: {lat: 34.5427, lng: 106.2317},
-        });
-        geocoder = new google.maps.Geocoder();
-        var infowindow = new google.maps.InfoWindow();
-        geocodeAddress(geocoder, map, infowindow);
-    }
+//    if (document.getElementById('mapByCity')) {
+//        var map = new google.maps.Map(document.getElementById('mapByCity'), {
+//            zoom: 8,
+//            center: {lat: 34.5427, lng: 106.2317},
+//        });
+//        geocoder = new google.maps.Geocoder();
+//        var infowindow = new google.maps.InfoWindow();
+//        geocodeAddress(geocoder, map, infowindow);
+    // 百度地图API功能
+    var map = new BMap.Map("mapByCity");
+    //云南24.9819259739,102.7699183100
+    map.centerAndZoom(new BMap.Point(102.7699183100, 24.9819259739), 10);  // 初始化地图,设置中心点坐标和地图级别
+    map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
+    map.setCurrentCity("云南");          // 设置地图显示的城市 此项是必须设置的
+    map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+//    }
     var cityId = document.getElementById('hiddenCityId').value;
     $.ajax({
         async: false,
