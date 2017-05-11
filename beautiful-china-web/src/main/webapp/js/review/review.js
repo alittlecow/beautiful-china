@@ -89,35 +89,29 @@ function getReviewByPage(id, pageNumber, path) {
             $("#reviewcontent").empty();
             if (reviewlist == "") {
                 $("#page").empty();
-                $("#reviewcontent").append("<div class='row' align='middle'> <h5>"+nullreviewcount+"</h5></div>");
+                $("#reviewcontent").append("<div class='row' align='middle'> <h5>" + nullreviewcount + "</h5></div>");
             } else {
                 for (var i = 0; i < reviewlist.length; i++) {
-                    if(reviewlist[i].allContent==""){
-                        reviewlist[i].allContent=nullreviewcount;
+                    if (reviewlist[i].allContent == "") {
+                        reviewlist[i].allContent = nullreviewcount;
                     }
-                    if(reviewlist[i].routingContent==""){
-                        reviewlist[i].routingContent=nullreviewcount;
+                    if (reviewlist[i].routingContent == "") {
+                        reviewlist[i].routingContent = nullreviewcount;
                     }
-                    if(reviewlist[i].hotelContent==""){
-                        reviewlist[i].hotelContent=nullreviewcount;
+                    if (reviewlist[i].hotelContent == "") {
+                        reviewlist[i].hotelContent = nullreviewcount;
                     }
-                    if(reviewlist[i].trafficContent==""){
-                        reviewlist[i].trafficContent=nullreviewcount;
+                    if (reviewlist[i].trafficContent == "") {
+                        reviewlist[i].trafficContent = nullreviewcount;
                     }
-                    $("#reviewcontent").append("<div class='row'>"+
-                        "<div class='col-md-2 col-sm-2'>"+reviewlist[i].nickname+"</div><div class='col-md-10 col-sm-10'>"+
-                        "<div  class='col-md-12 col-sm-12' style='background-color: #F3F3F3'><div class='col-md-3 col-sm-3'>All: &nbsp;&nbsp;"+ reviewlist[i].allLevel+"</div>"+
-                    " <div class='col-md-3 col-sm-3' >Routing:&nbsp;&nbsp;"+reviewlist[i].routingLevel+"</div>"+
-                    " <div class='col-md-3 col-sm-3'>Hotel:&nbsp;&nbsp;"+reviewlist[i].hotelLevel+"</div>"+
-                    "  <div class='col-md-3 col-sm-3'>Traffic:&nbsp;&nbsp;"+reviewlist[i].trafficLevel+"</div></div>"+
-                    "  <div class='col-md-12 col-sm-12' style='word-wrap: break-word'>"+reviewlist[i].allContent+"</div>"+
-                    "  <div class='col-md-2 col-sm-2' style='color:#CCCCCC'>routing: </div>"+
-                    "<div class='col-md-10 col-sm-10' style='word-wrap: break-word'>"+reviewlist[i].routingContent+"</div>"+
-                    "  <div class='col-md-2 col-sm-2' style='color:#CCCCCC'>hotel: </div>"+
-                    "<div class='col-md-10 col-sm-10' style='word-wrap: break-word'>"+reviewlist[i].hotelContent+"</div>"+
-                    "   <div class='col-md-2 col-sm-2' style='color:#CCCCCC'>traffic: </div>"+
-                    "  <div class='col-md-10 col-sm-10' style='word-wrap: break-word'>"+reviewlist[i].trafficContent+"</div>"+
-                    " <div class='col-md-12 col-sm-12'>"+reviewlist[i].time+"</div></div></div><hr></div>"
+                    $("#reviewcontent").append("<div class='row'>" +
+                        "<div class='col-md-2 col-sm-2'>" + reviewlist[i].nickname + "</div><div class='col-md-10 col-sm-10'>" +
+                        "<div  class='col-md-12 col-sm-12' style='background-color: #F3F3F3'><div class='col-md-3 col-sm-3'>总评: &nbsp;&nbsp;" + reviewlist[i].allLevel + "</div>" +
+                        " <div class='col-md-3 col-sm-3' >线路:&nbsp;&nbsp;" + reviewlist[i].routingLevel + "</div>" +
+                        " <div class='col-md-3 col-sm-3'>酒店:&nbsp;&nbsp;" + reviewlist[i].hotelLevel + "</div>" +
+                        "  <div class='col-md-3 col-sm-3'>交通:&nbsp;&nbsp;" + reviewlist[i].trafficLevel + "</div></div>" +
+                        "  <div class='col-md-12 col-sm-12' style='word-wrap: break-word'>" + reviewlist[i].allContent + "</div>" +
+                        " </div></div><hr></div>"
                     );
 
                 }
