@@ -1,6 +1,7 @@
 /**
  * Copyright @ 2015 nanjing wanghua Information Technology Co.,Ltd.
  * All right reserved.
+ *
  * @author: zhangyun
  * date: 2016-01-11
  */
@@ -16,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,17 +33,19 @@ public class InformationService {
 
     /**
      * 修改密码
+     *
      * @param ordinaryUserVO
      */
-    public void passwordChang(OrdinaryUserVO ordinaryUserVO){
+    public void passwordChang(OrdinaryUserVO ordinaryUserVO) {
         ordinaryUserVO = this.setPassword(ordinaryUserVO);
         informatinMapper.passwordChang(ordinaryUserVO);
     }
-    private OrdinaryUserVO setPassword(OrdinaryUserVO ordinaryUserVO){
+
+    private OrdinaryUserVO setPassword(OrdinaryUserVO ordinaryUserVO) {
         String pwd = MD5Util.getDecryptLoginPassword(ordinaryUserVO.getPassword());
         String psw = SecurityUtil.getNewPsw();
         // 密码采用加盐处理
-        String encryptPassword = SecurityUtil.getStoreLogpwd(ordinaryUserVO.getEmail(),pwd , psw);
+        String encryptPassword = SecurityUtil.getStoreLogpwd(ordinaryUserVO.getEmail(), pwd, psw);
         ordinaryUserVO.setPassword(encryptPassword);
         ordinaryUserVO.setPsw(psw);
         return ordinaryUserVO;
@@ -49,79 +53,89 @@ public class InformationService {
 
     /**
      * 验证原密码是否正确
+     *
      * @param ordinaryUserVO
      * @return
      */
-    public Boolean passwordVerify(OrdinaryUserVO ordinaryUserVO){
+    public Boolean passwordVerify(OrdinaryUserVO ordinaryUserVO) {
         //String email=ordinaryUserVO.getEmail();
         Long userId = ordinaryUserVO.getUserId();
-        OrdinaryUserBO ordinaryUserBO=informatinMapper.passwordVerify(userId);
-        String oldPwd=ordinaryUserBO.getPassword();//库里的密码
-        String psw=ordinaryUserBO.getPsw();//库里的盐值
+        OrdinaryUserBO ordinaryUserBO = informatinMapper.passwordVerify(userId);
+        String oldPwd = ordinaryUserBO.getPassword();//库里的密码
+        String psw = ordinaryUserBO.getPsw();//库里的盐值
         String password = MD5Util.getDecryptLoginPassword(ordinaryUserVO.getPassword());//前端输入得密码，先解密
-        String newPwd=SecurityUtil.getStoreLogpwd(ordinaryUserBO.getEmail(),password, psw);//加盐后的密码
+        String newPwd = SecurityUtil.getStoreLogpwd(ordinaryUserBO.getEmail(), password, psw);//加盐后的密码
 
         return oldPwd.equals(newPwd);
     }
 
     /**
      * 查询当前用户的订单
+     *
      * @param userId
      * @return
      */
-    public List<OrdersBO> getALLOrder(long userId,int number,String language){
-        Map<String,Object> map=new HashMap<String, Object>();
-        map.put("userId",userId);
-        map.put("number",number);
-        map.put("language",language);
+    public List<OrdersBO> getALLOrder(long userId, int number, String language) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("userId", userId);
+        map.put("number", number);
+        map.put("language", language);
         //修改图片路径
-        List<OrdersBO> list=informatinMapper.getALLOrder(map);
+        List<OrdersBO> list = informatinMapper.getALLOrder(map);
+        for (OrdersBO bo : list) {
+            bo.setPlacedtime(bo.getPlacedtime().split("\\.")[0]);
+        }
         return list;
     }
 
     /**
      * 查询订单数量
+     *
      * @param userId
      * @return
      */
-    public int getCount(long userId){
-        Map<String,Object> map=new HashMap<String, Object>();
-        map.put("userId",userId);
+    public int getCount(long userId) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("userId", userId);
         int count = informatinMapper.getCount(map);
         return count;
     }
 
     /**
      * 验证是否已评价
+     *
      * @param userId
      * @param targetId
      * @return
      */
-    public String ratingVerify(long userId,long targetId){
-        Map<String,Object> map=new HashMap<String,Object>();
-        map.put("userId",userId);
-        map.put("targetId",targetId);
+    public String ratingVerify(long userId, long targetId) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("userId", userId);
+        map.put("targetId", targetId);
         return informatinMapper.ratingVerify(map);
     }
 
     /**
      * 删除订单
+     *
      * @param orderNo
      */
     @Transactional
-    public void deleteOrder(String orderNo){
-        Map<String,Object> map=new HashMap<String,Object>();
-        map.put("orderNo",orderNo);
+    public void deleteOrder(String orderNo) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("orderNo", orderNo);
         informatinMapper.deleteOrder(map);
     }
+
     /**
      * 取消订单
+     *
      * @param orderNo
      */
     @Transactional
-    public void cancelOrder(String orderNo){
-        Map<String,Object> map=new HashMap<String,Object>();
-        map.put("orderNo",orderNo);
+    public void cancelOrder(String orderNo) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("orderNo", orderNo);
         informatinMapper.cancelOrder(map);
     }
 }
