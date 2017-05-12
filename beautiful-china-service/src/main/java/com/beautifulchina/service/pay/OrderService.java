@@ -15,6 +15,9 @@ import com.beautifulchina.pay.vo.OrderVO;
 import com.beautifulchina.pay.vo.PassengerVO;
 import com.beautifulchina.util.DateUtil;
 import com.beautifulchina.util.GreenWichTimeUtil;
+import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.time.DateFormatUtils;
+import org.apache.commons.lang.time.DateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
@@ -51,7 +54,7 @@ public class OrderService {
     public String createOrder(OrderVO orderVO,List<PassengerVO> passengerVOList,
                               List<OrderDetailVO> orderDetailVOList){
         //下单时间
-        String palceTime = GreenWichTimeUtil.getGreenWichTime();
+        String palceTime = DateFormatUtils.format(new Date(), "yyyy-MM-dd HH:mm:ss");
         orderVO.setPlacedtime(palceTime);
         //订单号
         String orderNo=getSerialNum(orderVO.getUserId());
